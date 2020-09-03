@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   plugins: [
     'gatsby-plugin-chakra-ui',
@@ -33,6 +35,23 @@ module.exports = {
           Post: {
             limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'twitch',
+        name: 'Videos',
+        method: 'GET',
+        url: 'https://api.twitch.tv/kraken/channels/497275841/videos',
+        entityLevel: 'videos',
+        headers: {
+          Accept: 'application/vnd.twitchtv.v5+json',
+          'Client-ID': process.env.TWITCH_CLIENT_ID
+        },
+        params: {
+          limit: 100
         }
       }
     }
