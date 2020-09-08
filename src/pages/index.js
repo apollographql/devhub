@@ -1,55 +1,117 @@
+import Layout from '../components/Layout';
+import PropTypes from 'prop-types';
 import React from 'react';
-import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Heading,
-  IconButton,
-  Link,
-  Text
-} from '@chakra-ui/core';
-import {Helmet} from 'react-helmet';
-import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
-import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
+import striptags from 'striptags';
+import {Box, Grid, Heading, List, ListItem, Text} from '@chakra-ui/core';
+import {format} from 'date-fns';
+import {graphql} from 'gatsby';
 
-export default function Index() {
+export default function HomePage({data}) {
+  const [featuredPost, ...posts] = data.allWpPost.nodes
+    .concat(data.allTwitchVideo.nodes)
+    .concat(data.allWpFeedItem.nodes)
+    .sort((a, b) => b.date - a.date)
+    .slice(0, 5);
   return (
-    <>
-      <Helmet title="DevHub" />
-      <Flex as="header" align="center" px="6" h="16">
-        <Box as={ApolloIcon} h="8" mr="auto" color="indigo.800" />
-        <IconButton
-          mr="5"
-          variant="ghost"
-          borderRadius="full"
-          color="gray.300"
-          icon={<Box as={IconSearch} h="1em" />}
-        />
-        <HStack fontWeight="semibold" spacing="8">
-          <Link color="indigo.800">DevHub</Link>
-          <Link display="flex" alignItems="center">
-            Docs <Box as={IconArrowDown} h="2" ml="2" />
-          </Link>
-          <Link>Blog</Link>
-          <Link>Training</Link>
-          <Link>Events</Link>
-          <Button colorScheme="indigo">Studio</Button>
-        </HStack>
-      </Flex>
-      <Box pt="8" px="16">
-        <Box maxW="container.sm">
-          <Heading mb="1" as="h1" fontSize="6xl" fontWeight="semibold">
-            Welcome to DevHub
-          </Heading>
-          <Text fontSize="lg">
-            Apollo is a platform for building a data graph, a communication
-            layer that seamlessly connects your application clients to your
-            back-end services.
-          </Text>
-        </Box>
+    <Layout>
+      <Box maxW="container.sm" mb="24">
+        <Heading mb="1" as="h1" fontSize="6xl">
+          Welcome to DevHub
+        </Heading>
+        <Text fontSize="lg">
+          Apollo is a platform for building a data graph, a communication layer
+          that seamlessly connects your application clients to your back-end
+          services.
+        </Text>
       </Box>
-    </>
+      <Grid templateColumns="2fr 1fr" gap="16">
+        <div>
+          <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
+            Featured{' '}
+            <Box as="span" color="indigo.300">
+              {featuredPost.internal.niceType}
+            </Box>
+          </Heading>
+          <Heading as="h3" fontSize="3xl">
+            {featuredPost.title}
+          </Heading>
+          {featuredPost.description && (
+            <Text>{striptags(featuredPost.description)}</Text>
+          )}
+          <Text fontSize="sm">{format(Number(featuredPost.date), 'PP')}</Text>
+        </div>
+        <List spacing="6">
+          {posts.map(post => (
+            <ListItem key={post.id}>
+              <Heading
+                textStyle="subheading"
+                fontSize="xs"
+                as="h6"
+                color="indigo.300"
+              >
+                {post.internal.niceType}
+              </Heading>
+              <Heading as="h3" fontSize="2xl">
+                {post.title}
+              </Heading>
+              {post.description && <Text>{striptags(post.description)}</Text>}
+              <Text mt="2" fontSize="sm">
+                {format(Number(post.date), 'PP')}
+              </Text>
+            </ListItem>
+          ))}
+        </List>
+      </Grid>
+    </Layout>
   );
 }
+
+HomePage.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
+export const pageQuery = graphql`
+  query HomePageQuery {
+    allWpPost(limit: 5) {
+      nodes {
+        id
+        title
+        description: excerpt
+        date(formatString: "x")
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        internal {
+          niceType
+        }
+      }
+    }
+    allTwitchVideo(limit: 5) {
+      nodes {
+        id
+        title
+        description
+        date: published_at(formatString: "x")
+        preview {
+          medium
+        }
+        internal {
+          niceType
+        }
+      }
+    }
+    allWpFeedItem(limit: 5) {
+      nodes {
+        id
+        title
+        description: content
+        date(formatString: "x")
+        internal {
+          niceType
+        }
+      }
+    }
+  }
+`;

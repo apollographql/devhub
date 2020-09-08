@@ -8,6 +8,7 @@
   "dependencies": {
     "@apollo/space-kit": "^7.10.1",
     "@chakra-ui/core": "^1.0.0-rc.3",
+    "date-fns": "^2.16.1",
     "gatsby": "^2.24.52",
     "gatsby-plugin-chakra-ui": "^1.0.0-rc.3",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
@@ -16,9 +17,11 @@
     "gatsby-source-apiserver": "^2.1.7",
     "gatsby-source-wordpress-experimental": "^1.3.8",
     "gatsby-transformer-sharp": "^2.5.14",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "striptags": "^3.1.1"
   },
   "devDependencies": {
     "@trevorblades/eslint-config": "^7.2.1",

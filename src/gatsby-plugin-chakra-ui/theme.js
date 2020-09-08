@@ -10,6 +10,17 @@ export default extendTheme({
           h: '36px'
         }
       }
+    },
+    Heading: {
+      baseStyle: {
+        fontWeight: 'semibold'
+      }
+    }
+  },
+  textStyles: {
+    subheading: {
+      fontFamily: 'mono',
+      textTransform: 'uppercase'
     }
   },
   fonts: {

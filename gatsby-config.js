@@ -14,7 +14,7 @@ module.exports = {
           },
           {
             family: 'Source Code Pro',
-            variants: ['400', '700']
+            variants: ['400', '600']
           }
         ]
       }
@@ -42,7 +42,7 @@ module.exports = {
       resolve: 'gatsby-source-apiserver',
       options: {
         typePrefix: 'twitch',
-        name: 'Videos',
+        name: 'Video',
         method: 'GET',
         url: 'https://api.twitch.tv/kraken/channels/497275841/videos',
         entityLevel: 'videos',
