@@ -6,7 +6,15 @@ import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
 
 export default function Header() {
   return (
-    <Flex as="header" align="center" px="6" h="16">
+    <Flex
+      as="header"
+      align="center"
+      px="6"
+      h="16"
+      position="sticky"
+      top="0"
+      bg="white"
+    >
       <Box as={ApolloIcon} h="8" mr="auto" color="indigo.800" />
       <IconButton
         mr="5"

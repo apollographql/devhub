@@ -7,7 +7,8 @@ export default extendTheme({
     Button: {
       sizes: {
         md: {
-          h: '36px'
+          h: '36px',
+          minW: '36px'
         }
       }
     },
