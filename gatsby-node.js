@@ -6,11 +6,11 @@ exports.createResolvers = ({createResolvers}) => {
         resolve(source) {
           switch (source.type) {
             case 'WpPost':
-              return 'blog post';
+              return 'Blog post';
             case 'twitchVideo':
-              return 'stream';
+              return 'Stream';
             case 'WpFeedItem':
-              return 'announcement';
+              return 'Announcement';
             default:
               return source.type;
           }

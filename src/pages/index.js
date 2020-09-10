@@ -15,17 +15,10 @@ import {
 } from '@chakra-ui/core';
 import {Link as GatsbyLink, graphql} from 'gatsby';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
-
-function renderByline(post) {
-  return (post.author ? `${post.author.node.name} · ` : '') + post.date;
-}
+import {combinePosts, renderByline} from '../utils';
 
 export default function HomePage({data}) {
-  const [featuredPost, ...posts] = data.allWpPost.nodes
-    .concat(data.allTwitchVideo.nodes)
-    .concat(data.allWpFeedItem.nodes)
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 6);
+  const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
   return (
     <Layout>
       <Box maxW="container.sm" mb="24">
