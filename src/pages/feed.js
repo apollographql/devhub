@@ -1,28 +1,19 @@
+import ArrowLink from '../components/ArrowLink';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
-import {Box, Button, Heading, List, ListItem, Text} from '@chakra-ui/core';
-import {Link as GatsbyLink, graphql} from 'gatsby';
-import {IconBack} from '@apollo/space-kit/icons/IconBack';
+import {Box, Flex, Heading, List, ListItem, Text} from '@chakra-ui/core';
 import {combinePosts, renderByline} from '../utils';
+import {graphql} from 'gatsby';
 
 export default function Feed({data}) {
   const posts = combinePosts(data);
   return (
     <Layout>
-      <Button
-        ml="-22px"
-        mb="4"
-        fontSize="xl"
-        colorScheme="indigo"
-        variant="link"
-        as={GatsbyLink}
-        to="/"
-        leftIcon={<Box as={IconBack} h="1em" fontSize="sm" />}
-      >
+      <ArrowLink ml="-22px" mb="4" to="/">
         DevHub
-      </Button>
+      </ArrowLink>
       <Box maxW="container.sm" mb="24">
         <Heading mb="4" fontSize="3xl">
           News Feed
@@ -38,15 +29,31 @@ export default function Feed({data}) {
       <List pl="16" spacing="4">
         {posts.map((post, index) => (
           <ListItem key={post.id}>
-            <Heading as="h3" fontSize="2xl">
-              {post.title}
-            </Heading>
-            {!index && post.description && (
-              <Text color="gray.600">{striptags(post.description)}</Text>
-            )}
-            <Text color="gray.600" mt="2" fontSize="sm">
-              {post.internal.niceType} · {renderByline(post)}
-            </Text>
+            <Flex align="flex-start">
+              <Heading
+                mr="8"
+                w="12ch"
+                as="h6"
+                textStyle="subheading"
+                fontSize="xs"
+                lineHeight="30px"
+              >
+                {post.date}
+              </Heading>
+              <div>
+                <Heading mb="2" as="h3" fontSize="2xl">
+                  {post.title}
+                </Heading>
+                {!index && post.description && (
+                  <Text mb="4" fontSize="lg" color="gray.600">
+                    {striptags(post.description)}
+                  </Text>
+                )}
+                <Text color="gray.600" fontSize="sm">
+                  {renderByline(post, 'internal.niceType')}
+                </Text>
+              </div>
+            </Flex>
           </ListItem>
         ))}
       </List>
@@ -65,7 +72,7 @@ export const pageQuery = graphql`
         id
         title
         description: excerpt
-        date(formatString: "LL")
+        date(formatString: "ll")
         author {
           node {
             name
@@ -76,23 +83,24 @@ export const pageQuery = graphql`
         }
       }
     }
-    allTwitchVideo {
-      nodes {
-        id
-        title
-        description
-        date: published_at(formatString: "LL")
-        internal {
-          niceType
-        }
-      }
-    }
     allWpFeedItem {
       nodes {
         id
         title
         description: content
-        date(formatString: "LL")
+        date(formatString: "ll")
+        internal {
+          niceType
+        }
+      }
+    }
+    allTwitchVideo(filter: {published_at: {gt: "0"}}) {
+      nodes {
+        id
+        title
+        description
+        broadcast_type
+        date: published_at(formatString: "ll")
         internal {
           niceType
         }

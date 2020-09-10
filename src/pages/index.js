@@ -1,3 +1,4 @@
+import ArrowLink from '../components/ArrowLink';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -8,14 +9,12 @@ import {
   Flex,
   Grid,
   Heading,
-  Link,
   List,
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {Link as GatsbyLink, graphql} from 'gatsby';
-import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 import {combinePosts, renderByline} from '../utils';
+import {graphql} from 'gatsby';
 
 export default function HomePage({data}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
@@ -47,18 +46,9 @@ export default function HomePage({data}) {
               {renderByline(featuredPost)}
             </Text>
           </div>
-          <Link
-            as={GatsbyLink}
-            to="/feed"
-            color="indigo.800"
-            fontWeight="bold"
-            fontSize="xl"
-          >
-            <Flex align="center">
-              See the full feed
-              <Box ml="2" as={IconProceed} h="4" />
-            </Flex>
-          </Link>
+          <ArrowLink to="/feed" direction="right">
+            See the full feed
+          </ArrowLink>
         </Flex>
         <List spacing="6">
           {posts.map(post => (
@@ -138,26 +128,27 @@ export const pageQuery = graphql`
         }
       }
     }
-    allTwitchVideo(limit: 5) {
-      nodes {
-        id
-        title
-        description
-        date: published_at(formatString: "LL")
-        preview {
-          medium
-        }
-        internal {
-          niceType
-        }
-      }
-    }
     allWpFeedItem(limit: 5) {
       nodes {
         id
         title
         description: content
         date(formatString: "LL")
+        internal {
+          niceType
+        }
+      }
+    }
+    allTwitchVideo(limit: 5) {
+      nodes {
+        id
+        title
+        description
+        broadcast_type
+        date: published_at(formatString: "LL")
+        preview {
+          medium
+        }
         internal {
           niceType
         }

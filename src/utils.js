@@ -1,5 +1,7 @@
-export function renderByline(post) {
-  return (post.author ? `${post.author.node.name} · ` : '') + post.date;
+import get from 'lodash/get';
+
+export function renderByline(post, key = 'date') {
+  return (post.author ? `${post.author.node.name} · ` : '') + get(post, key);
 }
 
 export function combinePosts(data) {
