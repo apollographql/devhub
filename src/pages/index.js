@@ -15,14 +15,17 @@ import {
 } from '@chakra-ui/core';
 import {Link as GatsbyLink, graphql} from 'gatsby';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
-import {format} from 'date-fns';
+
+function renderByline(post) {
+  return (post.author ? `${post.author.node.name} · ` : '') + post.date;
+}
 
 export default function HomePage({data}) {
   const [featuredPost, ...posts] = data.allWpPost.nodes
     .concat(data.allTwitchVideo.nodes)
     .concat(data.allWpFeedItem.nodes)
-    .sort((a, b) => b.date - a.date)
-    .slice(0, 5);
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 6);
   return (
     <Layout>
       <Box maxW="container.sm" mb="24">
@@ -47,10 +50,9 @@ export default function HomePage({data}) {
             <Heading as="h3" fontSize="3xl">
               {featuredPost.title}
             </Heading>
-            {featuredPost.description && (
-              <Text>{striptags(featuredPost.description)}</Text>
-            )}
-            <Text fontSize="sm">{format(Number(featuredPost.date), 'PP')}</Text>
+            <Text color="gray.600" mt="6" fontSize="sm">
+              {renderByline(featuredPost)}
+            </Text>
           </div>
           <Link
             as={GatsbyLink}
@@ -79,9 +81,21 @@ export default function HomePage({data}) {
               <Heading as="h3" fontSize="2xl">
                 {post.title}
               </Heading>
-              {post.description && <Text>{striptags(post.description)}</Text>}
-              <Text mt="2" fontSize="sm">
-                {format(Number(post.date), 'PP')}
+              {post.description && (
+                <Text
+                  color="gray.600"
+                  display="-webkit-box"
+                  overflow="hidden"
+                  css={{
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical'
+                  }}
+                >
+                  {striptags(post.description)}
+                </Text>
+              )}
+              <Text color="gray.600" mt="2" fontSize="sm">
+                {renderByline(post)}
               </Text>
             </ListItem>
           ))}
@@ -115,7 +129,12 @@ export const pageQuery = graphql`
         id
         title
         description: excerpt
-        date(formatString: "x")
+        date(formatString: "LL")
+        author {
+          node {
+            name
+          }
+        }
         featuredImage {
           node {
             sourceUrl
@@ -131,7 +150,7 @@ export const pageQuery = graphql`
         id
         title
         description
-        date: published_at(formatString: "x")
+        date: published_at(formatString: "LL")
         preview {
           medium
         }
@@ -145,7 +164,7 @@ export const pageQuery = graphql`
         id
         title
         description: content
-        date(formatString: "x")
+        date(formatString: "LL")
         internal {
           niceType
         }
