@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
 import {
+  AspectRatio,
   Box,
   Divider,
   Flex,
@@ -18,6 +19,7 @@ import {graphql} from 'gatsby';
 
 export default function HomePage({data}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
+  const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   return (
     <Layout>
       <Box maxW="container.sm" mb="24">
@@ -31,7 +33,7 @@ export default function HomePage({data}) {
         </Text>
       </Box>
       <Grid templateColumns="2fr 1fr" gap="16">
-        <Flex direction="column" align="flex-start" justify="space-between">
+        <Flex direction="column" justify="space-between">
           <div>
             <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
               Featured{' '}
@@ -39,16 +41,29 @@ export default function HomePage({data}) {
                 {featuredPost.internal.niceType}
               </Box>
             </Heading>
-            <Heading as="h3" fontSize="3xl">
+            <Heading mb="4" as="h3" fontSize="3xl">
               {featuredPost.title}
             </Heading>
+            {featuredPost.internal.type === 'twitchVideo' && (
+              <AspectRatio ratio={16 / 9}>
+                <iframe
+                  src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&autoplay=false`}
+                  frameBorder="0"
+                  scrolling="no"
+                  allowFullScreen
+                ></iframe>
+              </AspectRatio>
+            )}
+            {featuredImage && <Box w="full" as="img" src={featuredImage} />}
             <Text color="gray.600" mt="6" fontSize="sm">
               {renderByline(featuredPost)}
             </Text>
           </div>
-          <ArrowLink to="/feed" direction="right">
-            See the full feed
-          </ArrowLink>
+          <Box mt="6">
+            <ArrowLink to="/feed" direction="right">
+              See the full feed
+            </ArrowLink>
+          </Box>
         </Flex>
         <List spacing="6">
           {posts.map(post => (
@@ -123,7 +138,13 @@ export const pageQuery = graphql`
             sourceUrl
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
         internal {
+          type
           niceType
         }
       }
@@ -141,15 +162,13 @@ export const pageQuery = graphql`
     }
     allTwitchVideo(limit: 5) {
       nodes {
-        id
+        id: _id
         title
         description
         broadcast_type
         date: published_at(formatString: "LL")
-        preview {
-          medium
-        }
         internal {
+          type
           niceType
         }
       }

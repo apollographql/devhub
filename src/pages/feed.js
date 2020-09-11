@@ -78,7 +78,13 @@ export const pageQuery = graphql`
             name
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
         internal {
+          type
           niceType
         }
       }

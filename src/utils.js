@@ -1,7 +1,14 @@
 import get from 'lodash/get';
 
 export function renderByline(post, key = 'date') {
-  return (post.author ? `${post.author.node.name} · ` : '') + get(post, key);
+  const byline = [get(post, key)];
+
+  if (post.internal.type === 'WpPost') {
+    byline.unshift(post.author.node.name);
+    byline.push(post.categories.nodes.map(node => node.name).join(', '));
+  }
+
+  return byline.join(' · ');
 }
 
 export function combinePosts(data) {

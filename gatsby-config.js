@@ -29,9 +29,6 @@ module.exports = {
           useGatsbyImage: false
         },
         type: {
-          User: {
-            excludeFieldNames: null
-          },
           Post: {
             limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }

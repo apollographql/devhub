@@ -14,6 +14,7 @@ export default function Header() {
       position="sticky"
       top="0"
       bg="white"
+      zIndex="1"
     >
       <Box as={ApolloIcon} h="8" mr="auto" color="indigo.800" />
       <IconButton

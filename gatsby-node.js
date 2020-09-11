@@ -10,7 +10,7 @@ exports.createResolvers = ({createResolvers}) => {
             case 'twitchVideo':
               return 'Stream';
             case 'WpFeedItem':
-              return 'Announcement';
+              return 'Feed item';
             default:
               return source.type;
           }
