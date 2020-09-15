@@ -2,7 +2,7 @@ import Footer from './Footer';
 import Header from './Header';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Container} from '@chakra-ui/core';
+import {Box} from '@chakra-ui/core';
 import {Helmet} from 'react-helmet';
 
 export default function Layout({children}) {
@@ -10,9 +10,9 @@ export default function Layout({children}) {
     <>
       <Helmet defaultTitle="DevHub" titleTemplate="%s - DevHub" />
       <Header />
-      <Container maxW="xl" pt="8" pb="20" px="16">
+      <Box pt="8" pb="20" as="main">
         {children}
-      </Container>
+      </Box>
       <Footer />
     </>
   );
