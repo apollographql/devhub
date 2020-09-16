@@ -1,5 +1,5 @@
 import ArrowLink from '../components/ArrowLink';
-import Layout, {MainContainer} from '../components/Layout';
+import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
@@ -12,7 +12,7 @@ import {
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {combinePosts, renderByline} from '../utils';
+import {combinePosts, getNiceType, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function Feed({data}) {
@@ -62,7 +62,7 @@ export default function Feed({data}) {
                     </Text>
                   )}
                   <Text color="gray.600" fontSize="sm">
-                    {renderByline(post, 'internal.niceType')}
+                    {renderByline(post, getNiceType)}
                   </Text>
                 </div>
               </Flex>
@@ -98,18 +98,22 @@ export const pageQuery = graphql`
         }
         internal {
           type
-          niceType
         }
       }
     }
-    allWpFeedItem {
+    allWpFeedItem(filter: {feedItemSettings: {showInFeed: {eq: true}}}) {
       nodes {
         id
         title
-        description: content
+        description: excerpt
         date(formatString: "ll")
         internal {
-          niceType
+          type
+        }
+        feedItemTypes {
+          nodes {
+            name
+          }
         }
       }
     }
@@ -121,7 +125,7 @@ export const pageQuery = graphql`
         broadcast_type
         date: published_at(formatString: "ll")
         internal {
-          niceType
+          type
         }
       }
     }

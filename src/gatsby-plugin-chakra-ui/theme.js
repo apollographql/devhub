@@ -22,6 +22,11 @@ export default extendTheme({
     subheading: {
       fontFamily: 'mono',
       textTransform: 'uppercase'
+    },
+    clamped: {
+      display: '-webkit-box',
+      overflow: 'hidden',
+      WebkitBoxOrient: 'vertical'
     }
   },
   fonts: {

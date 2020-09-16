@@ -1,7 +1,5 @@
-import get from 'lodash/get';
-
-export function renderByline(post, key = 'date') {
-  const byline = [get(post, key)];
+export function renderByline(post, getDefault = post => post.date) {
+  const byline = [getDefault(post)];
 
   if (post.internal.type === 'WpPost') {
     byline.unshift(post.author.node.name);
@@ -16,4 +14,19 @@ export function combinePosts(data) {
     .concat(data.allWpFeedItem.nodes)
     .concat(data.allTwitchVideo.nodes)
     .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+export function getNiceType(node) {
+  switch (node.internal.type) {
+    case 'WpPost':
+      return 'Blog post';
+    case 'twitchVideo':
+      return node.broadcast_type === 'highlight' ? 'Highlight' : 'Stream';
+    case 'WpFeedItem': {
+      const [feedItemType] = node.feedItemTypes?.nodes;
+      return feedItemType ? feedItemType.name : 'Feed item';
+    }
+    default:
+      return node.internal.type;
+  }
 }

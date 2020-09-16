@@ -18,7 +18,7 @@ import {
   Text
 } from '@chakra-ui/core';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
-import {combinePosts, renderByline} from '../utils';
+import {combinePosts, getNiceType, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function HomePage({data}) {
@@ -43,7 +43,7 @@ export default function HomePage({data}) {
               <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
                 Featured{' '}
                 <Box as="span" color="indigo.300">
-                  {featuredPost.internal.niceType}
+                  {getNiceType(featuredPost)}
                 </Box>
               </Heading>
               <Heading mb="4" as="h3" fontSize="3xl">
@@ -79,7 +79,7 @@ export default function HomePage({data}) {
                   as="h6"
                   color="indigo.300"
                 >
-                  {post.internal.niceType}
+                  {getNiceType(post)}
                 </Heading>
                 <Heading as="h3" fontSize="2xl">
                   {post.title}
@@ -87,12 +87,8 @@ export default function HomePage({data}) {
                 {post.description && (
                   <Text
                     color="gray.600"
-                    display="-webkit-box"
-                    overflow="hidden"
-                    css={{
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical'
-                    }}
+                    textStyle="clamped"
+                    css={{WebkitLineClamp: 2}}
                   >
                     {striptags(post.description)}
                   </Text>
@@ -121,19 +117,28 @@ export default function HomePage({data}) {
       <Box position="relative">
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack spacing="8" whiteSpace="normal">
-            <Box w="320px">
-              <Heading mb="1" as="h3" fontSize="2xl">
-                Apollo Studio
-              </Heading>
-              <Text mb="4" fontSize="sm">
-                This copy should be descriptive of why this collection exists.
-                Including what is in the collection – types of content that
-                dominate…
-              </Text>
-              <ArrowLink direction="right" fontSize="md" fontWeight="semibold">
-                +3 more
-              </ArrowLink>
-            </Box>
+            {data.allWpCollection.nodes.map(collection => (
+              <Box w="320px" key={collection.id}>
+                <Heading mb="1" as="h3" fontSize="2xl">
+                  {collection.title}
+                </Heading>
+                <Text
+                  mb="4"
+                  fontSize="sm"
+                  textStyle="clamped"
+                  css={{WebkitLineClamp: 3}}
+                >
+                  {striptags(collection.content)}
+                </Text>
+                <ArrowLink
+                  direction="right"
+                  fontSize="md"
+                  fontWeight="semibold"
+                >
+                  +{collection.collectionSettings.items.length} more
+                </ArrowLink>
+              </Box>
+            ))}
           </HStack>
         </Container>
         <Box
@@ -187,18 +192,25 @@ export const pageQuery = graphql`
         }
         internal {
           type
-          niceType
         }
       }
     }
-    allWpFeedItem(limit: 5) {
+    allWpFeedItem(
+      limit: 5
+      filter: {feedItemSettings: {showInFeed: {eq: true}}}
+    ) {
       nodes {
         id
         title
-        description: content
+        description: excerpt
         date(formatString: "LL")
         internal {
-          niceType
+          type
+        }
+        feedItemTypes {
+          nodes {
+            name
+          }
         }
       }
     }
@@ -211,7 +223,23 @@ export const pageQuery = graphql`
         date: published_at(formatString: "LL")
         internal {
           type
-          niceType
+        }
+      }
+    }
+    allWpCollection {
+      nodes {
+        id
+        title
+        content
+        collectionSettings {
+          items {
+            ... on WpFeedItem {
+              id
+            }
+            ... on WpPost {
+              id
+            }
+          }
         }
       }
     }
