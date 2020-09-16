@@ -1,4 +1,5 @@
 import ArrowLink from '../components/ArrowLink';
+import CollectionsRow from '../components/CollectionsRow';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -10,14 +11,11 @@ import {
   Divider,
   Flex,
   Grid,
-  HStack,
   Heading,
-  IconButton,
   List,
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 import {combinePosts, getNiceType, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
@@ -101,7 +99,7 @@ export default function HomePage({data}) {
           </List>
         </Grid>
         <Divider mt="16" mb="20" />
-        <Box maxW="container.md" mb="6">
+        <Box maxW="container.md" mb="10">
           <Heading mb="4" fontSize="3xl">
             Apollo Collections
           </Heading>
@@ -114,51 +112,12 @@ export default function HomePage({data}) {
           </Text>
         </Box>
       </Container>
-      <Box position="relative">
-        <Container maxW="xl" px="16" whiteSpace="nowrap">
-          <HStack spacing="8" whiteSpace="normal">
-            {data.allWpCollection.nodes.map(collection => (
-              <Box w="320px" key={collection.id}>
-                <Heading mb="1" as="h3" fontSize="2xl">
-                  {collection.title}
-                </Heading>
-                <Text
-                  mb="4"
-                  fontSize="sm"
-                  textStyle="clamped"
-                  css={{WebkitLineClamp: 3}}
-                >
-                  {striptags(collection.content)}
-                </Text>
-                <ArrowLink
-                  direction="right"
-                  fontSize="md"
-                  fontWeight="semibold"
-                >
-                  +{collection.collectionSettings.items.length} more
-                </ArrowLink>
-              </Box>
-            ))}
-          </HStack>
-        </Container>
-        <Box
-          color="indigo.500"
-          position="absolute"
-          top="50%"
-          right="8"
-          transform="translateY(-50%)"
-          borderRadius="full"
-          boxShadow="lg"
-          fontSize="md"
-          bg="white"
-        >
-          <IconButton
-            borderRadius="inherit"
-            icon={<Box as={IconProceed} h="1em" />}
-            variant="ghost"
-          />
-        </Box>
-      </Box>
+      <CollectionsRow collections={data.allWpCollection.nodes} />
+      <Container maxW="xl" px="16" mt="10">
+        <ArrowLink direction="right" to="/collections">
+          See all of our collections
+        </ArrowLink>
+      </Container>
     </Layout>
   );
 }
