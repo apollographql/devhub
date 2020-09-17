@@ -76,7 +76,12 @@ export default function CollectionsRow({collections}) {
               >
                 {striptags(collection.content)}
               </Text>
-              <ArrowLink direction="right" fontSize="md" fontWeight="semibold">
+              <ArrowLink
+                to={`/collections/${collection.id}`}
+                direction="right"
+                fontSize="md"
+                fontWeight="semibold"
+              >
                 +{collection.collectionSettings.items.length} more
               </ArrowLink>
             </Box>

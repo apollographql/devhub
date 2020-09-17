@@ -30,7 +30,7 @@ module.exports = {
         },
         type: {
           Post: {
-            limit: process.env.NODE_ENV === 'production' ? undefined : 20
+            // limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }
         }
       }

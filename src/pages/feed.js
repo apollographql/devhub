@@ -1,18 +1,10 @@
 import ArrowLink from '../components/ArrowLink';
+import FeedItem from '../components/FeedItem';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
-import striptags from 'striptags';
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  List,
-  ListItem,
-  Text
-} from '@chakra-ui/core';
-import {combinePosts, getNiceType, renderByline} from '../utils';
+import {Box, Container, Heading, List, ListItem, Text} from '@chakra-ui/core';
+import {combinePosts} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function Feed({data}) {
@@ -39,33 +31,9 @@ export default function Feed({data}) {
       </Container>
       <Container maxW="lg" px="16">
         <List spacing="4">
-          {posts.map((post, index) => (
+          {posts.map(post => (
             <ListItem key={post.id}>
-              <Flex align="flex-start">
-                <Heading
-                  mr="8"
-                  w="12ch"
-                  as="h6"
-                  textStyle="subheading"
-                  fontSize="xs"
-                  lineHeight="30px"
-                >
-                  {post.date}
-                </Heading>
-                <div>
-                  <Heading mb="2" as="h3" fontSize="2xl">
-                    {post.title}
-                  </Heading>
-                  {!index && post.description && (
-                    <Text mb="4" fontSize="lg" color="gray.600">
-                      {striptags(post.description)}
-                    </Text>
-                  )}
-                  <Text color="gray.600" fontSize="sm">
-                    {renderByline(post, getNiceType)}
-                  </Text>
-                </div>
-              </Flex>
+              <FeedItem post={post} />
             </ListItem>
           ))}
         </List>
@@ -82,39 +50,12 @@ export const pageQuery = graphql`
   query FeedQuery {
     allWpPost {
       nodes {
-        id
-        title
-        description: excerpt
-        date(formatString: "ll")
-        author {
-          node {
-            name
-          }
-        }
-        categories {
-          nodes {
-            name
-          }
-        }
-        internal {
-          type
-        }
+        ...PostFragment
       }
     }
     allWpFeedItem(filter: {feedItemSettings: {showInFeed: {eq: true}}}) {
       nodes {
-        id
-        title
-        description: excerpt
-        date(formatString: "ll")
-        internal {
-          type
-        }
-        feedItemTypes {
-          nodes {
-            name
-          }
-        }
+        ...FeedItemFragment
       }
     }
     allTwitchVideo(filter: {published_at: {gt: "0"}}) {

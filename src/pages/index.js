@@ -1,5 +1,6 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
+import FeedItem from '../components/FeedItem';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -113,6 +114,11 @@ export default function HomePage({data}) {
         </Box>
       </Container>
       <CollectionsRow collections={data.allWpCollection.nodes} />
+      <Container maxW="lg" px="16">
+        {data.allWpCollection.nodes[0].collectionSettings.items.map(item => (
+          <FeedItem post={item} key={item.id} />
+        ))}
+      </Container>
       <Container maxW="xl" px="16" mt="10">
         <ArrowLink direction="right" to="/collections">
           See all of our collections
@@ -130,27 +136,11 @@ export const pageQuery = graphql`
   query HomePageQuery {
     allWpPost(limit: 5) {
       nodes {
-        id
-        title
-        description: excerpt
-        date(formatString: "LL")
-        author {
-          node {
-            name
-          }
-        }
+        ...PostFragment
         featuredImage {
           node {
             sourceUrl
           }
-        }
-        categories {
-          nodes {
-            name
-          }
-        }
-        internal {
-          type
         }
       }
     }
@@ -159,18 +149,7 @@ export const pageQuery = graphql`
       filter: {feedItemSettings: {showInFeed: {eq: true}}}
     ) {
       nodes {
-        id
-        title
-        description: excerpt
-        date(formatString: "LL")
-        internal {
-          type
-        }
-        feedItemTypes {
-          nodes {
-            name
-          }
-        }
+        ...FeedItemFragment
       }
     }
     allTwitchVideo(limit: 5) {
@@ -192,11 +171,11 @@ export const pageQuery = graphql`
         content
         collectionSettings {
           items {
-            ... on WpFeedItem {
-              id
-            }
             ... on WpPost {
-              id
+              ...PostFragment
+            }
+            ... on WpFeedItem {
+              ...FeedItemFragment
             }
           }
         }
