@@ -1,6 +1,6 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
-import FeedItem from '../components/FeedItem';
+import FeedTable from '../components/FeedTable';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -113,12 +113,10 @@ export default function HomePage({data}) {
           </Text>
         </Box>
       </Container>
-      <CollectionsRow collections={data.allWpCollection.nodes} />
-      <Container maxW="lg" px="16">
-        {data.allWpCollection.nodes[0].collectionSettings.items.map(item => (
-          <FeedItem post={item} key={item.id} />
-        ))}
-      </Container>
+      <CollectionsRow mb="16" collections={data.allWpCollection.nodes} />
+      <FeedTable
+        posts={data.allWpCollection.nodes[0].collectionSettings.items}
+      />
       <Container maxW="xl" px="16" mt="10">
         <ArrowLink direction="right" to="/collections">
           See all of our collections
@@ -158,7 +156,7 @@ export const pageQuery = graphql`
         title
         description
         broadcast_type
-        date: published_at(formatString: "LL")
+        date: published_at(formatString: "ll")
         internal {
           type
         }

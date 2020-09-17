@@ -1,9 +1,9 @@
 import ArrowLink from '../components/ArrowLink';
-import FeedItem from '../components/FeedItem';
+import FeedTable from '../components/FeedTable';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Box, Container, Heading, List, ListItem, Text} from '@chakra-ui/core';
+import {Box, Container, Heading, Text} from '@chakra-ui/core';
 import {combinePosts} from '../utils';
 import {graphql} from 'gatsby';
 
@@ -29,15 +29,7 @@ export default function Feed({data}) {
           </Text>
         </Box>
       </Container>
-      <Container maxW="lg" px="16">
-        <List spacing="4">
-          {posts.map(post => (
-            <ListItem key={post.id}>
-              <FeedItem post={post} />
-            </ListItem>
-          ))}
-        </List>
-      </Container>
+      <FeedTable posts={posts} swapDate />
     </Layout>
   );
 }

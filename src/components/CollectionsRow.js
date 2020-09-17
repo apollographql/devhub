@@ -47,11 +47,11 @@ ArrowButton.propTypes = {
   direction: PropTypes.string
 };
 
-export default function CollectionsRow({collections}) {
+export default function CollectionsRow({collections, ...props}) {
   const theme = useTheme();
   const [scrollIndex, setScrollIndex] = useState(0);
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden" {...props}>
       <Container maxW="xl" px="16" whiteSpace="nowrap">
         <HStack
           spacing={COLLECTION_SPACING}

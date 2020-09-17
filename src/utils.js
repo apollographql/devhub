@@ -1,5 +1,5 @@
-export function renderByline(post, getDefault = post => post.date) {
-  const byline = [getDefault(post)];
+export function renderByline(post, defaultLine) {
+  const byline = [defaultLine || post.date];
 
   if (post.internal.type === 'WpPost') {
     byline.unshift(post.author.node.name);
