@@ -8,7 +8,16 @@ import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 const DIRECTION_LEFT = 'left';
 const DIRECTION_RIGHT = 'right';
 
-export default function ArrowLink({direction = DIRECTION_LEFT, ...props}) {
+export function BackButton(props) {
+  return <ArrowLink direction={DIRECTION_LEFT} ml="-22px" mb="4" {...props} />;
+}
+
+BackButton.defaultProps = {
+  to: '/',
+  children: 'DevHub'
+};
+
+export default function ArrowLink({direction, ...props}) {
   const iconProps = {
     [direction + 'Icon']: (
       <Box
@@ -32,5 +41,5 @@ export default function ArrowLink({direction = DIRECTION_LEFT, ...props}) {
 }
 
 ArrowLink.propTypes = {
-  direction: PropTypes.oneOf([DIRECTION_LEFT, DIRECTION_RIGHT])
+  direction: PropTypes.oneOf([DIRECTION_LEFT, DIRECTION_RIGHT]).isRequired
 };

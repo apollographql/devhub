@@ -38,7 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-apiserver',
       options: {
-        typePrefix: 'twitch',
+        typePrefix: 'Twitch',
         name: 'Video',
         method: 'GET',
         url: 'https://api.twitch.tv/kraken/channels/497275841/videos',

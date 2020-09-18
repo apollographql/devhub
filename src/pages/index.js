@@ -1,6 +1,6 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
-import FeedTable from '../components/FeedTable';
+import FeedItemTitle from '../components/FeedItemTitle';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -17,11 +17,12 @@ import {
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {combinePosts, getNiceType, renderByline} from '../utils';
+import {combinePosts, getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function HomePage({data}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
+  const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   return (
     <Layout>
@@ -42,13 +43,18 @@ export default function HomePage({data}) {
               <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
                 Featured{' '}
                 <Box as="span" color="indigo.300">
-                  {getNiceType(featuredPost)}
+                  {featuredPostMeta.type}
                 </Box>
               </Heading>
-              <Heading mb="4" as="h3" fontSize="3xl">
+              <FeedItemTitle
+                url={featuredPostMeta.url}
+                mb="4"
+                as="h3"
+                fontSize="3xl"
+              >
                 {featuredPost.title}
-              </Heading>
-              {featuredPost.internal.type === 'twitchVideo' && (
+              </FeedItemTitle>
+              {featuredPost.internal.type === 'TwitchVideo' && (
                 <AspectRatio ratio={16 / 9}>
                   <iframe
                     src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&autoplay=false`}
@@ -70,38 +76,39 @@ export default function HomePage({data}) {
             </Box>
           </Flex>
           <List spacing="6">
-            {posts.map(post => (
-              <ListItem key={post.id}>
-                <Heading
-                  textStyle="subheading"
-                  fontSize="xs"
-                  as="h6"
-                  color="indigo.300"
-                >
-                  {getNiceType(post)}
-                </Heading>
-                <Heading as="h3" fontSize="2xl">
-                  {post.title}
-                </Heading>
-                {post.description && (
-                  <Text
-                    color="gray.600"
-                    textStyle="clamped"
-                    css={{WebkitLineClamp: 2}}
+            {posts.map(post => {
+              const {type, url} = getNodeMeta(post);
+              return (
+                <ListItem key={post.id}>
+                  <Heading
+                    textStyle="subheading"
+                    fontSize="xs"
+                    as="h6"
+                    color="indigo.300"
                   >
-                    {striptags(post.description)}
+                    {type}
+                  </Heading>
+                  <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
+                  {post.description && (
+                    <Text
+                      color="gray.600"
+                      textStyle="clamped"
+                      css={{WebkitLineClamp: 2}}
+                    >
+                      {striptags(post.description)}
+                    </Text>
+                  )}
+                  <Text color="gray.600" mt="2" fontSize="sm">
+                    {renderByline(post)}
                   </Text>
-                )}
-                <Text color="gray.600" mt="2" fontSize="sm">
-                  {renderByline(post)}
-                </Text>
-              </ListItem>
-            ))}
+                </ListItem>
+              );
+            })}
           </List>
         </Grid>
         <Divider mt="16" mb="20" />
         <Box maxW="container.md" mb="10">
-          <Heading mb="4" fontSize="3xl">
+          <Heading mb="4" fontSize="4xl">
             Apollo Collections
           </Heading>
           <Text fontSize="lg">
@@ -114,9 +121,6 @@ export default function HomePage({data}) {
         </Box>
       </Container>
       <CollectionsRow mb="16" collections={data.allWpCollection.nodes} />
-      <FeedTable
-        posts={data.allWpCollection.nodes[0].collectionSettings.items}
-      />
       <Container maxW="xl" px="16" mt="10">
         <ArrowLink direction="right" to="/collections">
           See all of our collections
@@ -152,31 +156,12 @@ export const pageQuery = graphql`
     }
     allTwitchVideo(limit: 5) {
       nodes {
-        id: _id
-        title
-        description
-        broadcast_type
-        date: published_at(formatString: "ll")
-        internal {
-          type
-        }
+        ...VideoFragment
       }
     }
-    allWpCollection {
+    allWpCollection(limit: 5) {
       nodes {
-        id
-        title
-        content
-        collectionSettings {
-          items {
-            ... on WpPost {
-              ...PostFragment
-            }
-            ... on WpFeedItem {
-              ...FeedItemFragment
-            }
-          }
-        }
+        ...CollectionFragment
       }
     }
   }

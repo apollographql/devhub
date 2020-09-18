@@ -16,17 +16,26 @@ export function combinePosts(data) {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-export function getNiceType(node) {
+export function getNodeMeta(node) {
   switch (node.internal.type) {
     case 'WpPost':
-      return 'Blog post';
-    case 'twitchVideo':
-      return node.broadcast_type === 'highlight' ? 'Highlight' : 'Stream';
+      return {
+        type: 'Blog post',
+        url: `https://www.apollographql.com/blog/${node.slug}`
+      };
+    case 'TwitchVideo':
+      return {
+        type: node.broadcast_type === 'highlight' ? 'Highlight' : 'Stream',
+        url: node.url
+      };
     case 'WpFeedItem': {
-      const [feedItemType] = node.feedItemTypes?.nodes;
-      return feedItemType ? feedItemType.name : 'Feed item';
+      const [feedItemType] = node.feedItemTypes.nodes;
+      return {
+        type: feedItemType ? feedItemType.name : 'Feed item',
+        url: node.feedItemSettings.url
+      };
     }
     default:
-      return node.internal.type;
+      return {type: node.internal.type};
   }
 }

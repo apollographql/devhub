@@ -1,17 +1,18 @@
+import FeedItemTitle from './FeedItemTitle';
 import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
 import {Box, Container, Heading, Text} from '@chakra-ui/core';
-import {getNiceType, renderByline} from '../utils';
+import {getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
-export default function FeedTable({posts, swapDate}) {
+export default function FeedTable({posts, swapDate, ...props}) {
   return (
-    <Container maxW="lg" px="16">
+    <Container maxW="lg" px="0" {...props}>
       <table>
         <tbody>
-          {posts.map((post, index) => {
-            const niceType = getNiceType(post);
+          {posts.map(post => {
+            const {type, url} = getNodeMeta(post);
             return (
               <Box
                 key={post.id}
@@ -21,7 +22,7 @@ export default function FeedTable({posts, swapDate}) {
                     verticalAlign: 'top'
                   },
                   ':not(:last-child) td': {
-                    pb: 4
+                    pb: 8
                   }
                 }}
               >
@@ -34,20 +35,20 @@ export default function FeedTable({posts, swapDate}) {
                     lineHeight="30px"
                     whiteSpace="nowrap"
                   >
-                    {swapDate ? post.date : niceType}
+                    {swapDate ? post.date : type}
                   </Heading>
                 </td>
                 <td>
-                  <Heading mb="2" as="h3" fontSize="2xl">
+                  <FeedItemTitle mb="2" url={url}>
                     {post.title}
-                  </Heading>
-                  {!index && post.description && (
+                  </FeedItemTitle>
+                  {post.description && (
                     <Text mb="4" fontSize="lg" color="gray.600">
                       {striptags(post.description)}
                     </Text>
                   )}
                   <Text color="gray.600" fontSize="sm">
-                    {renderByline(post, swapDate && niceType)}
+                    {renderByline(post, swapDate && type)}
                   </Text>
                 </td>
               </Box>
@@ -68,6 +69,7 @@ export const pageQuery = graphql`
   fragment PostFragment on WpPost {
     id
     title
+    slug
     description: excerpt
     date(formatString: "ll")
     author {
@@ -93,10 +95,25 @@ export const pageQuery = graphql`
     internal {
       type
     }
+    feedItemSettings {
+      url
+    }
     feedItemTypes {
       nodes {
         name
       }
+    }
+  }
+
+  fragment VideoFragment on TwitchVideo {
+    id: _id
+    title
+    description
+    broadcast_type
+    url
+    date: published_at(formatString: "ll")
+    internal {
+      type
     }
   }
 `;
