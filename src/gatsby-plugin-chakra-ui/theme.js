@@ -1,6 +1,9 @@
+import {colors} from '@apollo/space-kit/colors';
 import {extendTheme} from '@chakra-ui/core';
+import {mix} from 'polished';
 
 const body = "'Source Sans Pro', sans-serif";
+const {grey, silver, black, indigo} = colors;
 
 export default extendTheme({
   components: {
@@ -36,28 +39,28 @@ export default extendTheme({
   },
   colors: {
     gray: {
-      50: '#f4f6f8',
-      100: '#ebeef0',
-      200: '#dee2e7',
-      300: '#cad0d8',
-      400: '#b2b9c3',
-      500: '#777f8e',
-      600: '#424855',
-      700: '#2f353f',
-      800: '#191c23',
-      900: '#12151a'
+      50: silver.light,
+      100: silver.base,
+      200: silver.dark,
+      300: silver.darker,
+      400: grey.lighter,
+      500: grey.base,
+      600: grey.darker,
+      700: black.lighter,
+      800: black.base,
+      900: black.darker
     },
     indigo: {
-      50: '#eee7f9',
-      100: '#d3c4f0',
-      200: '#b69ce8',
-      300: '#9873df',
-      400: '#8153d8',
-      500: '#6834d0',
-      600: '#5d2fca',
-      700: '#4e26c1',
-      800: '#3f20ba',
-      900: '#1f11af'
+      50: indigo.lightest,
+      100: indigo.lighter,
+      200: indigo.light,
+      300: mix(0.5, indigo.light, indigo.base),
+      400: indigo.base,
+      500: mix(0.5, indigo.base, indigo.dark),
+      600: indigo.dark, // primary color
+      700: mix(0.5, indigo.dark, indigo.darker),
+      800: indigo.darker,
+      900: indigo.darkest
     }
   }
 });

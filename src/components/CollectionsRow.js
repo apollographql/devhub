@@ -47,6 +47,7 @@ export default function CollectionsRow({collections, ...props}) {
       <Box position="relative" overflow="hidden" {...props}>
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack
+            align="stretch"
             spacing={COLLECTION_SPACING}
             whiteSpace="normal"
             transition="transform 250ms"

@@ -16,7 +16,7 @@ export default function Header() {
       bg="white"
       zIndex="1"
     >
-      <Box as={ApolloIcon} h="8" mr="auto" color="indigo.800" />
+      <Box as={ApolloIcon} h="8" mr="auto" color="indigo.600" />
       <IconButton
         mr="5"
         variant="ghost"
@@ -25,7 +25,7 @@ export default function Header() {
         icon={<Box as={IconSearch} h="1em" />}
       />
       <HStack fontWeight="semibold" spacing="8">
-        <Link color="indigo.800">DevHub</Link>
+        <Link color="indigo.600">DevHub</Link>
         <Link display="flex" alignItems="center">
           Docs <Box as={IconArrowDown} h="2" ml="2" />
         </Link>
