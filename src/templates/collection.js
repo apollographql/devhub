@@ -40,13 +40,22 @@ export default function CollectionTemplate({data}) {
             </Box>
           </Text>
         </Grid>
-        <FeedTable mb="24" posts={data.collection.collectionSettings.items} />
-        <Heading as="h3" mb="6" fontSize="3xl">
-          Related collections
-        </Heading>
-        <Grid gap="8" templateColumns="repeat(auto-fill, minmax(270px, 1fr))">
-          <CollectionCard collection={data.collection} />
-        </Grid>
+        <FeedTable posts={data.collection.collectionSettings.items} />
+        {data.relatedCollections.nodes.length > 0 && (
+          <>
+            <Heading mt="24" as="h3" mb="6" fontSize="3xl">
+              Related collections
+            </Heading>
+            <Grid
+              gap="8"
+              templateColumns="repeat(auto-fill, minmax(270px, 1fr))"
+            >
+              {data.relatedCollections.nodes.map(collection => (
+                <CollectionCard key={collection.id} collection={collection} />
+              ))}
+            </Grid>
+          </>
+        )}
       </Container>
     </Layout>
   );
@@ -57,10 +66,20 @@ CollectionTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query CollectionQuery($id: String!) {
+  query CollectionQuery($id: String!, $categoryIds: [String!]!) {
     collection: wpCollection(id: {eq: $id}) {
       ...CollectionFragment
       excerpt
+    }
+    relatedCollections: allWpCollection(
+      filter: {
+        id: {ne: $id}
+        categories: {nodes: {elemMatch: {id: {in: $categoryIds}}}}
+      }
+    ) {
+      nodes {
+        ...CollectionFragment
+      }
     }
   }
 `;

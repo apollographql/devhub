@@ -9,9 +9,9 @@ import {graphql} from 'gatsby';
 export default function FeedTable({posts, swapDate, ...props}) {
   return (
     <Container maxW="lg" px="0" {...props}>
-      <table>
+      <Box as="table" maxW="container.md">
         <tbody>
-          {posts.map(post => {
+          {posts.map((post, index) => {
             const {type, url} = getNodeMeta(post);
             return (
               <Box
@@ -42,7 +42,7 @@ export default function FeedTable({posts, swapDate, ...props}) {
                   <FeedItemTitle mb="2" url={url}>
                     {post.title}
                   </FeedItemTitle>
-                  {post.description && (
+                  {!index && post.description && (
                     <Text mb="4" fontSize="lg" color="gray.600">
                       {striptags(post.description)}
                     </Text>
@@ -55,7 +55,7 @@ export default function FeedTable({posts, swapDate, ...props}) {
             );
           })}
         </tbody>
-      </table>
+      </Box>
     </Container>
   );
 }

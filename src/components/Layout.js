@@ -8,7 +8,9 @@ import {Helmet} from 'react-helmet';
 export default function Layout({children}) {
   return (
     <>
-      <Helmet defaultTitle="DevHub" titleTemplate="%s - DevHub" />
+      <Helmet defaultTitle="DevHub" titleTemplate="%s - DevHub">
+        <link rel="icon" href="https://www.apollographql.com/favicon.ico" />
+      </Helmet>
       <Header />
       <Box pt="8" pb="20" as="main">
         {children}

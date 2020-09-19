@@ -5,6 +5,11 @@ exports.createPages = async ({graphql, actions}) => {
         nodes {
           id
           slug
+          categories {
+            nodes {
+              id
+            }
+          }
         }
       }
     }
@@ -16,7 +21,8 @@ exports.createPages = async ({graphql, actions}) => {
       component,
       path: '/collection/' + collection.slug,
       context: {
-        id: collection.id
+        id: collection.id,
+        categoryIds: collection.categories.nodes.map(category => category.id)
       }
     })
   );

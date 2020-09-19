@@ -8,7 +8,7 @@ import {graphql} from 'gatsby';
 export default function CollectionCard({collection, ...props}) {
   return (
     <div>
-      <Box mb="4" {...props}>
+      <Box mb="2" {...props}>
         <Heading mb="1" as="h4" fontSize="2xl">
           {collection.title}
         </Heading>

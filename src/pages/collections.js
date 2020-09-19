@@ -40,7 +40,7 @@ Collections.propTypes = {
 
 export const pageQuery = graphql`
   query CollectionsQuery {
-    allWpCollection {
+    allWpCollection(sort: {fields: date, order: DESC}) {
       nodes {
         ...CollectionFragment
       }
