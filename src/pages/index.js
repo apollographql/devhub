@@ -20,7 +20,7 @@ import {
 import {combinePosts, getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
-export default function HomePage({data}) {
+export default function HomePage({data, location}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
@@ -57,7 +57,7 @@ export default function HomePage({data}) {
               {featuredPost.internal.type === 'TwitchVideo' && (
                 <AspectRatio ratio={16 / 9}>
                   <iframe
-                    src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&autoplay=false`}
+                    src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=${location.hostname}&autoplay=false`}
                     frameBorder="0"
                     scrolling="no"
                     allowFullScreen
@@ -131,7 +131,8 @@ export default function HomePage({data}) {
 }
 
 HomePage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export const pageQuery = graphql`
