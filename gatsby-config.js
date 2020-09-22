@@ -29,6 +29,27 @@ module.exports = {
           useGatsbyImage: false
         },
         type: {
+          CareersSlider2: {
+            exclude: true
+          },
+          CareersHeroSlider: {
+            exclude: true
+          },
+          CareersSlider3: {
+            exclude: true
+          },
+          Comment: {
+            exclude: true
+          },
+          Cta: {
+            exclude: true
+          },
+          MenuItem: {
+            exclude: true
+          },
+          TeamMember: {
+            exclude: true
+          },
           Post: {
             // limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }

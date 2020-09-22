@@ -1,4 +1,4 @@
-export function renderByline(post, defaultLine) {
+exports.renderByline = (post, defaultLine) => {
   const byline = [defaultLine || post.date];
 
   if (post.internal.type === 'WpPost') {
@@ -7,16 +7,16 @@ export function renderByline(post, defaultLine) {
   }
 
   return byline.join(' · ');
-}
+};
 
-export function combinePosts(data) {
+exports.combinePosts = data => {
   return data.allWpPost.nodes
     .concat(data.allWpFeedItem.nodes)
     .concat(data.allTwitchVideo.nodes)
     .sort((a, b) => new Date(b.date) - new Date(a.date));
-}
+};
 
-export function getNodeMeta(node) {
+exports.getNodeMeta = node => {
   switch (node.internal.type) {
     case 'WpPost':
       return {
@@ -38,4 +38,4 @@ export function getNodeMeta(node) {
     default:
       return {type: node.internal.type};
   }
-}
+};
