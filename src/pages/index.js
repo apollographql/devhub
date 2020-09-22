@@ -57,6 +57,7 @@ export default function HomePage({data, location}) {
               {featuredPost.internal.type === 'TwitchVideo' && (
                 <AspectRatio ratio={16 / 9}>
                   <iframe
+                    key={location.hostname}
                     src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=${location.hostname}&autoplay=false`}
                     frameBorder="0"
                     scrolling="no"
