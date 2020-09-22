@@ -37,7 +37,14 @@ export default function HomePage({data, location}) {
             back-end services.
           </Text>
         </Box>
-        <Grid templateColumns="2fr 1fr" gap="16">
+        <Grid
+          templateColumns={{
+            base: '1fr',
+            md: 'repeat(2, 1fr)',
+            lg: '2fr 1fr'
+          }}
+          gap="16"
+        >
           <Flex direction="column" justify="space-between">
             <div>
               <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
@@ -70,11 +77,6 @@ export default function HomePage({data, location}) {
                 {renderByline(featuredPost)}
               </Text>
             </div>
-            <Box mt="6">
-              <ArrowLink to="/feed" direction="right">
-                See the full feed
-              </ArrowLink>
-            </Box>
           </Flex>
           <List spacing="6">
             {posts.map(post => {
@@ -107,6 +109,11 @@ export default function HomePage({data, location}) {
             })}
           </List>
         </Grid>
+        <Box mt="6">
+          <ArrowLink to="/feed/1" direction="right">
+            See the full feed
+          </ArrowLink>
+        </Box>
         <Divider mt="16" mb="20" />
         <Box maxW="container.md" mb="10">
           <Heading mb="4" fontSize="4xl">
