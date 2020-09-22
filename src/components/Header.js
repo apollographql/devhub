@@ -10,7 +10,6 @@ import {
   Menu,
   MenuButton,
   MenuDivider,
-  MenuGroup,
   MenuItem,
   MenuList
 } from '@chakra-ui/core';
@@ -66,7 +65,7 @@ export default function Header() {
                 Docs <Box as={IconArrowDown} h="2" ml="2" />
               </Flex>
             </MenuButton>
-            <MenuList>
+            <MenuList fontWeight="normal">
               <MenuItem as="a" href="https://www.apollographql.com/docs/">
                 Apollo Basics
               </MenuItem>
@@ -83,23 +82,18 @@ export default function Header() {
                 Apollo Studio
               </MenuItem>
               <MenuDivider />
-              <MenuGroup title="Apollo Client">
-                <MenuItem
-                  as="a"
-                  href="https://www.apollographql.com/docs/react/"
-                >
-                  React
-                </MenuItem>
-                <MenuItem as="a" href="https://www.apollographql.com/docs/ios/">
-                  iOS
-                </MenuItem>
-                <MenuItem
-                  as="a"
-                  href="https://www.apollographql.com/docs/android/"
-                >
-                  Android
-                </MenuItem>
-              </MenuGroup>
+              <MenuItem as="a" href="https://www.apollographql.com/docs/react/">
+                Apollo Client (React)
+              </MenuItem>
+              <MenuItem as="a" href="https://www.apollographql.com/docs/ios/">
+                Apollo Client (iOS)
+              </MenuItem>
+              <MenuItem
+                as="a"
+                href="https://www.apollographql.com/docs/android/"
+              >
+                Apollo Client (Android)
+              </MenuItem>
             </MenuList>
           </Menu>
         </div>
