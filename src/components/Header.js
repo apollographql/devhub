@@ -16,7 +16,24 @@ export default function Header() {
       bg="white"
       zIndex="1"
     >
-      <Box as={ApolloIcon} h="8" mr="auto" color="indigo.600" />
+      <Flex mr="auto" align="center">
+        <Box as={ApolloIcon} h="6" title="Apollo" />
+        <Box
+          as="span"
+          ml="2"
+          mt="-px"
+          borderRadius="sm"
+          px="1"
+          bg="indigo.50"
+          color="indigo.600"
+          fontSize="sm"
+          fontWeight="semibold"
+          textTransform="uppercase"
+          letterSpacing="widest"
+        >
+          DevHub
+        </Box>
+      </Flex>
       <IconButton
         mr="5"
         variant="ghost"
