@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/core';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
+import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
 import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
 
 export default function Header() {
@@ -48,13 +49,49 @@ export default function Header() {
         </Box>
       </Flex>
       <IconButton
-        mr="5"
+        mr={{
+          base: 2,
+          md: 5
+        }}
         variant="ghost"
         borderRadius="full"
-        color="gray.300"
         icon={<Box as={IconSearch} h="1em" />}
       />
-      <HStack fontWeight="semibold" spacing="8">
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          display={{base: 'flex', md: 'none'}}
+          variant="ghost"
+          fontSize="2xl"
+          colorScheme="indigo"
+          icon={<Box as={IconMenu} h="1em" />}
+        />
+        <MenuList>
+          <MenuItem as={GatsbyLink} to="/">
+            DevHub
+          </MenuItem>
+          <MenuItem as="a" href="https://www.apollographql.com/docs">
+            Docs
+          </MenuItem>
+          <MenuItem as="a" href="https://www.apollographql.com/blog">
+            Blog
+          </MenuItem>
+          <MenuItem as="a" href="https://go.apollo.dev/events-calendar">
+            Events
+          </MenuItem>
+          <MenuItem as="a" href="https://studio.apollographql.com">
+            Studio
+          </MenuItem>
+        </MenuList>
+      </Menu>
+      <HStack
+        display={{
+          base: 'none',
+          md: 'flex'
+        }}
+        fontWeight="semibold"
+        spacing="8"
+      >
         <Link as={GatsbyLink} to="/" color="indigo.600">
           DevHub
         </Link>

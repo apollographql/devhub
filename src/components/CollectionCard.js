@@ -9,7 +9,14 @@ export default function CollectionCard({collection, ...props}) {
   return (
     <div>
       <Box mb="2" {...props}>
-        <Heading mb="1" as="h4" fontSize="2xl">
+        <Heading
+          mb="1"
+          as="h4"
+          fontSize={{
+            base: 'xl',
+            md: '2xl'
+          }}
+        >
           {collection.title}
         </Heading>
         <Text fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>

@@ -1,9 +1,9 @@
-import CollectionCard from '../components/CollectionCard';
+import CollectionsGrid from '../components/CollectionsGrid';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {BackButton} from '../components/ArrowLink';
-import {Box, Container, Heading, SimpleGrid, Text} from '@chakra-ui/core';
+import {Box, Container, Heading, Text} from '@chakra-ui/core';
 import {graphql} from 'gatsby';
 
 export default function Collections({data}) {
@@ -12,10 +12,10 @@ export default function Collections({data}) {
       <Container maxW="xl" px="16">
         <BackButton />
         <Box maxW="container.md" mb="20">
-          <Heading mb="4" fontSize="4xl">
+          <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             Apollo Collections
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize={{md: 'lg'}}>
             This copy should be descriptive of why this collection exists.
             Including what is in the collection – types of content that
             dominate, maybe this one is blog post heavy but has a single
@@ -24,11 +24,7 @@ export default function Collections({data}) {
             it as tailored to a skill or depth of knowledge level.
           </Text>
         </Box>
-        <SimpleGrid minChildWidth="270px" spacing="8">
-          {data.allWpCollection.nodes.map(collection => (
-            <CollectionCard key={collection.id} collection={collection} />
-          ))}
-        </SimpleGrid>
+        <CollectionsGrid collections={data.allWpCollection.nodes} />
       </Container>
     </Layout>
   );

@@ -26,12 +26,16 @@ export default function HomePage({data, location}) {
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   return (
     <Layout>
-      <Container maxW="xl" px="16">
+      <Container maxW="xl" px={[8, 10, 12, 16]}>
         <Box maxW="container.sm" mb="24">
-          <Heading mb="1" as="h1" fontSize="6xl">
+          <Heading
+            mb="2"
+            as="h1"
+            fontSize={{base: '4xl', md: '5xl', lg: '6xl'}}
+          >
             Welcome to DevHub
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize={{md: 'lg'}}>
             Apollo is a platform for building a data graph, a communication
             layer that seamlessly connects your application clients to your
             back-end services.
@@ -43,7 +47,7 @@ export default function HomePage({data, location}) {
             md: 'repeat(2, 1fr)',
             lg: '2fr 1fr'
           }}
-          gap="16"
+          gap={[8, 10, 12, 16]}
         >
           <Flex direction="column" justify="space-between">
             <div>
@@ -57,7 +61,7 @@ export default function HomePage({data, location}) {
                 url={featuredPostMeta.url}
                 mb="4"
                 as="h3"
-                fontSize="3xl"
+                fontSize={{base: '2xl', md: '3xl'}}
               >
                 {featuredPost.title}
               </FeedItemTitle>
@@ -116,10 +120,16 @@ export default function HomePage({data, location}) {
         </Box>
         <Divider mt="16" mb="20" />
         <Box maxW="container.md" mb="10">
-          <Heading mb="4" fontSize="4xl">
+          <Heading
+            mb="4"
+            fontSize={{
+              base: '3xl',
+              md: '4xl'
+            }}
+          >
             Apollo Collections
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize={{md: 'lg'}}>
             The Apollo team along with our community members have been currating
             content into logical groups we call collections. They serve as the
             corpus of resources that can give any newcomer a head start, expand

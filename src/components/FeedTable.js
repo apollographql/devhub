@@ -43,7 +43,7 @@ export default function FeedTable({posts, swapDate, ...props}) {
                     {post.title}
                   </FeedItemTitle>
                   {!index && post.description && (
-                    <Text mb="4" fontSize="lg" color="gray.600">
+                    <Text mb="4" fontSize={{md: 'lg'}} color="gray.600">
                       {striptags(post.description)}
                     </Text>
                   )}

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
-import {Box, Flex, HStack, Link, List, ListItem, Text} from '@chakra-ui/core';
+import {Box, Link, List, ListItem, Stack, Text} from '@chakra-ui/core';
 
 function FooterMenu({title, children}) {
   return (
     <div>
-      <Text mb="4" fontWeight="semibold">
+      <Text mb={{base: 2, md: 4}} fontWeight="semibold">
         {title}
       </Text>
       <List spacing="2">
@@ -26,12 +26,26 @@ FooterMenu.propTypes = {
 export default function Footer() {
   return (
     <Box as="footer" bg="gray.800" color="white">
-      <Flex mx="auto" maxW="container.xl" px="16" py="12">
-        <div>
+      <Box
+        display={{md: 'flex'}}
+        mx="auto"
+        maxW="container.xl"
+        px={[8, 10, 12, 16]}
+        py="12"
+      >
+        <Box mr="8" mb="8">
           <Box mb="4" as={ApolloIcon} h="8" />
           <Text>&copy; {new Date().getFullYear()} Apollo Graph Inc.</Text>
-        </div>
-        <HStack align="flex-start" spacing="16" ml="auto">
+        </Box>
+        <Stack
+          direction={{
+            base: 'column',
+            md: 'row'
+          }}
+          align="flex-start"
+          spacing={[8, 10, 12, 16]}
+          ml="auto"
+        >
           <FooterMenu title="Company">
             <Link href="https://www.apollographql.com/about-us">About us</Link>
             <Link href="https://www.apollographql.com/careers">Careers</Link>
@@ -62,8 +76,8 @@ export default function Footer() {
               Privacy Policy
             </Link>
           </FooterMenu>
-        </HStack>
-      </Flex>
+        </Stack>
+      </Box>
     </Box>
   );
 }

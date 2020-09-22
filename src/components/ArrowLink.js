@@ -23,13 +23,13 @@ export default function ArrowLink({direction, ...props}) {
       <Box
         as={direction === DIRECTION_RIGHT ? IconProceed : IconBack}
         h="1em"
-        fontSize="sm"
+        fontSize={{base: 'xs', md: 'sm'}}
       />
     )
   };
   return (
     <Button
-      fontSize="xl"
+      fontSize={{base: 'lg', md: 'xl'}}
       fontWeight="bold"
       colorScheme="indigo"
       variant="link"

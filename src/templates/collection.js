@@ -1,4 +1,4 @@
-import CollectionCard from '../components/CollectionCard';
+import CollectionsGrid from '../components/CollectionsGrid';
 import FeedTable from '../components/FeedTable';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
@@ -14,12 +14,24 @@ export default function CollectionTemplate({data}) {
     <Layout>
       <Container maxW="xl" px="16">
         <BackButton to="/collections">Collections</BackButton>
-        <Heading mb="4" fontSize="4xl">
+        <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
           {data.collection.title}
         </Heading>
-        <Grid mb="16" gap="16" templateColumns="2fr 1fr">
-          <Stack fontSize="lg">{parse(data.collection.content)}</Stack>
-          <Text fontFamily="mono" color="gray.500" position="relative">
+        <Grid
+          mb="16"
+          gap="16"
+          templateColumns={{
+            base: '1fr',
+            md: '2fr 1fr'
+          }}
+        >
+          <Stack fontSize={{md: 'lg'}}>{parse(data.collection.content)}</Stack>
+          <Text
+            display={{base: 'none', md: 'block'}}
+            fontFamily="mono"
+            color="gray.500"
+            position="relative"
+          >
             <Box
               as="span"
               position="absolute"
@@ -46,14 +58,7 @@ export default function CollectionTemplate({data}) {
             <Heading mt="24" as="h3" mb="6" fontSize="3xl">
               Related collections
             </Heading>
-            <Grid
-              gap="8"
-              templateColumns="repeat(auto-fill, minmax(270px, 1fr))"
-            >
-              {data.relatedCollections.nodes.map(collection => (
-                <CollectionCard key={collection.id} collection={collection} />
-              ))}
-            </Grid>
+            <CollectionsGrid collections={data.relatedCollections.nodes} />
           </>
         )}
       </Container>

@@ -25,10 +25,10 @@ export default function FeedTemplate({data, pageContext}) {
       <Container maxW="xl" px="16">
         <BackButton />
         <Box maxW="container.sm" mb="24">
-          <Heading mb="4" fontSize="4xl">
+          <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             News Feed
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize={{md: 'lg'}}>
             This copy should be descriptive of why this collection exists.
             Including what is in the collection – types of content that
             dominate, maybe this one is blog post heavy but has a single
@@ -47,7 +47,11 @@ export default function FeedTemplate({data, pageContext}) {
           >
             Page
           </Heading>
-          <HStack spacing="3" fontSize="2xl" fontWeight="semibold">
+          <HStack
+            spacing="3"
+            fontSize={{base: 'xl', md: '2xl'}}
+            fontWeight="semibold"
+          >
             {Array.from(Array(totalPages).keys())
               .slice(pageOffset, MAX_PAGES_SHOWN + pageOffset)
               .map(index => {
