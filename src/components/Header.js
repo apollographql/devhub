@@ -1,6 +1,20 @@
 import React from 'react';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
-import {Box, Button, Flex, HStack, IconButton, Link} from '@chakra-ui/core';
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  IconButton,
+  Link,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList
+} from '@chakra-ui/core';
+import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
 
@@ -42,14 +56,63 @@ export default function Header() {
         icon={<Box as={IconSearch} h="1em" />}
       />
       <HStack fontWeight="semibold" spacing="8">
-        <Link color="indigo.600">DevHub</Link>
-        <Link display="flex" alignItems="center">
-          Docs <Box as={IconArrowDown} h="2" ml="2" />
+        <Link as={GatsbyLink} to="/" color="indigo.600">
+          DevHub
         </Link>
-        <Link>Blog</Link>
-        <Link>Training</Link>
-        <Link>Events</Link>
-        <Button colorScheme="indigo">Studio</Button>
+        <div>
+          <Menu placement="bottom">
+            <MenuButton fontWeight="inherit">
+              <Flex align="center">
+                Docs <Box as={IconArrowDown} h="2" ml="2" />
+              </Flex>
+            </MenuButton>
+            <MenuList>
+              <MenuItem as="a" href="https://www.apollographql.com/docs/">
+                Apollo Basics
+              </MenuItem>
+              <MenuItem
+                as="a"
+                href="https://www.apollographql.com/docs/apollo-server/"
+              >
+                Apollo Server
+              </MenuItem>
+              <MenuItem
+                as="a"
+                href="https://www.apollographql.com/docs/studio/"
+              >
+                Apollo Studio
+              </MenuItem>
+              <MenuDivider />
+              <MenuGroup title="Apollo Client">
+                <MenuItem
+                  as="a"
+                  href="https://www.apollographql.com/docs/react/"
+                >
+                  React
+                </MenuItem>
+                <MenuItem as="a" href="https://www.apollographql.com/docs/ios/">
+                  iOS
+                </MenuItem>
+                <MenuItem
+                  as="a"
+                  href="https://www.apollographql.com/docs/android/"
+                >
+                  Android
+                </MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        </div>
+        <Link href="https://www.apollographql.com/blog/">Blog</Link>
+        {/* <Link>Training</Link> */}
+        <Link href="https://go.apollo.dev/events-calendar">Events</Link>
+        <Button
+          as="a"
+          href="https://studio.apollographql.com"
+          colorScheme="indigo"
+        >
+          Studio
+        </Button>
       </HStack>
     </Flex>
   );
