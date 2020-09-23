@@ -38,9 +38,6 @@ module.exports = {
           CareersSlider3: {
             exclude: true
           },
-          Comment: {
-            exclude: true
-          },
           Cta: {
             exclude: true
           },
@@ -71,6 +68,12 @@ module.exports = {
         params: {
           limit: 100
         }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-74643563-17'
       }
     }
   ]
