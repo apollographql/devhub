@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
 import {
   Box,
@@ -6,6 +6,9 @@ import {
   Flex,
   HStack,
   IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
   Link,
   Menu,
   MenuButton,
@@ -15,10 +18,13 @@ import {
 } from '@chakra-ui/core';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
+import {IconArrowLeft} from '@apollo/space-kit/icons/IconArrowLeft';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
 import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
 
 export default function Header() {
+  const inputRef = useRef();
+  const [inputShown, setInputShown] = useState(false);
   return (
     <Flex
       as="header"
@@ -49,14 +55,41 @@ export default function Header() {
         </Box>
       </Flex>
       <IconButton
-        mr={{
+        ml={{
           base: 2,
           md: 5
         }}
         variant="ghost"
         borderRadius="full"
         icon={<Box as={IconSearch} h="1em" />}
+        onClick={() => {
+          setInputShown(true);
+          inputRef.current.focus();
+        }}
       />
+      <InputGroup
+        w="0"
+        mr={{
+          base: 2,
+          md: 5
+        }}
+        size="sm"
+        variant="flushed"
+        transition="all 250ms"
+        style={{flexGrow: Number(inputShown)}}
+        overflow="hidden"
+      >
+        <Input ref={inputRef} fontSize="md" placeholder="Search" />
+        <InputRightElement>
+          <IconButton
+            size="xs"
+            variant="ghost"
+            colorScheme="indigo"
+            icon={<Box as={IconArrowLeft} h="1em" />}
+            onClick={() => setInputShown(false)}
+          />
+        </InputRightElement>
+      </InputGroup>
       <Menu>
         <MenuButton
           as={IconButton}
