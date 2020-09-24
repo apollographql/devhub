@@ -75,6 +75,20 @@ module.exports = {
       options: {
         trackingId: 'UA-74643563-17'
       }
+    },
+    {
+      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
+      options: {
+        fields: ['title', 'content', 'excerpt'],
+        resolvers: {
+          WpCollection: {
+            slug: node => node.slug,
+            title: node => node.title,
+            content: node => node.content,
+            excerpt: node => node.excerpt
+          }
+        }
+      }
     }
   ]
 };
