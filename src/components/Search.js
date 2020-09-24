@@ -119,7 +119,7 @@ export default function Search() {
           <Input
             ref={inputRef}
             fontSize="md"
-            placeholder="Search"
+            placeholder="Search collections"
             value={inputValue}
             onChange={event => setInputValue(event.target.value)}
             onFocus={() => setInputFocus(true)}
