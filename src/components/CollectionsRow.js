@@ -7,7 +7,7 @@ import {IconBack} from '@apollo/space-kit/icons/IconBack';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 
 const COLLECTION_WIDTH = 320;
-const COLLECTION_SPACING = 8;
+const COLLECTION_SPACING = 4;
 
 function ArrowButton({direction = 'right', ...props}) {
   const outerProps = {[direction]: 8};
@@ -44,7 +44,7 @@ export default function CollectionsRow({collections, ...props}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <>
-      <Box position="relative" overflow="hidden" {...props}>
+      <Box position="relative" py="4" overflow="hidden" {...props}>
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack
             align="stretch"
@@ -57,32 +57,31 @@ export default function CollectionsRow({collections, ...props}) {
               }) * ${-selectedIndex}))`
             }}
           >
-            {collections.map((collection, index) => (
-              <Box
-                flexShrink="0"
-                w={COLLECTION_WIDTH}
-                key={collection.id}
-                position="relative"
-              >
-                {index === selectedIndex && (
-                  <Box
-                    w="1"
-                    h="full"
-                    bg="purple.500"
-                    position="absolute"
-                    top="0"
-                    left="-4"
-                  />
-                )}
+            {collections.map((collection, index) => {
+              const isSelected = selectedIndex === index;
+              return (
                 <CollectionCard
+                  flexShrink="0"
+                  w={COLLECTION_WIDTH}
+                  key={collection.id}
                   as="button"
-                  outline="none"
+                  display="flex"
+                  alignItems="flex-start"
+                  flexDirection="column"
                   textAlign="left"
+                  outline="none"
                   onClick={() => setSelectedIndex(index)}
                   collection={collection}
+                  borderWidth="1px"
+                  borderColor={isSelected ? 'indigo.100' : 'transparent'}
+                  boxShadow={isSelected ? 'lg' : 'none'}
+                  bg={isSelected ? 'white' : 'gray.50'}
+                  p="4"
+                  borderRadius="lg"
+                  _hover={!isSelected && {bg: 'indigo.50'}}
                 />
-              </Box>
-            ))}
+              );
+            })}
           </HStack>
         </Container>
         {collections.length > 0 && (

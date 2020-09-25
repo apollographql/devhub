@@ -7,23 +7,24 @@ import {graphql} from 'gatsby';
 
 export default function CollectionCard({collection, ...props}) {
   return (
-    <div>
-      <Box mb="2" {...props}>
-        <Heading
-          mb="1"
-          as="h4"
-          fontSize={{
-            base: 'xl',
-            md: '2xl'
-          }}
-        >
-          {collection.title}
-        </Heading>
-        <Text fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>
-          {striptags(collection.content)}
-        </Text>
-      </Box>
+    <Box {...props}>
+      <Heading
+        w="full"
+        mb="1"
+        as="h4"
+        isTruncated
+        fontSize={{
+          base: 'xl',
+          md: '2xl'
+        }}
+      >
+        {collection.title}
+      </Heading>
+      <Text mb="2" fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>
+        {striptags(collection.content)}
+      </Text>
       <ArrowLink
+        mt="auto"
         to={`/collection/${collection.slug}`}
         direction="right"
         fontSize="md"
@@ -31,7 +32,7 @@ export default function CollectionCard({collection, ...props}) {
       >
         +{collection.collectionSettings.items.length} more
       </ArrowLink>
-    </div>
+    </Box>
   );
 }
 

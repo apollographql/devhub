@@ -119,7 +119,7 @@ export default function HomePage({data, location}) {
           </ArrowLink>
         </Box>
         <Divider mt="16" mb="20" />
-        <Box maxW="container.md" mb="10">
+        <Box maxW="container.md">
           <Heading
             mb="4"
             fontSize={{
@@ -138,7 +138,7 @@ export default function HomePage({data, location}) {
           </Text>
         </Box>
       </Container>
-      <CollectionsRow mb="16" collections={data.allWpCollection.nodes} />
+      <CollectionsRow mt="6" mb="12" collections={data.allWpCollection.nodes} />
       <Container maxW="xl" px="16" mt="10">
         <ArrowLink direction="right" to="/collections">
           See all of our collections
