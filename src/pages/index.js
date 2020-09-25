@@ -114,8 +114,7 @@ export default function HomePage({data, location}) {
             See the full feed
           </ArrowLink>
         </Box>
-        <Divider mt="16" mb="20" />
-        <Box maxW="container.md">
+        <Box mt="20" maxW="container.md">
           <Heading
             mb="4"
             fontSize={{
