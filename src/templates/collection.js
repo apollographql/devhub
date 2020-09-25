@@ -18,8 +18,7 @@ import {
 import {graphql} from 'gatsby';
 
 export default function CollectionTemplate({data}) {
-  const {author} = data.collection;
-  console.log(author);
+  const {node: author} = data.collection.author;
   return (
     <Layout>
       <Container maxW="xl" px="16">
@@ -64,16 +63,16 @@ export default function CollectionTemplate({data}) {
                 boxSize="8"
                 mr="2"
                 src={
-                  author.node.userMetadata.avatarId
-                    ? author.node.userMetadata.avatarId.sourceUrl
-                    : author.node.avatar.url
+                  author.userMetadata.avatarId
+                    ? author.userMetadata.avatarId.sourceUrl
+                    : author.avatar.url
                 }
               />
               <Box fontSize="sm" lineHeight="normal">
-                {author.node.name}
+                {author.name}
                 <br />
                 <Box as="span" color="gray.500">
-                  {author.node.userMetadata.title}
+                  {author.userMetadata.title}
                 </Box>
               </Box>
             </Flex>
