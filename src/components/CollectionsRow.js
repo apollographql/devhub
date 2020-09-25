@@ -10,28 +10,18 @@ const COLLECTION_WIDTH = 320;
 const COLLECTION_SPACING = 4;
 
 function ArrowButton({direction = 'right', ...props}) {
-  const outerProps = {[direction]: 8};
   return (
-    <Box
-      color="indigo.500"
+    <IconButton
       position="absolute"
       top="50%"
       transform="translateY(-50%)"
       borderRadius="full"
       boxShadow="lg"
-      fontSize="md"
-      bg="white"
-      {...outerProps}
-    >
-      <IconButton
-        borderRadius="inherit"
-        icon={
-          <Box as={direction === 'right' ? IconProceed : IconBack} h="1em" />
-        }
-        variant="ghost"
-        {...props}
-      />
-    </Box>
+      icon={<Box as={direction === 'right' ? IconProceed : IconBack} h="1em" />}
+      sx={{[direction]: 8}}
+      colorScheme="indigo"
+      {...props}
+    />
   );
 }
 
