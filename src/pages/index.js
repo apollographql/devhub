@@ -27,12 +27,8 @@ export default function HomePage({data, location}) {
   return (
     <Layout>
       <Container maxW="xl" px={[8, 10, 12, 16]}>
-        <Box maxW="container.sm" mb="24">
-          <Heading
-            mb="2"
-            as="h1"
-            fontSize={{base: '4xl', md: '5xl', lg: '6xl'}}
-          >
+        <Box maxW="container.sm" mb="20">
+          <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
             Welcome to DevHub
           </Heading>
           <Text fontSize={{md: 'lg'}}>
@@ -138,7 +134,7 @@ export default function HomePage({data, location}) {
           </Text>
         </Box>
       </Container>
-      <CollectionsRow mt="6" mb="12" collections={data.allWpCollection.nodes} />
+      <CollectionsRow collections={data.allWpCollection.nodes} />
       <Container maxW="xl" px="16" mt="10">
         <ArrowLink direction="right" to="/collections">
           See all of our collections

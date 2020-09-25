@@ -44,7 +44,7 @@ export default function CollectionsRow({collections, ...props}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <>
-      <Box position="relative" py="4" overflow="hidden" {...props}>
+      <Box position="relative" py="10" overflow="hidden" {...props}>
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack
             align="stretch"
@@ -60,26 +60,43 @@ export default function CollectionsRow({collections, ...props}) {
             {collections.map((collection, index) => {
               const isSelected = selectedIndex === index;
               return (
-                <CollectionCard
-                  flexShrink="0"
-                  w={COLLECTION_WIDTH}
-                  key={collection.id}
-                  as="button"
-                  display="flex"
-                  alignItems="flex-start"
-                  flexDirection="column"
-                  textAlign="left"
-                  outline="none"
-                  onClick={() => setSelectedIndex(index)}
-                  collection={collection}
-                  borderWidth="1px"
-                  borderColor={isSelected ? 'indigo.100' : 'transparent'}
-                  boxShadow={isSelected ? 'lg' : 'none'}
-                  bg={isSelected ? 'white' : 'gray.50'}
-                  p="4"
-                  borderRadius="lg"
-                  _hover={!isSelected && {bg: 'indigo.50'}}
-                />
+                <Box key={collection.id} position="relative">
+                  <Box
+                    h="10"
+                    w="px"
+                    css={({theme}) => ({
+                      backgroundImage: `linear-gradient(${[
+                        theme.colors.indigo[200],
+                        theme.colors.gray[200]
+                      ]})`
+                    })}
+                    position="absolute"
+                    top="100%"
+                    left="50%"
+                    transition="opacity 250ms"
+                    style={{opacity: Number(isSelected)}}
+                  />
+                  <CollectionCard
+                    flexShrink="0"
+                    h="full"
+                    w={COLLECTION_WIDTH}
+                    as="button"
+                    display="flex"
+                    alignItems="flex-start"
+                    flexDirection="column"
+                    textAlign="left"
+                    outline="none"
+                    onClick={() => setSelectedIndex(index)}
+                    collection={collection}
+                    borderWidth="1px"
+                    borderColor={isSelected ? 'indigo.200' : 'transparent'}
+                    boxShadow={isSelected ? 'lg' : 'none'}
+                    bg={isSelected ? 'white' : 'gray.50'}
+                    p="4"
+                    borderRadius="lg"
+                    _hover={!isSelected && {bg: 'indigo.50'}}
+                  />
+                </Box>
               );
             })}
           </HStack>
@@ -103,9 +120,11 @@ export default function CollectionsRow({collections, ...props}) {
         )}
       </Box>
       <Container maxW="xl" px="16">
-        <FeedTable
-          posts={collections[selectedIndex].collectionSettings.items}
-        />
+        <Box borderTopWidth="1px" pt="8">
+          <FeedTable
+            posts={collections[selectedIndex].collectionSettings.items}
+          />
+        </Box>
       </Container>
     </>
   );

@@ -82,7 +82,7 @@ export default function CollectionTemplate({data}) {
         <FeedTable posts={data.collection.collectionSettings.items} />
         {data.relatedCollections.nodes.length > 0 && (
           <>
-            <Heading mt="24" as="h3" mb="6" fontSize="3xl">
+            <Heading mt="20" as="h3" mb="6" fontSize="3xl">
               Related collections
             </Heading>
             <CollectionsGrid collections={data.relatedCollections.nodes} />

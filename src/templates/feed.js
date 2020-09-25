@@ -24,7 +24,7 @@ export default function FeedTemplate({data, pageContext}) {
     <Layout>
       <Container maxW="xl" px="16">
         <BackButton />
-        <Box maxW="container.sm" mb="24">
+        <Box maxW="container.sm" mb="20">
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             News Feed
           </Heading>
