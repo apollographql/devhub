@@ -2,31 +2,32 @@ import CollectionCard from './CollectionCard';
 import FeedTable from './FeedTable';
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
-import {Box, Container, HStack, IconButton, useTheme} from '@chakra-ui/core';
+import {
+  Box,
+  ButtonGroup,
+  Container,
+  HStack,
+  IconButton,
+  useTheme
+} from '@chakra-ui/core';
 import {IconBack} from '@apollo/space-kit/icons/IconBack';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 
 const COLLECTION_WIDTH = 320;
 const COLLECTION_SPACING = 4;
 
-function ArrowButton({direction = 'right', ...props}) {
+function ArrowButton({icon, ...props}) {
   return (
     <IconButton
-      position="absolute"
-      top="50%"
-      transform="translateY(-50%)"
       borderRadius="full"
-      boxShadow="lg"
-      icon={<Box as={direction === 'right' ? IconProceed : IconBack} h="1em" />}
-      sx={{[direction]: 8}}
-      colorScheme="indigo"
+      icon={<Box as={icon} h="1em" />}
       {...props}
     />
   );
 }
 
 ArrowButton.propTypes = {
-  direction: PropTypes.string
+  icon: PropTypes.object.isRequired
 };
 
 export default function CollectionsRow({collections, ...props}) {
@@ -34,7 +35,7 @@ export default function CollectionsRow({collections, ...props}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <>
-      <Box position="relative" py="10" overflow="hidden" {...props}>
+      <Box position="relative" mt="10" overflow="hidden" {...props}>
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack
             align="stretch"
@@ -52,7 +53,7 @@ export default function CollectionsRow({collections, ...props}) {
               return (
                 <Box key={collection.id} position="relative">
                   <Box
-                    h="10"
+                    h="16"
                     w="px"
                     css={({theme}) => ({
                       backgroundImage: `linear-gradient(${[
@@ -90,24 +91,25 @@ export default function CollectionsRow({collections, ...props}) {
               );
             })}
           </HStack>
+          {collections.length > 0 && (
+            <ButtonGroup size="sm" my="4">
+              <ArrowButton
+                icon={IconBack}
+                isDisabled={!selectedIndex}
+                onClick={() =>
+                  setSelectedIndex(prevSelectedIndex => prevSelectedIndex - 1)
+                }
+              />
+              <ArrowButton
+                icon={IconProceed}
+                isDisabled={selectedIndex === collections.length - 1}
+                onClick={() =>
+                  setSelectedIndex(prevSelectedIndex => prevSelectedIndex + 1)
+                }
+              />
+            </ButtonGroup>
+          )}
         </Container>
-        {collections.length > 0 && (
-          <>
-            <ArrowButton
-              direction="left"
-              isDisabled={!selectedIndex}
-              onClick={() =>
-                setSelectedIndex(prevSelectedIndex => prevSelectedIndex - 1)
-              }
-            />
-            <ArrowButton
-              isDisabled={selectedIndex === collections.length - 1}
-              onClick={() =>
-                setSelectedIndex(prevSelectedIndex => prevSelectedIndex + 1)
-              }
-            />
-          </>
-        )}
       </Box>
       <Container maxW="xl" px="16">
         <Box borderTopWidth="1px" pt="8">
