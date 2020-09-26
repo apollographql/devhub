@@ -68,7 +68,7 @@ export default function CollectionTemplate({data}) {
                     : author.avatar.url
                 }
               />
-              <Box fontSize="sm" lineHeight="normal">
+              <Box fontSize="sm" lineHeight="shorter">
                 {author.name}
                 <br />
                 <Box as="span" color="gray.500">
