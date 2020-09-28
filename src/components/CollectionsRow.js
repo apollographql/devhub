@@ -1,3 +1,4 @@
+import ArrowLink from './ArrowLink';
 import CollectionCard from './CollectionCard';
 import FeedTable from './FeedTable';
 import PropTypes from 'prop-types';
@@ -72,9 +73,6 @@ export default function CollectionsRow({collections, ...props}) {
                     h="full"
                     w={COLLECTION_WIDTH}
                     as="button"
-                    display="flex"
-                    alignItems="flex-start"
-                    flexDirection="column"
                     textAlign="left"
                     outline="none"
                     onClick={() => setSelectedIndex(index)}
@@ -83,10 +81,18 @@ export default function CollectionsRow({collections, ...props}) {
                     borderColor={isSelected ? 'indigo.200' : 'transparent'}
                     boxShadow={isSelected ? 'lg' : 'none'}
                     bg={isSelected ? 'white' : 'gray.50'}
-                    p="4"
-                    borderRadius="lg"
-                    _hover={!isSelected && {bg: 'indigo.50'}}
-                  />
+                    _hover={!isSelected && {bg: 'gray.100'}}
+                  >
+                    <ArrowLink
+                      mt="auto"
+                      to={`/collection/${collection.slug}`}
+                      direction="right"
+                      fontSize="md"
+                      fontWeight="semibold"
+                    >
+                      Go to collection
+                    </ArrowLink>
+                  </CollectionCard>
                 </Box>
               );
             })}

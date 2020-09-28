@@ -1,13 +1,18 @@
-import ArrowLink from './ArrowLink';
 import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
-import {Box, Heading, Text} from '@chakra-ui/core';
+import {Flex, Heading, Text} from '@chakra-ui/core';
 import {graphql} from 'gatsby';
 
-export default function CollectionCard({collection, ...props}) {
+export default function CollectionCard({collection, children, ...props}) {
   return (
-    <Box {...props}>
+    <Flex
+      align="flex-start"
+      direction="column"
+      p="4"
+      borderRadius="lg"
+      {...props}
+    >
       <Heading
         w="full"
         mb="1"
@@ -23,20 +28,13 @@ export default function CollectionCard({collection, ...props}) {
       <Text mb="2" fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>
         {striptags(collection.content)}
       </Text>
-      <ArrowLink
-        mt="auto"
-        to={`/collection/${collection.slug}`}
-        direction="right"
-        fontSize="md"
-        fontWeight="semibold"
-      >
-        +{collection.collectionSettings.items.length} more
-      </ArrowLink>
-    </Box>
+      {children}
+    </Flex>
   );
 }
 
 CollectionCard.propTypes = {
+  children: PropTypes.node.isRequired,
   collection: PropTypes.object.isRequired
 };
 
