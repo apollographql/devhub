@@ -37,7 +37,7 @@ export default function FeedTemplate({data, pageContext}) {
             it as tailored to a skill.
           </Text>
         </Box>
-        <FeedTable posts={posts} swapDate />
+        <FeedTable posts={posts} swapDate showDescription />
         <Box mt="16">
           <Heading
             as="h6"

@@ -2,8 +2,10 @@ exports.renderByline = (post, defaultLine) => {
   const byline = [defaultLine || post.date];
 
   if (post.internal.type === 'WpPost') {
-    byline.unshift(post.author.node.name);
-    byline.push(post.categories.nodes.map(node => node.name).join(', '));
+    byline.push(
+      post.author.node.name,
+      post.categories.nodes.map(node => node.name).join(', ')
+    );
   }
 
   return byline.join(' · ');

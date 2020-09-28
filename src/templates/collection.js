@@ -13,7 +13,9 @@ import {
   Grid,
   Heading,
   Stack,
-  Text
+  Tag,
+  Text,
+  Wrap
 } from '@chakra-ui/core';
 import {graphql} from 'gatsby';
 
@@ -34,7 +36,20 @@ export default function CollectionTemplate({data}) {
             md: '2fr 1fr'
           }}
         >
-          <Stack fontSize={{md: 'lg'}}>{parse(data.collection.content)}</Stack>
+          <div>
+            <Stack fontSize={{md: 'lg'}}>
+              {parse(data.collection.content)}
+            </Stack>
+            {data.collection.categories.nodes.length && (
+              <Wrap mt="4">
+                {data.collection.categories.nodes.map(category => (
+                  <Tag variant="outline" colorScheme="indigo" key={category.id}>
+                    {category.name}
+                  </Tag>
+                ))}
+              </Wrap>
+            )}
+          </div>
           <Box display={{base: 'none', md: 'block'}}>
             <Text fontFamily="mono" color="gray.500" position="relative">
               <Box

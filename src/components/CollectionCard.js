@@ -46,6 +46,12 @@ export const pageQuery = graphql`
     slug
     title
     content
+    categories {
+      nodes {
+        id
+        name
+      }
+    }
     collectionSettings {
       items {
         ... on WpPost {

@@ -6,7 +6,12 @@ import {Box, Container, Heading, Text} from '@chakra-ui/core';
 import {getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
-export default function FeedTable({posts, swapDate, ...props}) {
+export default function FeedTable({
+  posts,
+  swapDate,
+  showDescription,
+  ...props
+}) {
   return (
     <Container maxW="lg" px="0" {...props}>
       <Box as="table" maxW="container.md">
@@ -42,12 +47,12 @@ export default function FeedTable({posts, swapDate, ...props}) {
                   <FeedItemTitle mb="2" url={url}>
                     {post.title}
                   </FeedItemTitle>
-                  {!index && post.description && (
+                  {(showDescription || !index) && post.description && (
                     <Text mb="4" fontSize={{md: 'lg'}} color="gray.600">
                       {striptags(post.description)}
                     </Text>
                   )}
-                  <Text color="gray.600" fontSize="sm">
+                  <Text lineHeight="normal" color="gray.600" fontSize="sm">
                     {renderByline(post, swapDate && type)}
                   </Text>
                 </td>
@@ -62,6 +67,7 @@ export default function FeedTable({posts, swapDate, ...props}) {
 
 FeedTable.propTypes = {
   swapDate: PropTypes.bool,
+  showDescription: PropTypes.bool,
   posts: PropTypes.array.isRequired
 };
 

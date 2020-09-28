@@ -9,7 +9,6 @@ import {
   AspectRatio,
   Box,
   Container,
-  Divider,
   Flex,
   Grid,
   Heading,
@@ -27,7 +26,7 @@ export default function HomePage({data, location}) {
   return (
     <Layout>
       <Container maxW="xl" px={[8, 10, 12, 16]}>
-        <Box maxW="container.sm" mb="20">
+        <Box maxW="container.sm" mb="12">
           <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
             Welcome to DevHub
           </Heading>
