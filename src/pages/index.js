@@ -108,7 +108,7 @@ export default function HomePage({data, location}) {
             })}
           </List>
         </Grid>
-        <Box mt="6">
+        <Box mt="6" textAlign="right">
           <ArrowLink to="/feed/1" direction="right">
             See the full feed
           </ArrowLink>
