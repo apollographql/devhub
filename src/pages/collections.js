@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {BackButton} from '../components/ArrowLink';
 import {Box, Container, Heading, Tag, Text, Wrap} from '@chakra-ui/core';
+import {CONTAINER_PADDING_X} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function Collections({data}) {
@@ -13,7 +14,7 @@ export default function Collections({data}) {
     .map(([key]) => key);
   return (
     <Layout>
-      <Container maxW="xl" px="16">
+      <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
         <Box maxW="container.md" mb="6">
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
@@ -28,7 +29,7 @@ export default function Collections({data}) {
             it as tailored to a skill or depth of knowledge level.
           </Text>
         </Box>
-        <Wrap mb="16">
+        <Wrap mb={{base: 12, md: 16}}>
           <span>Filter:</span>
           <Tag
             colorScheme={activeFilters.length ? 'gray' : 'indigo'}

@@ -16,7 +16,12 @@ import {
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {combinePosts, getNodeMeta, renderByline} from '../utils';
+import {
+  CONTAINER_PADDING_X,
+  combinePosts,
+  getNodeMeta,
+  renderByline
+} from '../utils';
 import {graphql} from 'gatsby';
 
 export default function HomePage({data, location}) {
@@ -25,7 +30,7 @@ export default function HomePage({data, location}) {
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   return (
     <Layout>
-      <Container maxW="xl" px={[8, 10, 12, 16]}>
+      <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <Box maxW="container.sm" mb="12">
           <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
             Welcome to DevHub
@@ -42,7 +47,7 @@ export default function HomePage({data, location}) {
             md: 'repeat(2, 1fr)',
             lg: '2fr 1fr'
           }}
-          gap={[8, 10, 12, 16]}
+          gap={CONTAINER_PADDING_X}
         >
           <Flex direction="column" justify="space-between">
             <div>

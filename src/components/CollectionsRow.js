@@ -11,6 +11,7 @@ import {
   IconButton,
   useTheme
 } from '@chakra-ui/core';
+import {CONTAINER_PADDING_X} from '../utils';
 import {IconBack} from '@apollo/space-kit/icons/IconBack';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 
@@ -37,7 +38,7 @@ export default function CollectionsRow({collections, ...props}) {
   return (
     <>
       <Box position="relative" mt="12" overflow="hidden" {...props}>
-        <Container maxW="xl" px="16" whiteSpace="nowrap">
+        <Container maxW="xl" px={CONTAINER_PADDING_X} whiteSpace="nowrap">
           <HStack
             align="stretch"
             spacing={COLLECTION_SPACING}
@@ -117,7 +118,7 @@ export default function CollectionsRow({collections, ...props}) {
           )}
         </Container>
       </Box>
-      <Container maxW="xl" px="16">
+      <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <Box borderTopWidth="1px" pt="8">
           <FeedTable
             posts={collections[selectedIndex].collectionSettings.items}

@@ -41,3 +41,5 @@ exports.getNodeMeta = node => {
       return {type: node.internal.type};
   }
 };
+
+exports.CONTAINER_PADDING_X = [8, 10, 12, 16];

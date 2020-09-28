@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {BackButton} from '../components/ArrowLink';
 import {Box, Container, HStack, Heading, Link, Text} from '@chakra-ui/core';
+import {CONTAINER_PADDING_X, combinePosts} from '../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
-import {combinePosts} from '../utils';
 
 const MAX_PAGES_SHOWN = 9;
 
@@ -22,9 +22,9 @@ export default function FeedTemplate({data, pageContext}) {
 
   return (
     <Layout>
-      <Container maxW="xl" px="16">
+      <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
-        <Box maxW="container.sm" mb="20">
+        <Box maxW="container.sm" mb={{base: 12, md: 16}}>
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             News Feed
           </Heading>
