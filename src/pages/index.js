@@ -77,42 +77,42 @@ export default function HomePage({data, location}) {
               </Text>
             </div>
           </Flex>
-          <List spacing="6">
-            {posts.map(post => {
-              const {type, url} = getNodeMeta(post);
-              return (
-                <ListItem key={post.id}>
-                  <Heading
-                    textStyle="subheading"
-                    fontSize="xs"
-                    as="h6"
-                    color="indigo.300"
-                  >
-                    {type}
-                  </Heading>
-                  <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
-                  {post.description && (
-                    <Text
-                      color="gray.600"
-                      textStyle="clamped"
-                      css={{WebkitLineClamp: 2}}
+          <div>
+            <List mb="6" spacing="6">
+              {posts.map(post => {
+                const {type, url} = getNodeMeta(post);
+                return (
+                  <ListItem key={post.id}>
+                    <Heading
+                      textStyle="subheading"
+                      fontSize="xs"
+                      as="h6"
+                      color="indigo.300"
                     >
-                      {striptags(post.description)}
+                      {type}
+                    </Heading>
+                    <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
+                    {post.description && (
+                      <Text
+                        color="gray.600"
+                        textStyle="clamped"
+                        css={{WebkitLineClamp: 2}}
+                      >
+                        {striptags(post.description)}
+                      </Text>
+                    )}
+                    <Text color="gray.600" mt="2" fontSize="sm">
+                      {renderByline(post)}
                     </Text>
-                  )}
-                  <Text color="gray.600" mt="2" fontSize="sm">
-                    {renderByline(post)}
-                  </Text>
-                </ListItem>
-              );
-            })}
-          </List>
+                  </ListItem>
+                );
+              })}
+            </List>
+            <ArrowLink to="/feed/1" direction="right">
+              See the full feed
+            </ArrowLink>
+          </div>
         </Grid>
-        <Box mt="6" textAlign="right">
-          <ArrowLink to="/feed/1" direction="right">
-            See the full feed
-          </ArrowLink>
-        </Box>
         <Box mt="20" maxW="container.md">
           <Heading
             mb="4"
@@ -123,21 +123,19 @@ export default function HomePage({data, location}) {
           >
             Apollo Collections
           </Heading>
-          <Text fontSize={{md: 'lg'}}>
+          <Text mb="6" fontSize={{md: 'lg'}}>
             The Apollo team along with our community members have been currating
             content into logical groups we call collections. They serve as the
             corpus of resources that can give any newcomer a head start, expand
             the knowledge of a novice, or take our advanced learners into
             expertise.
           </Text>
+          <ArrowLink direction="right" to="/collections">
+            See all of our collections
+          </ArrowLink>
         </Box>
       </Container>
       <CollectionsRow collections={data.allWpCollection.nodes} />
-      <Container maxW="xl" px="16" mt="10">
-        <ArrowLink direction="right" to="/collections">
-          See all of our collections
-        </ArrowLink>
-      </Container>
     </Layout>
   );
 }

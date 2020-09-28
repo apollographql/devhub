@@ -36,7 +36,7 @@ export default function CollectionsRow({collections, ...props}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <>
-      <Box position="relative" mt="10" overflow="hidden" {...props}>
+      <Box position="relative" mt="12" overflow="hidden" {...props}>
         <Container maxW="xl" px="16" whiteSpace="nowrap">
           <HStack
             align="stretch"
