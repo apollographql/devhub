@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 
 export default function FeedTable({
   posts,
+  children,
   swapDate,
   showDescription,
   ...props
@@ -59,6 +60,7 @@ export default function FeedTable({
               </Box>
             );
           })}
+          {children}
         </tbody>
       </Box>
     </Container>
@@ -66,6 +68,7 @@ export default function FeedTable({
 }
 
 FeedTable.propTypes = {
+  children: PropTypes.node,
   swapDate: PropTypes.bool,
   showDescription: PropTypes.bool,
   posts: PropTypes.array.isRequired

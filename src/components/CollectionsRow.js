@@ -17,6 +17,7 @@ import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 
 const COLLECTION_WIDTH = 320;
 const COLLECTION_SPACING = 4;
+const MAX_ITEMS_SHOWN = 3;
 
 function ArrowButton({icon, ...props}) {
   return (
@@ -32,9 +33,27 @@ ArrowButton.propTypes = {
   icon: PropTypes.object.isRequired
 };
 
+function CollectionLink({collection, ...props}) {
+  const surplus = collection.collectionSettings.items.length - MAX_ITEMS_SHOWN;
+  return (
+    <ArrowLink
+      to={`/collection/${collection.slug}`}
+      direction="right"
+      {...props}
+    >
+      {surplus > 0 ? `+${surplus} more` : 'Go to collection'}
+    </ArrowLink>
+  );
+}
+
+CollectionLink.propTypes = {
+  collection: PropTypes.object.isRequired
+};
+
 export default function CollectionsRow({collections, ...props}) {
   const theme = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedCollection = collections[selectedIndex];
   return (
     <>
       <Box position="relative" mt="12" overflow="hidden" {...props}>
@@ -84,15 +103,12 @@ export default function CollectionsRow({collections, ...props}) {
                     bg={isSelected ? 'white' : 'gray.50'}
                     _hover={!isSelected && {bg: 'gray.100'}}
                   >
-                    <ArrowLink
+                    <CollectionLink
+                      collection={collection}
                       mt="auto"
-                      to={`/collection/${collection.slug}`}
-                      direction="right"
                       fontSize="md"
                       fontWeight="semibold"
-                    >
-                      Go to collection
-                    </ArrowLink>
+                    />
                   </CollectionCard>
                 </Box>
               );
@@ -121,8 +137,18 @@ export default function CollectionsRow({collections, ...props}) {
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <Box borderTopWidth="1px" pt="8">
           <FeedTable
-            posts={collections[selectedIndex].collectionSettings.items}
-          />
+            posts={selectedCollection.collectionSettings.items.slice(
+              0,
+              MAX_ITEMS_SHOWN
+            )}
+          >
+            <tr>
+              <td />
+              <td>
+                <CollectionLink collection={selectedCollection} />
+              </td>
+            </tr>
+          </FeedTable>
         </Box>
       </Container>
     </>
