@@ -11,7 +11,7 @@ function FilterTag({isSelected, ...props}) {
   return (
     <Tag
       as="button"
-      variant={isSelected ? 'solid' : 'outline'}
+      variant={isSelected ? 'outline' : 'subtle'}
       colorScheme={isSelected ? 'indigo' : 'gray'}
       {...props}
     />
