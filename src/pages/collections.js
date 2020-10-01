@@ -7,11 +7,24 @@ import {Box, Container, Heading, Tag, Text, Wrap} from '@chakra-ui/core';
 import {CONTAINER_PADDING_X} from '../utils';
 import {graphql} from 'gatsby';
 
+function FilterTag({isSelected, ...props}) {
+  return (
+    <Tag
+      as="button"
+      variant={isSelected ? 'solid' : 'outline'}
+      colorScheme={isSelected ? 'indigo' : 'gray'}
+      {...props}
+    />
+  );
+}
+
+FilterTag.propTypes = {
+  isSelected: PropTypes.bool.isRequired
+};
+
 export default function Collections({data}) {
   const [filter, setFilter] = useState({});
-  const activeFilters = Object.entries(filter)
-    .filter(([, value]) => Boolean(value))
-    .map(([key]) => key);
+  const hasFilters = Object.entries(filter).some(([, value]) => value);
   return (
     <Layout>
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
@@ -31,20 +44,20 @@ export default function Collections({data}) {
         </Box>
         <Wrap mb={{base: 12, md: 16}}>
           <span>Filter:</span>
-          <Tag
-            colorScheme={activeFilters.length ? 'gray' : 'indigo'}
+          <FilterTag
+            isSelected={!hasFilters}
             as="button"
             onClick={() => setFilter({})}
           >
             All
-          </Tag>
+          </FilterTag>
           {data.allWpCategory.nodes
             .filter(category => category.collections.nodes.length)
             .map(category => (
-              <Tag
+              <FilterTag
                 key={category.id}
                 as="button"
-                colorScheme={filter[category.id] ? 'indigo' : 'gray'}
+                isSelected={filter[category.id]}
                 onClick={() =>
                   setFilter(prevFilter => ({
                     ...prevFilter,
@@ -53,20 +66,17 @@ export default function Collections({data}) {
                 }
               >
                 {category.name}
-              </Tag>
+              </FilterTag>
             ))}
         </Wrap>
         <CollectionsGrid
           collections={
-            activeFilters.length
-              ? data.allWpCollection.nodes.filter(collection => {
-                  const categoryIds = collection.categories.nodes.map(
-                    category => category.id
-                  );
-                  return activeFilters.every(categoryId =>
-                    categoryIds.includes(categoryId)
-                  );
-                })
+            hasFilters
+              ? data.allWpCollection.nodes.filter(collection =>
+                  collection.categories.nodes.some(
+                    category => filter[category.id]
+                  )
+                )
               : data.allWpCollection.nodes
           }
         />

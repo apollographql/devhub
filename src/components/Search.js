@@ -117,6 +117,7 @@ export default function Search() {
       >
         <InputGroup size="sm" variant="flushed" overflow="hidden">
           <Input
+            _focus={{borderColor: 'indigo.300'}}
             ref={inputRef}
             fontSize="md"
             placeholder="Search collections"

@@ -49,7 +49,13 @@ export default function FeedTable({
                     {post.title}
                   </FeedItemTitle>
                   {(showDescription || !index) && post.description && (
-                    <Text mb="4" fontSize={{md: 'lg'}} color="gray.600">
+                    <Text
+                      mb="4"
+                      fontSize={{md: 'lg'}}
+                      color="gray.600"
+                      textStyle="clamped"
+                      css={{WebkitLineClamp: 2}}
+                    >
                       {striptags(post.description)}
                     </Text>
                   )}
