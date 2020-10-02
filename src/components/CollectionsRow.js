@@ -33,7 +33,7 @@ ArrowButton.propTypes = {
   icon: PropTypes.object.isRequired
 };
 
-function CollectionLink({collection, ...props}) {
+function CollectionLink({collection, showPlus, ...props}) {
   const surplus = collection.collectionSettings.items.length - MAX_ITEMS_SHOWN;
   return (
     <ArrowLink
@@ -41,12 +41,13 @@ function CollectionLink({collection, ...props}) {
       direction="right"
       {...props}
     >
-      {surplus > 0 ? `+${surplus} more` : 'Go to collection'}
+      {showPlus && surplus > 0 ? `+${surplus} more` : 'Go to collection'}
     </ArrowLink>
   );
 }
 
 CollectionLink.propTypes = {
+  showPlus: PropTypes.bool,
   collection: PropTypes.object.isRequired
 };
 
@@ -145,7 +146,7 @@ export default function CollectionsRow({collections, ...props}) {
             <tr>
               <td />
               <td>
-                <CollectionLink collection={selectedCollection} />
+                <CollectionLink showPlus collection={selectedCollection} />
               </td>
             </tr>
           </FeedTable>
