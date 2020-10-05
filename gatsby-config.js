@@ -2,7 +2,13 @@ require('dotenv').config();
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-chakra-ui',
+    {
+      resolve: 'gatsby-plugin-chakra-ui',
+      options: {
+        // TODO: re-enable color modes
+        isUsingColorMode: false
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-prefetch-google-fonts',
