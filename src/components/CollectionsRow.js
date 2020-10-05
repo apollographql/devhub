@@ -9,6 +9,7 @@ import {
   Container,
   HStack,
   IconButton,
+  useEventListener,
   useTheme
 } from '@chakra-ui/core';
 import {CONTAINER_PADDING_X} from '../utils';
@@ -55,6 +56,20 @@ export default function CollectionsRow({collections, ...props}) {
   const theme = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedCollection = collections[selectedIndex];
+
+  useEventListener('keydown', event => {
+    const isArrowLeft = event.key === 'ArrowLeft';
+    if (isArrowLeft || event.key === 'ArrowRight') {
+      const direction = isArrowLeft ? -1 : 1;
+      setSelectedIndex(prevSelectedIndex =>
+        Math.max(
+          0,
+          Math.min(collections.length - 1, prevSelectedIndex + 1 * direction)
+        )
+      );
+    }
+  });
+
   return (
     <>
       <Box position="relative" mt="12" overflow="hidden" {...props}>
