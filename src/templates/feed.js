@@ -29,12 +29,10 @@ export default function FeedTemplate({data, pageContext}) {
             News Feed
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            This copy should be descriptive of why this collection exists.
-            Including what is in the collection – types of content that
-            dominate, maybe this one is blog post heavy but has a single
-            implementation item making it more of an overview type of
-            collection. If we know what the collection includes we can present
-            it as tailored to a skill.
+            The feed is a constantly-updated stream of activity from all of
+            Apollo&apos;s developer experience channels. It&apos;s also a source
+            of product updates, announcements, and outstanding educational
+            materials from the community at large.
           </Text>
         </Box>
         <FeedTable posts={posts} swapDate showDescription />

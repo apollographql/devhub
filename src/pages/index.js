@@ -129,11 +129,10 @@ export default function HomePage({data, location}) {
             Apollo Collections
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}}>
-            The Apollo team along with our community members have been currating
-            content into logical groups we call collections. They serve as the
-            corpus of resources that can give any newcomer a head start, expand
-            the knowledge of a novice, or take our advanced learners into
-            expertise.
+            The Apollo team has been currating content into logical groups we
+            call collections. They serve as the corpus of resources that can
+            give any newcomer a head start, expand the knowledge of a novice, or
+            take our advanced learners into expertise.
           </Text>
           <ArrowLink direction="right" to="/collections">
             See all of our collections

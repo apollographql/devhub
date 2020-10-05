@@ -34,12 +34,11 @@ export default function Collections({data}) {
             Apollo Collections
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            This copy should be descriptive of why this collection exists.
-            Including what is in the collection – types of content that
-            dominate, maybe this one is blog post heavy but has a single
-            implementation item making it more of an overview type of
-            collection. If we know what the collection includes we can present
-            it as tailored to a skill or depth of knowledge level.
+            Collections are groups of articles, videos, and tutorials that
+            follow a particular topic or subject matter. They are hand-picked by
+            our team from the very best material created by us and the GraphQL
+            community. They are constantly being updated with the most recent
+            and relevant content available.
           </Text>
         </Box>
         <Wrap mb={{base: 12, md: 16}}>
