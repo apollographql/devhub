@@ -38,7 +38,18 @@ export default function CollectionTemplate({data}) {
           }}
         >
           <div>
-            <Stack fontSize={{md: 'lg'}}>
+            <Stack
+              fontSize={{md: 'lg'}}
+              sx={{
+                code: {
+                  px: 1,
+                  bg: 'indigo.50',
+                  fontSize: '0.9em',
+                  color: 'indigo.500',
+                  borderRadius: 'md'
+                }
+              }}
+            >
               {parse(data.collection.content)}
             </Stack>
             {data.collection.categories.nodes.length && (
