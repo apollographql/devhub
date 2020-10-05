@@ -36,9 +36,9 @@ export default function HomePage({data, location}) {
             Welcome to DevHub
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            Apollo is a platform for building a data graph, a communication
-            layer that seamlessly connects your application clients to your
-            back-end services.
+            Our mission is to inspire and equip all developers to be successful
+            with Apollo. DevHub is a home to the best eductional resources for
+            building apps with Apollo and GraphQL.
           </Text>
         </Box>
         <Grid
