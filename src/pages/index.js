@@ -118,7 +118,7 @@ export default function HomePage({data, location}) {
             </ArrowLink>
           </div>
         </Grid>
-        <Box mt="20" maxW="container.md">
+        <Box id="collections" pt="20" maxW="container.md">
           <Heading
             mb="4"
             fontSize={{
@@ -126,7 +126,7 @@ export default function HomePage({data, location}) {
               md: '4xl'
             }}
           >
-            Apollo Collections
+            <a href="#collections">Apollo Collections</a>
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}}>
             The Apollo team has been currating content into logical groups we
