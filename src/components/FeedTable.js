@@ -21,6 +21,7 @@ export default function FeedTable({
             const {type, url} = getNodeMeta(post);
             const isDescriptionShown =
               (showDescription || !index) && post.description;
+            const isPaid = post.feedItemSettings?.isPaid;
             const isBylineShown =
               post.internal.type !== 'WpFeedItem' ||
               post.feedItemSettings.isPaid ||
@@ -67,21 +68,21 @@ export default function FeedTable({
                       {striptags(post.description)}
                     </Text>
                   )}
-                  {isBylineShown && (
+                  {(isBylineShown || isPaid) && (
                     <Text
                       mt={isDescriptionShown ? 4 : 2}
                       lineHeight="normal"
                       color="gray.600"
                       fontSize="sm"
                     >
-                      {post.feedItemSettings?.isPaid && (
+                      {isPaid && (
                         <>
                           <Badge verticalAlign="initial" colorScheme="green">
                             Paid
                           </Badge>{' '}
                         </>
                       )}
-                      {renderByline(post, swapDate && type)}
+                      {isBylineShown && renderByline(post, swapDate && type)}
                     </Text>
                   )}
                 </td>
