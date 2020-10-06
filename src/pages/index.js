@@ -36,8 +36,7 @@ export default function HomePage({data, location}) {
             Welcome to DevHub
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            Explore all the latest educational content for building apps with
-            Apollo.
+            Explore all the latest resources for building apps with Apollo.
           </Text>
         </Box>
         <Grid
@@ -128,8 +127,7 @@ export default function HomePage({data, location}) {
             <a href="#collections">Apollo Collections</a>
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}}>
-            Hand-picked blog posts, videos, and documentation on everything
-            Apollo.
+            Hand-picked blog posts, videos, and documentation.
           </Text>
           <ArrowLink direction="right" to="/collections">
             See all of our collections
