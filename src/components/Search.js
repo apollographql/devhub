@@ -109,7 +109,8 @@ export default function Search({isOpen, onOpen, onClose}) {
         w="0"
         mr={{
           base: isOpen ? 0 : 2,
-          md: 5
+          md: isOpen ? 0 : 5,
+          lg: 5
         }}
         position="relative"
         transition="all 250ms"

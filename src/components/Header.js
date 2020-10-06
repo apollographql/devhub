@@ -92,7 +92,8 @@ export default function Header() {
       <HStack
         display={{
           base: 'none',
-          md: 'flex'
+          md: searchProps.isOpen ? 'none' : 'flex',
+          lg: 'flex'
         }}
         fontWeight="semibold"
         spacing="8"
