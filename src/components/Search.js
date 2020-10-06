@@ -137,7 +137,7 @@ export default function Search() {
             />
           </InputRightElement>
         </InputGroup>
-        {inputValue && inputFocus && results.length > 0 && (
+        {inputValue && inputFocus && (
           <Box
             w="full"
             mt="2"
@@ -150,29 +150,35 @@ export default function Search() {
             overflow="hidden"
             onMouseDown={event => event.preventDefault()}
           >
-            {results.map((result, index) => (
-              <Box
-                display="block"
-                as={GatsbyLink}
-                to={'/collection/' + result.slug}
-                p="4"
-                key={result.id}
-                bg={selectedIndex === index && 'gray.50'}
-                onMouseEnter={() => setSelectedIndex(index)}
-                onMouseLeave={() => setSelectedIndex(null)}
-              >
-                <Heading as="h4" fontSize="xl">
-                  {result.title}
-                </Heading>
-                <Text
-                  textStyle="clamped"
-                  css={{WebkitLineClamp: 2}}
-                  color="gray.500"
+            {results.length > 0 ? (
+              results.map((result, index) => (
+                <Box
+                  display="block"
+                  as={GatsbyLink}
+                  to={'/collection/' + result.slug}
+                  p="4"
+                  key={result.id}
+                  bg={selectedIndex === index && 'gray.50'}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                  onMouseLeave={() => setSelectedIndex(null)}
                 >
-                  {striptags(result.excerpt)}
-                </Text>
+                  <Heading as="h4" fontSize="xl">
+                    {result.title}
+                  </Heading>
+                  <Text
+                    textStyle="clamped"
+                    css={{WebkitLineClamp: 2}}
+                    color="gray.500"
+                  >
+                    {striptags(result.excerpt)}
+                  </Text>
+                </Box>
+              ))
+            ) : (
+              <Box px="4" py="3">
+                No results found
               </Box>
-            ))}
+            )}
           </Box>
         )}
       </Box>
