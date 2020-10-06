@@ -36,9 +36,8 @@ export default function HomePage({data, location}) {
             Welcome to DevHub
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            Our mission is to inspire and equip all developers to be successful
-            with Apollo. DevHub is a home to the best eductional resources for
-            building apps with Apollo and GraphQL.
+            Explore all the latest educational content for building apps with
+            Apollo.
           </Text>
         </Box>
         <Grid
@@ -129,10 +128,8 @@ export default function HomePage({data, location}) {
             <a href="#collections">Apollo Collections</a>
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}}>
-            The Apollo team has been currating content into logical groups we
-            call collections. They serve as the corpus of resources that can
-            give any newcomer a head start, expand the knowledge of a novice, or
-            take our advanced learners into expertise.
+            Hand-picked blog posts, videos, and documentation on everything
+            Apollo.
           </Text>
           <ArrowLink direction="right" to="/collections">
             See all of our collections

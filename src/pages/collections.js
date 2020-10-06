@@ -19,7 +19,7 @@ function FilterTag({isSelected, ...props}) {
 }
 
 FilterTag.propTypes = {
-  isSelected: PropTypes.bool.isRequired
+  isSelected: PropTypes.bool
 };
 
 export default function Collections({data}) {
@@ -34,10 +34,8 @@ export default function Collections({data}) {
             Apollo Collections
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            Collections are groups of articles, videos, and tutorials that
-            follow a particular topic or subject matter. They are hand-picked by
-            our team from the very best material created by us and the GraphQL
-            community. They are constantly being updated with the most recent
+            Collections are groups of articles, videos, and tutorials about a
+            particular topic. They are regularly updated with the most recent
             and relevant content available.
           </Text>
         </Box>

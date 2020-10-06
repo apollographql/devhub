@@ -29,10 +29,9 @@ export default function FeedTemplate({data, pageContext}) {
             News Feed
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            The feed is a constantly-updated stream of activity from all of
-            Apollo&apos;s developer experience channels. It&apos;s also a source
-            of product updates, announcements, and outstanding educational
-            materials from the community at large.
+            This timeline highlights activity across all of Apollo, including
+            product updates, announcements, and educational content from both
+            our team and the larger Apollo community.
           </Text>
         </Box>
         <FeedTable posts={posts} swapDate showDescription />

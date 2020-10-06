@@ -33,7 +33,8 @@ export default function Header() {
       <Flex mr="auto" align="center">
         <Box as={ApolloIcon} h="6" title="Apollo" />
         <Box
-          as="span"
+          as={GatsbyLink}
+          to="/"
           ml="2"
           mt="-px"
           borderRadius="sm"

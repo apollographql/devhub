@@ -8,6 +8,23 @@ exports.renderByline = (post, defaultLine) => {
     );
   }
 
+  switch (post.internal.type) {
+    case 'WpPost':
+      byline.push(
+        post.author.node.name,
+        post.categories.nodes.map(node => node.name).join(', ')
+      );
+      break;
+    case 'WpFeedItem': {
+      const {author} = post.feedItemSettings;
+      if (author) {
+        byline.push(author);
+      }
+      break;
+    }
+    default:
+  }
+
   return byline.join(' · ');
 };
 
