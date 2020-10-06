@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import striptags from 'striptags';
 import {
@@ -15,7 +16,7 @@ import {IconArrowLeft} from '@apollo/space-kit/icons/IconArrowLeft';
 import {IconSearch} from '@apollo/space-kit/icons/IconSearch';
 import {Index} from 'elasticlunr';
 
-export default function Search() {
+export default function Search({isOpen, onOpen, onClose}) {
   const data = useStaticQuery(
     graphql`
       query SearchIndexQuery {
@@ -28,22 +29,21 @@ export default function Search() {
 
   const inputRef = useRef();
   const [inputFocus, setInputFocus] = useState(false);
-  const [inputShown, setInputShown] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   function showInput() {
-    setInputShown(true);
+    onOpen();
     setInputValue('');
     inputRef.current.focus();
   }
 
   function hideInput() {
-    setInputShown(false);
+    onClose();
     inputRef.current.blur();
   }
 
   useEventListener('keydown', event => {
-    if (event.key === '/' && !inputShown) {
+    if (event.key === '/' && !isOpen) {
       event.preventDefault();
       showInput();
     }
@@ -95,25 +95,25 @@ export default function Search() {
     <>
       <IconButton
         ml={{
-          base: 2,
+          base: isOpen ? -2 : 2,
           md: 5
         }}
         variant="ghost"
         borderRadius="full"
-        isDisabled={inputShown}
-        pointerEvents={inputShown && 'none'}
+        isDisabled={isOpen}
+        pointerEvents={isOpen && 'none'}
         icon={<Box as={IconSearch} h="1em" />}
         onClick={showInput}
       />
       <Box
         w="0"
         mr={{
-          base: 2,
+          base: isOpen ? 0 : 2,
           md: 5
         }}
         position="relative"
         transition="all 250ms"
-        style={{flexGrow: Number(inputShown)}}
+        style={{flexGrow: Number(isOpen)}}
       >
         <InputGroup size="sm" variant="flushed" overflow="hidden">
           <Input
@@ -185,3 +185,9 @@ export default function Search() {
     </>
   );
 }
+
+Search.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onOpen: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
+};

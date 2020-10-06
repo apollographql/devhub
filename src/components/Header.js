@@ -12,13 +12,15 @@ import {
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList
+  MenuList,
+  useDisclosure
 } from '@chakra-ui/core';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
 
 export default function Header() {
+  const searchProps = useDisclosure();
   return (
     <Flex
       as="header"
@@ -30,7 +32,14 @@ export default function Header() {
       bg="white"
       zIndex="1"
     >
-      <Flex mr="auto" align="center">
+      <Flex
+        mr="auto"
+        align="center"
+        display={{
+          base: searchProps.isOpen ? 'none' : 'flex',
+          md: 'flex'
+        }}
+      >
         <Box as={ApolloIcon} h="6" title="Apollo" />
         <Box
           as={GatsbyLink}
@@ -49,11 +58,14 @@ export default function Header() {
           DevHub
         </Box>
       </Flex>
-      <Search />
+      <Search {...searchProps} />
       <Menu>
         <MenuButton
           as={IconButton}
-          display={{base: 'flex', md: 'none'}}
+          display={{
+            base: searchProps.isOpen ? 'none' : 'flex',
+            md: 'none'
+          }}
           variant="ghost"
           fontSize="2xl"
           colorScheme="indigo"
