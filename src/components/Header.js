@@ -124,6 +124,12 @@ export default function Header() {
               >
                 Apollo Studio
               </MenuItem>
+              <MenuItem
+                as="a"
+                href="https://www.apollographql.com/docs/federation/"
+              >
+                Apollo Federation
+              </MenuItem>
               <MenuDivider />
               <MenuItem as="a" href="https://www.apollographql.com/docs/react/">
                 Apollo Client (React)
