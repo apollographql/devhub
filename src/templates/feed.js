@@ -2,13 +2,15 @@ import FeedTable from '../components/FeedTable';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Seo from '../components/Seo';
 import {BackButton} from '../components/ArrowLink';
 import {Box, Container, HStack, Heading, Link, Text} from '@chakra-ui/core';
 import {CONTAINER_PADDING_X, combinePosts} from '../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
-import {Helmet} from 'react-helmet';
 
 const MAX_PAGES_SHOWN = 9;
+const TITLE = 'News Feed';
+const DESCRIPTION = 'This timeline highlights activity across all of Apollo.';
 
 export default function FeedTemplate({data, pageContext}) {
   const posts = combinePosts(data);
@@ -23,17 +25,17 @@ export default function FeedTemplate({data, pageContext}) {
 
   return (
     <Layout>
-      <Helmet title="News Feed" />
+      <Seo title={TITLE} description={DESCRIPTION} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
         <Box maxW="container.sm" mb={{base: 12, md: 16}}>
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
-            News Feed
+            {TITLE}
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            This timeline highlights activity across all of Apollo, including
-            product updates, announcements, and educational content from both
-            our team and the larger Apollo community.
+            {DESCRIPTION} It includes product updates, announcements, and
+            educational content from both our team and the larger Apollo
+            community.
           </Text>
         </Box>
         <FeedTable posts={posts} swapDate showDescription />

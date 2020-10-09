@@ -4,6 +4,7 @@ import FeedItemTitle from '../components/FeedItemTitle';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Seo from '../components/Seo';
 import striptags from 'striptags';
 import {
   AspectRatio,
@@ -24,20 +25,23 @@ import {
 } from '../utils';
 import {graphql} from 'gatsby';
 
+const TITLE = 'Welcome to DevHub';
+const DESCRIPTION =
+  'Explore all the latest resources for building apps with Apollo.';
+
 export default function HomePage({data, location}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   return (
     <Layout>
+      <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <Box maxW="container.sm" mb="12">
           <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
-            Welcome to DevHub
+            {TITLE}
           </Heading>
-          <Text fontSize={{md: 'lg'}}>
-            Explore all the latest resources for building apps with Apollo.
-          </Text>
+          <Text fontSize={{md: 'lg'}}>{DESCRIPTION}</Text>
         </Box>
         <Grid
           templateColumns={{

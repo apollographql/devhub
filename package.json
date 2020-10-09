@@ -9,6 +9,7 @@
     "@apollo/space-kit": "^7.10.1",
     "@chakra-ui/core": "^1.0.0-rc.3",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
+    "@jlengstorf/get-share-image": "^0.7.1",
     "gatsby": "^2.24.52",
     "gatsby-plugin-chakra-ui": "^1.0.0-rc.3",
     "gatsby-plugin-google-analytics": "^2.3.14",

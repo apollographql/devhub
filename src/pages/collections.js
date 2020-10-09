@@ -2,10 +2,10 @@ import CollectionsGrid from '../components/CollectionsGrid';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
+import Seo from '../components/Seo';
 import {BackButton} from '../components/ArrowLink';
 import {Box, Container, Heading, Tag, Text, Wrap} from '@chakra-ui/core';
 import {CONTAINER_PADDING_X} from '../utils';
-import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 function FilterTag({isSelected, ...props}) {
@@ -23,12 +23,15 @@ FilterTag.propTypes = {
   isSelected: PropTypes.bool
 };
 
+const DESCRIPTION =
+  'Collections are groups of articles, videos, and tutorials about a particular topic.';
+
 export default function Collections({data}) {
   const [filter, setFilter] = useState({});
   const hasFilters = Object.entries(filter).some(([, value]) => value);
   return (
     <Layout>
-      <Helmet title="Collections" />
+      <Seo title="Collections" description={DESCRIPTION} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
         <Box maxW="container.md" mb="6">
@@ -36,9 +39,8 @@ export default function Collections({data}) {
             Apollo Collections
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            Collections are groups of articles, videos, and tutorials about a
-            particular topic. They are regularly updated with the most recent
-            and relevant content available.
+            {DESCRIPTION} They are regularly updated with the most recent and
+            relevant content available.
           </Text>
         </Box>
         <Wrap mb={{base: 12, md: 16}}>
