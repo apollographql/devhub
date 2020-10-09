@@ -35,6 +35,8 @@ export default function Header() {
       <Flex
         mr="auto"
         align="center"
+        as={GatsbyLink}
+        to="/"
         display={{
           base: searchProps.isOpen ? 'none' : 'flex',
           md: 'flex'
@@ -42,8 +44,6 @@ export default function Header() {
       >
         <Box as={ApolloIcon} h="6" title="Apollo" />
         <Box
-          as={GatsbyLink}
-          to="/"
           ml="2"
           mt="-px"
           borderRadius="sm"

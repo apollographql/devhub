@@ -64,7 +64,7 @@ export default function CollectionsRow({collections, ...props}) {
       setSelectedIndex(prevSelectedIndex =>
         Math.max(
           0,
-          Math.min(collections.length - 1, prevSelectedIndex + 1 * direction)
+          Math.min(collections.length - 1, prevSelectedIndex + direction)
         )
       );
     }

@@ -6,6 +6,7 @@ import {BackButton} from '../components/ArrowLink';
 import {Box, Container, HStack, Heading, Link, Text} from '@chakra-ui/core';
 import {CONTAINER_PADDING_X, combinePosts} from '../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
+import {Helmet} from 'react-helmet';
 
 const MAX_PAGES_SHOWN = 9;
 
@@ -22,6 +23,7 @@ export default function FeedTemplate({data, pageContext}) {
 
   return (
     <Layout>
+      <Helmet title="News Feed" />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
         <Box maxW="container.sm" mb={{base: 12, md: 16}}>

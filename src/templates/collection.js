@@ -18,12 +18,14 @@ import {
   Wrap
 } from '@chakra-ui/core';
 import {CONTAINER_PADDING_X} from '../utils';
+import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 export default function CollectionTemplate({data}) {
   const {node: author} = data.collection.author;
   return (
     <Layout>
+      <Helmet title={data.collection.title} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton to="/collections">Collections</BackButton>
         <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>

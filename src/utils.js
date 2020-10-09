@@ -1,13 +1,6 @@
 exports.renderByline = (post, defaultLine) => {
   const byline = [defaultLine || post.date];
 
-  if (post.internal.type === 'WpPost') {
-    byline.push(
-      post.author.node.name,
-      post.categories.nodes.map(node => node.name).join(', ')
-    );
-  }
-
   switch (post.internal.type) {
     case 'WpPost':
       byline.push(

@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import {BackButton} from '../components/ArrowLink';
 import {Box, Container, Heading, Tag, Text, Wrap} from '@chakra-ui/core';
 import {CONTAINER_PADDING_X} from '../utils';
+import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 function FilterTag({isSelected, ...props}) {
@@ -27,6 +28,7 @@ export default function Collections({data}) {
   const hasFilters = Object.entries(filter).some(([, value]) => value);
   return (
     <Layout>
+      <Helmet title="Collections" />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
         <BackButton />
         <Box maxW="container.md" mb="6">
