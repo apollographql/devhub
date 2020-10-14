@@ -87,7 +87,7 @@ export default function CollectionTemplate({data}) {
                 &ldquo;
               </Box>
               <Box as="span" position="relative">
-                {striptags(data.collection.excerpt).trim()}&rdquo;
+                {striptags(data.collection.excerpt).trim()}
               </Box>
             </Text>
             <Flex align="center" mt="4">
