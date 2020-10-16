@@ -173,7 +173,10 @@ export const pageQuery = graphql`
         ...VideoFragment
       }
     }
-    allWpCollection(limit: 5) {
+    allWpCollection(
+      filter: {collectionSettings: {isUnlisted: {ne: true}}}
+      limit: 5
+    ) {
       nodes {
         ...CollectionFragment
       }

@@ -92,7 +92,10 @@ Collections.propTypes = {
 
 export const pageQuery = graphql`
   query CollectionsQuery {
-    allWpCollection(sort: {fields: date, order: DESC}) {
+    allWpCollection(
+      filter: {collectionSettings: {isUnlisted: {ne: true}}}
+      sort: {fields: date, order: DESC}
+    ) {
       nodes {
         ...CollectionFragment
       }
