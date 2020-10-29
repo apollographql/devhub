@@ -3,7 +3,7 @@
 DevHub is a place for developers to explore the latest resources for building apps with Apollo. It allows us to organize the best resources—blogs, videos, docs, and more—about a particular subject into hand-picked collections. This document explains how to update the website and create new collections.
 
 - [Developing locally](#developing-locally)
-- [Running Wordpress](#running-wordpress)
+- [Running Wordpress locally](#running-wordpress-locally)
   - [Recommended method](#recommended-method)
 - [In this repo](#in-this-repo)
 - [In Wordpress](#in-wordpress)
@@ -34,7 +34,7 @@ netlify dev # use this instead of `npm start`
 
 By default, this will run the website locally with data sourced from our production Wordpress instance. Don't worry, you can't write any new data to the prod instance from here. 😅
 
-## Running Wordpress
+## Running Wordpress locally
 
 If you want to load your data from a local Wordpress instance, simply supply a `WORDPRESS_URL_DEV` environment variable when you start the local development environment. You could do this by writing it inline before `netlify dev`:
 
