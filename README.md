@@ -9,6 +9,7 @@ DevHub is a place for developers to explore the latest resources for building ap
 - [In Wordpress](#in-wordpress)
   - [Feed items](#feed-items)
   - [Collections](#collections)
+- [Twitch streams](#twitch-streams)
 
 ## Developing locally
 
@@ -65,8 +66,56 @@ The dynamic data in this website is sourced from a Wordpress instance using [`ga
 
 ## In Wordpress
 
+All of the dynamic data in this website lives in Wordpress. To update this content, first [log in to Wordpress](https://wp.apollographql.com/wp-admin). In the Wordpress backend, on the left side of the page, you'll find a DevHub menu item (pictured below) with links to manage feed items and collections.
+
+![DevHub menu item](sidebar.png)
+
+If you need access to Wordpress, please let us know in the #team-dx Slack channel and somebody will set that up for you. 🎉
+
 ### Feed items
+
+All [streams](#twitch-streams) and blog posts will automatically appear in the feed on DevHub, but other types of content like videos, courses, or external blog posts must be added manually. In addition, any collection items that are _not_ Apollo blog posts must be added as feed items first, even if they don't appear in the feed.
+
+To create a feed item, click the "Feed Items" menu option, and then the "Add New" button at the top of the feed items page. All feed items must have a title, and will usually have a URL. There are a few other options for feed items:
+
+| Option | Description |
+| - | - |
+| Excerpt | A short description about the linked content or misc. text |
+| Show in feed? | Is this feed item only for a collection or should it also appear in the feed? |
+| Is paid? | Flag for paid content |
+| Page URL | The URL where the content lives |
+| Author | The name of the person who created the content |
 
 ### Collections
 
+Collections are sets of feed items and blog posts that usually share a common theme or subject. They're meant to grow and evolve over time as new content is made or old content becomes less relevant.
+
+To create or edit collections, first click on the "Collections" menu item from the DevHub menu in the sidebar. Next, click the "Add New" button or any collection title in the table on the collections page.
+
+Collections consist of these main pieces:
+
+1. A title
+2. A description of the topics that the collection covers, and why they're important
+3. Categories: Select one or more general topic areas (backend, frontend, platform, etc.)
+4. An excerpt: This is the quote from the collection author—a short endorsement or explanation of what readers should hope to learn from it
+5. Items: A selection of feed items and blog posts chosen by filtering and clicking on rows in the left side of the widget (pictured below)
+
+![collection items widget](widget.png)
+
+A few hints about using the items widget:
+
+- If you know the title of the post you want to add, use the search input at the top of the widget to narrow down your list of posts
+- If you are trying to add a custom feed item, use the "Select post type" dropdown at the top of the widget to select "Feed Item", and then browse the list on the left for your item
+- If the widget search results are too numerous to browse by hand, your browser's "Find" feature can come in handy 🤓
+
 #### Unlisted collections
+
+Collections are listed on the DevHub home and collections pages by default, but you can hide them from these pages by making a collection **unlisted**. Check the box at the bottom of any collection editor in Wordpress, and your collection will be hidden from these index pages, but still accessible by its URL. The URL scheme for all collections looks like this:
+
+```
+https://www.apollographql.com/devhub/collection/YOUR-SLUG
+```
+
+## Twitch streams
+
+The only dynamic content _not_ managed in Wordpress is the automatic addition of past Twitch streams to the feed. This content is sourced at build time using `gatsby-source-apiserver` with the Twitch API.
