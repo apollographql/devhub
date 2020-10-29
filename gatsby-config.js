@@ -52,9 +52,6 @@ module.exports = {
           },
           TeamMember: {
             exclude: true
-          },
-          Post: {
-            // limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }
         }
       }
