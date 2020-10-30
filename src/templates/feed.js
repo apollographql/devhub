@@ -35,7 +35,7 @@ export default function FeedTemplate({data, pageContext}) {
           </Heading>
           <Text fontSize={{md: 'lg'}}>{DESCRIPTION}</Text>
         </Box>
-        <FeedTable posts={posts} swapDate showDescription />
+        <FeedTable showDate posts={posts} />
         <Box mt="16">
           <Heading
             as="h6"

@@ -112,10 +112,7 @@ export default function CollectionTemplate({data}) {
             </Flex>
           </Box>
         </Grid>
-        <FeedTable
-          showDescription
-          posts={data.collection.collectionSettings.items}
-        />
+        <FeedTable posts={data.collection.collectionSettings.items} />
         {data.relatedCollections.nodes.length > 0 && (
           <>
             <Heading mt="20" as="h3" mb="6" fontSize="3xl">

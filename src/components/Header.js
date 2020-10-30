@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Search from './Search';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
@@ -18,6 +19,24 @@ import {
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
+
+function NavMenu({children, label, ...props}) {
+  return (
+    <Menu placement="bottom">
+      <MenuButton fontWeight="inherit" {...props}>
+        <Flex align="center">
+          {label} <Box as={IconArrowDown} h="2" ml="2" />
+        </Flex>
+      </MenuButton>
+      <MenuList fontWeight="normal">{children}</MenuList>
+    </Menu>
+  );
+}
+
+NavMenu.propTypes = {
+  children: PropTypes.node.isRequired,
+  label: PropTypes.string.isRequired
+};
 
 export default function Header() {
   const searchProps = useDisclosure();
@@ -75,6 +94,12 @@ export default function Header() {
           <MenuItem as={GatsbyLink} to="/">
             Home
           </MenuItem>
+          <MenuItem as={GatsbyLink} to="/feed">
+            News Feed
+          </MenuItem>
+          <MenuItem as={GatsbyLink} to="/collections">
+            Collections
+          </MenuItem>
           <MenuItem as="a" href="https://www.apollographql.com/docs">
             Docs
           </MenuItem>
@@ -98,53 +123,50 @@ export default function Header() {
         fontWeight="semibold"
         spacing="8"
       >
-        <Link as={GatsbyLink} to="/" color="indigo.600">
-          Home
-        </Link>
         <div>
-          <Menu placement="bottom">
-            <MenuButton fontWeight="inherit">
-              <Flex align="center">
-                Docs <Box as={IconArrowDown} h="2" ml="2" />
-              </Flex>
-            </MenuButton>
-            <MenuList fontWeight="normal">
-              <MenuItem as="a" href="https://www.apollographql.com/docs/">
-                Apollo Basics
-              </MenuItem>
-              <MenuItem
-                as="a"
-                href="https://www.apollographql.com/docs/apollo-server/"
-              >
-                Apollo Server
-              </MenuItem>
-              <MenuItem
-                as="a"
-                href="https://www.apollographql.com/docs/studio/"
-              >
-                Apollo Studio
-              </MenuItem>
-              <MenuItem
-                as="a"
-                href="https://www.apollographql.com/docs/federation/"
-              >
-                Apollo Federation
-              </MenuItem>
-              <MenuDivider />
-              <MenuItem as="a" href="https://www.apollographql.com/docs/react/">
-                Apollo Client (React)
-              </MenuItem>
-              <MenuItem as="a" href="https://www.apollographql.com/docs/ios/">
-                Apollo Client (iOS)
-              </MenuItem>
-              <MenuItem
-                as="a"
-                href="https://www.apollographql.com/docs/android/"
-              >
-                Apollo Client (Android)
-              </MenuItem>
-            </MenuList>
-          </Menu>
+          <NavMenu label="Developers" color="indigo.600">
+            <MenuItem as={GatsbyLink} to="/">
+              Home
+            </MenuItem>
+            <MenuItem as={GatsbyLink} to="/feed">
+              News Feed
+            </MenuItem>
+            <MenuItem as={GatsbyLink} to="/collections">
+              Collections
+            </MenuItem>
+          </NavMenu>
+        </div>
+        <div>
+          <NavMenu label="Docs">
+            <MenuItem as="a" href="https://www.apollographql.com/docs/">
+              Apollo Basics
+            </MenuItem>
+            <MenuItem
+              as="a"
+              href="https://www.apollographql.com/docs/apollo-server/"
+            >
+              Apollo Server
+            </MenuItem>
+            <MenuItem as="a" href="https://www.apollographql.com/docs/studio/">
+              Apollo Studio
+            </MenuItem>
+            <MenuItem
+              as="a"
+              href="https://www.apollographql.com/docs/federation/"
+            >
+              Apollo Federation
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem as="a" href="https://www.apollographql.com/docs/react/">
+              Apollo Client (React)
+            </MenuItem>
+            <MenuItem as="a" href="https://www.apollographql.com/docs/ios/">
+              Apollo Client (iOS)
+            </MenuItem>
+            <MenuItem as="a" href="https://www.apollographql.com/docs/android/">
+              Apollo Client (Android)
+            </MenuItem>
+          </NavMenu>
         </div>
         <Link href="https://www.apollographql.com/blog/">Blog</Link>
         {/* <Link>Training</Link> */}

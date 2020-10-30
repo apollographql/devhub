@@ -115,7 +115,7 @@ export default function HomePage({data, location}) {
                 );
               })}
             </List>
-            <ArrowLink to="/feed/1" direction="right">
+            <ArrowLink to="/feed" direction="right">
               Learn what&#39;s new
             </ArrowLink>
           </div>

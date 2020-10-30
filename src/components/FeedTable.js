@@ -6,29 +6,15 @@ import {Badge, Box, Container, Heading, Text} from '@chakra-ui/core';
 import {getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
-export default function FeedTable({
-  posts,
-  children,
-  swapDate,
-  showDescription,
-  ...props
-}) {
+export default function FeedTable({posts, children, showDate, ...props}) {
   return (
     <Container maxW="lg" px="0" {...props}>
       <Box as="table" maxW="container.md">
         <tbody>
-          {posts.map((post, index) => {
+          {posts.map(post => {
             const {type, url} = getNodeMeta(post);
-            const isDescriptionShown =
-              (showDescription || !index) && post.description;
             const isPaid = post.feedItemSettings?.isPaid;
-            const isBylineShown =
-              post.internal.type !== 'WpFeedItem' ||
-              post.feedItemSettings.isPaid ||
-              post.feedItemTypes.nodes.every(
-                // if the item is not a docs article
-                ({databaseId}) => databaseId !== 87
-              );
+            const byline = renderByline(post, showDate ? [type] : []);
             return (
               <Box
                 key={post.id}
@@ -52,12 +38,12 @@ export default function FeedTable({
                     whiteSpace="nowrap"
                     textAlign="right"
                   >
-                    {swapDate ? post.date : type}
+                    {showDate ? post.date : type}
                   </Heading>
                 </td>
                 <td>
                   <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
-                  {isDescriptionShown && (
+                  {post.description && (
                     <Text
                       mt="2"
                       fontSize={{md: 'lg'}}
@@ -68,9 +54,9 @@ export default function FeedTable({
                       {striptags(post.description)}
                     </Text>
                   )}
-                  {(isBylineShown || isPaid) && (
+                  {(byline || isPaid) && (
                     <Text
-                      mt={isDescriptionShown ? 4 : 2}
+                      mt={post.description ? 4 : 2}
                       lineHeight="normal"
                       color="gray.600"
                       fontSize="sm"
@@ -78,11 +64,11 @@ export default function FeedTable({
                       {isPaid && (
                         <>
                           <Badge verticalAlign="initial" colorScheme="green">
-                            Paid
+                            $ Paid
                           </Badge>{' '}
                         </>
                       )}
-                      {isBylineShown && renderByline(post, swapDate && type)}
+                      {byline}
                     </Text>
                   )}
                 </td>
@@ -98,8 +84,7 @@ export default function FeedTable({
 
 FeedTable.propTypes = {
   children: PropTypes.node,
-  swapDate: PropTypes.bool,
-  showDescription: PropTypes.bool,
+  showDate: PropTypes.bool,
   posts: PropTypes.array.isRequired
 };
 
@@ -132,6 +117,11 @@ export const pageQuery = graphql`
     date(formatString: "ll")
     internal {
       type
+    }
+    categories {
+      nodes {
+        name
+      }
     }
     feedItemSettings {
       url

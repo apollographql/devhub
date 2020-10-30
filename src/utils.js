@@ -1,23 +1,18 @@
-exports.renderByline = (post, defaultLine) => {
-  const byline = [defaultLine || post.date];
-
-  switch (post.internal.type) {
-    case 'WpPost':
-      byline.push(
-        post.author.node.name,
-        post.categories.nodes.map(node => node.name).join(', ')
-      );
-      break;
-    case 'WpFeedItem': {
+exports.renderByline = (post, byline = [post.date]) => {
+  const {type} = post.internal;
+  const isFeedItem = type === 'WpFeedItem';
+  if (isFeedItem || type === 'WpPost') {
+    const categories = post.categories.nodes.map(node => node.name).join(', ');
+    if (isFeedItem) {
       const {author} = post.feedItemSettings;
       if (author) {
         byline.push(author);
       }
-      break;
+      byline.push(categories);
+    } else {
+      byline.push(post.author.node.name, categories);
     }
-    default:
   }
-
   return byline.join(' · ');
 };
 
