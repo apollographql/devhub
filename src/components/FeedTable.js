@@ -2,7 +2,8 @@ import FeedItemTitle from './FeedItemTitle';
 import PropTypes from 'prop-types';
 import React from 'react';
 import striptags from 'striptags';
-import {Badge, Box, Container, Heading, Text} from '@chakra-ui/core';
+import {Badge, Box, Container, Flex, Heading, Text} from '@chakra-ui/core';
+import {IconPlanet1} from '@apollo/space-kit/icons/IconPlanet1';
 import {getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
@@ -42,6 +43,20 @@ export default function FeedTable({posts, children, showDate, ...props}) {
                   </Heading>
                 </td>
                 <td>
+                  {post.internal.type === 'WpFeedItem' &&
+                    post.categories.nodes.some(
+                      category => category.name === 'Community'
+                    ) && (
+                      <Flex
+                        align="center"
+                        color="gray.400"
+                        fontWeight="semibold"
+                        mb="1"
+                      >
+                        <Box as={IconPlanet1} mr="1" h="1em" /> From the
+                        community
+                      </Flex>
+                    )}
                   <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
                   {post.description && (
                     <Text

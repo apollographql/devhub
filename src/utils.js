@@ -2,15 +2,19 @@ exports.renderByline = (post, byline = [post.date]) => {
   const {type} = post.internal;
   const isFeedItem = type === 'WpFeedItem';
   if (isFeedItem || type === 'WpPost') {
-    const categories = post.categories.nodes.map(node => node.name).join(', ');
+    let categories = post.categories.nodes.map(node => node.name);
     if (isFeedItem) {
+      categories = categories.filter(category => category !== 'Community');
       const {author} = post.feedItemSettings;
       if (author) {
         byline.push(author);
       }
-      byline.push(categories);
     } else {
-      byline.push(post.author.node.name, categories);
+      byline.push(post.author.node.name);
+    }
+
+    if (categories.length) {
+      byline.push(categories.join(', '));
     }
   }
   return byline.join(' · ');
