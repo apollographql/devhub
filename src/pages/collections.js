@@ -24,7 +24,7 @@ FilterTag.propTypes = {
 };
 
 const DESCRIPTION =
-  'Collections are groups of articles, videos, and tutorials about a particular topic.';
+  "Looking for resources on federation, caching, or learning Apollo? We've grouped our favorite posts, videos, tutorials, and docs into collections to help you solve common GraphQL challenges.";
 
 export default function Collections({data}) {
   const [filter, setFilter] = useState({});
@@ -38,10 +38,7 @@ export default function Collections({data}) {
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             Apollo Collections
           </Heading>
-          <Text fontSize={{md: 'lg'}}>
-            {DESCRIPTION} They are regularly updated with the most recent and
-            relevant content available.
-          </Text>
+          <Text fontSize={{md: 'lg'}}>{DESCRIPTION}</Text>
         </Box>
         <Wrap mb={{base: 12, md: 16}}>
           <span>Filter:</span>
