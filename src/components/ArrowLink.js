@@ -14,7 +14,7 @@ export function BackButton(props) {
 
 BackButton.defaultProps = {
   to: '/',
-  children: 'DevHub'
+  children: 'Home'
 };
 
 export default function ArrowLink({direction, ...props}) {
