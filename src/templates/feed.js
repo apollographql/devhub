@@ -9,8 +9,9 @@ import {CONTAINER_PADDING_X, combinePosts} from '../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
 
 const MAX_PAGES_SHOWN = 9;
-const TITLE = 'News Feed';
-const DESCRIPTION = 'This timeline highlights activity across all of Apollo.';
+const TITLE = "What's new in Apollo";
+const DESCRIPTION =
+  'Stay in our orbit with product updates, events, blog posts, and community news.';
 
 export default function FeedTemplate({data, pageContext}) {
   const posts = combinePosts(data);
@@ -32,11 +33,7 @@ export default function FeedTemplate({data, pageContext}) {
           <Heading mb="4" fontSize={{base: '3xl', md: '4xl'}}>
             {TITLE}
           </Heading>
-          <Text fontSize={{md: 'lg'}}>
-            {DESCRIPTION} It includes product updates, announcements, and
-            educational content from both our team and the larger Apollo
-            community.
-          </Text>
+          <Text fontSize={{md: 'lg'}}>{DESCRIPTION}</Text>
         </Box>
         <FeedTable posts={posts} swapDate showDescription />
         <Box mt="16">
