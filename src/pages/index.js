@@ -116,7 +116,7 @@ export default function HomePage({data, location}) {
               })}
             </List>
             <ArrowLink to="/feed/1" direction="right">
-              See the full feed
+              Learn what&#39;s new
             </ArrowLink>
           </div>
         </Grid>
@@ -131,10 +131,11 @@ export default function HomePage({data, location}) {
             <a href="#collections">Apollo Collections</a>
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}}>
-            Hand-picked blog posts, videos, and documentation.
+            Hand-picked lists of essential posts, videos, tutorials, and docs to
+            help you learn GraphQL and Apollo.
           </Text>
           <ArrowLink direction="right" to="/collections">
-            See all of our collections
+            Explore all collections
           </ArrowLink>
         </Box>
       </Container>
