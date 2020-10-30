@@ -55,7 +55,7 @@ export default function Header() {
           textTransform="uppercase"
           letterSpacing="widest"
         >
-          DevHub
+          Developers
         </Box>
       </Flex>
       <Search {...searchProps} />
@@ -73,7 +73,7 @@ export default function Header() {
         />
         <MenuList>
           <MenuItem as={GatsbyLink} to="/">
-            DevHub
+            Home
           </MenuItem>
           <MenuItem as="a" href="https://www.apollographql.com/docs">
             Docs
@@ -99,7 +99,7 @@ export default function Header() {
         spacing="8"
       >
         <Link as={GatsbyLink} to="/" color="indigo.600">
-          DevHub
+          Home
         </Link>
         <div>
           <Menu placement="bottom">

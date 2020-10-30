@@ -17,7 +17,10 @@ export default function Layout({children}) {
       }}
       backgroundRepeat="no-repeat"
     >
-      <Helmet defaultTitle="DevHub" titleTemplate="%s - DevHub">
+      <Helmet
+        defaultTitle="Apollo Developer Hub"
+        titleTemplate="%s - Apollo Developer Hub"
+      >
         <link rel="icon" href="https://www.apollographql.com/favicon.ico" />
       </Helmet>
       <Header />

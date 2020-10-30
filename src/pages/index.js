@@ -25,9 +25,9 @@ import {
 } from '../utils';
 import {graphql} from 'gatsby';
 
-const TITLE = 'Welcome to DevHub';
+const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
-  'Explore all the latest resources for building apps with Apollo.';
+  'An Apollo data graph helps you build apps faster with less code. Learn how to write your first GraphQL query or build a production graph with our curated resources.';
 
 export default function HomePage({data, location}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
