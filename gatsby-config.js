@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
+  pathPrefix: '/developers',
   plugins: [
     {
       resolve: 'gatsby-plugin-chakra-ui',
