@@ -71,7 +71,7 @@ export default function HomePage({data, location}) {
                 <AspectRatio ratio={16 / 9}>
                   <iframe
                     key={location.hostname}
-                    src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&parent=apollo-devhub.netlify.app&parent=apollographql.com&autoplay=false`}
+                    src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&parent=apollo-devhub.netlify.app&parent=www.apollographql.com&autoplay=false`}
                     frameBorder="0"
                     scrolling="no"
                     allowFullScreen
