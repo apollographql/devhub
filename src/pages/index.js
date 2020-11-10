@@ -41,7 +41,10 @@ export default function HomePage({data, location}) {
           <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
             {TITLE}
           </Heading>
-          <Text fontSize={{md: 'lg'}}>An Apollo data graph helps you build apps faster with less code. {DESCRIPTION}</Text>
+          <Text fontSize={{md: 'lg'}}>
+            An Apollo data graph helps you build apps faster with less code.{' '}
+            {DESCRIPTION}
+          </Text>
         </Box>
         <Grid
           templateColumns={{

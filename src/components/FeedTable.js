@@ -78,9 +78,7 @@ export default function FeedTable({posts, children, showDate, ...props}) {
                     >
                       {isPaid && (
                         <>
-                          <Badge verticalAlign="initial">
-                            Paid access
-                          </Badge>{' '}
+                          <Badge verticalAlign="initial">Paid access</Badge>{' '}
                         </>
                       )}
                       {byline}
