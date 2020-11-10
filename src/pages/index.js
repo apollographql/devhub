@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Seo from '../components/Seo';
+import TweetEmbed from 'react-tweet-embed';
 import striptags from 'striptags';
 import {
   AspectRatio,
@@ -28,11 +29,13 @@ import {graphql} from 'gatsby';
 const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
+const TWEET_PATTERN = /^https?:\/\/twitter.com\/\w+\/status\/(\d+)/;
 
 export default function HomePage({data, location}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
+  const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
   return (
     <Layout>
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
@@ -70,7 +73,7 @@ export default function HomePage({data, location}) {
               >
                 {featuredPost.title}
               </FeedItemTitle>
-              {featuredPost.internal.type === 'TwitchVideo' && (
+              {featuredPost.internal.type === 'TwitchVideo' ? (
                 <AspectRatio ratio={16 / 9}>
                   <iframe
                     key={location.hostname}
@@ -80,8 +83,11 @@ export default function HomePage({data, location}) {
                     allowFullScreen
                   ></iframe>
                 </AspectRatio>
-              )}
-              {featuredImage && <Box w="full" as="img" src={featuredImage} />}
+              ) : tweetMatches ? (
+                <TweetEmbed id={tweetMatches[1]} />
+              ) : featuredImage ? (
+                <Box w="full" as="img" src={featuredImage} />
+              ) : null}
               <Text color="gray.600" mt="6" fontSize="sm">
                 {renderByline(featuredPost)}
               </Text>
