@@ -12,18 +12,20 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-webfonts',
       options: {
-        fonts: [
-          {
-            family: 'Source Sans Pro',
-            variants: ['400', '600', '700']
-          },
-          {
-            family: 'Source Code Pro',
-            variants: ['400', '600']
-          }
-        ]
+        fonts: {
+          google: [
+            {
+              family: 'Source Sans Pro',
+              variants: ['400', '600', '700']
+            },
+            {
+              family: 'Source Code Pro',
+              variants: ['400', '600']
+            }
+          ]
+        }
       }
     },
     {
