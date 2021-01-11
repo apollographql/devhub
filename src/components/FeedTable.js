@@ -4,6 +4,7 @@ import React from 'react';
 import striptags from 'striptags';
 import {Badge, Box, Container, Flex, Heading, Text} from '@chakra-ui/core';
 import {IconPlanet1} from '@apollo/space-kit/icons/IconPlanet1';
+import {decode} from 'he';
 import {getNodeMeta, renderByline} from '../utils';
 import {graphql} from 'gatsby';
 
@@ -66,7 +67,7 @@ export default function FeedTable({posts, children, showDate, ...props}) {
                       textStyle="clamped"
                       css={{WebkitLineClamp: 2}}
                     >
-                      {striptags(post.description)}
+                      {decode(striptags(post.description))}
                     </Text>
                   )}
                   {(byline || isPaid) && (

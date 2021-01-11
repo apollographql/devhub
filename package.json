@@ -19,6 +19,7 @@
     "gatsby-source-apiserver": "^2.1.7",
     "gatsby-source-wordpress-experimental": "^5.0.2",
     "gatsby-transformer-sharp": "^2.5.14",
+    "he": "^1.2.0",
     "html-react-parser": "^0.14.0",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",

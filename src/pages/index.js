@@ -24,6 +24,7 @@ import {
   getNodeMeta,
   renderByline
 } from '../utils';
+import {decode} from 'he';
 import {graphql} from 'gatsby';
 
 const TITLE = 'Apollo Developer Hub';
@@ -114,7 +115,7 @@ export default function HomePage({data, location}) {
                         textStyle="clamped"
                         css={{WebkitLineClamp: 2}}
                       >
-                        {striptags(post.description)}
+                        {decode(striptags(post.description))}
                       </Text>
                     )}
                     <Text color="gray.600" mt="2" fontSize="sm">
