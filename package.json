@@ -10,6 +10,7 @@
     "@chakra-ui/core": "^1.0.0-rc.3",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "@jlengstorf/get-share-image": "^0.7.1",
+    "date-fns-tz": "^1.1.2",
     "gatsby": "^2.30.1",
     "gatsby-plugin-chakra-ui": "^1.0.0-rc.3",
     "gatsby-plugin-google-analytics": "^2.3.14",
@@ -17,6 +18,7 @@
     "gatsby-plugin-sharp": "^2.6.31",
     "gatsby-plugin-webfonts": "^1.1.3",
     "gatsby-source-apiserver": "^2.1.7",
+    "gatsby-source-google-calendar": "^1.1.1",
     "gatsby-source-wordpress-experimental": "^5.0.2",
     "gatsby-transformer-sharp": "^2.5.14",
     "he": "^1.2.0",
@@ -26,6 +28,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
     "react-tweet-embed": "^1.2.2",
     "striptags": "^3.1.1"
   },
