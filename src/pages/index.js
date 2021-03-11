@@ -1,5 +1,6 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
+import EventsGrid from '../components/EventsGrid';
 import FeedItemTitle from '../components/FeedItemTitle';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
@@ -10,8 +11,6 @@ import striptags from 'striptags';
 import {
   AspectRatio,
   Box,
-  Button,
-  ButtonGroup,
   Container,
   Flex,
   Grid,
@@ -26,9 +25,7 @@ import {
   getNodeMeta,
   renderByline
 } from '../utils';
-import {FaTwitch} from 'react-icons/fa';
 import {decode} from 'he';
-import {format, toDate} from 'date-fns-tz';
 import {graphql} from 'gatsby';
 
 const TITLE = 'Apollo Developer Hub';
@@ -54,46 +51,28 @@ export default function HomePage({data, location}) {
             {DESCRIPTION}
           </Text>
         </Box>
-        <Grid
-          gap="8"
-          templateColumns="repeat(auto-fill, minmax(290px, 1fr))"
-          mb="12"
-        >
-          {/* TODO: use real data: source data from gcal */}
-          {data.allCalendarEvent.nodes.map(event => {
-            const date = toDate(event.start.dateTime, {
-              timeZone: event.start.timeZone
-            });
-            return (
-              <Box
-                key={event.id}
-                borderWidth="1px"
-                borderRadius="lg"
-                p="4"
-                bg="white"
-              >
-                <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
-                  {/* March 1, 2021 @ 2pm-5pm */}
-                  {format(date, 'PP @ p zzz')}
-                </Heading>
-                <Heading fontSize="2xl">{event.summary}</Heading>
-                <Text>{event.description}</Text>
-                {/* TODO: parse twitter usernames and link them */}
-                <ButtonGroup mt="3" size="sm">
-                  <Button>Add to calendar</Button>
-                  {/* TODO: only show follow button if it's a twitch stream */}
-                  <Button
-                    colorScheme="purple"
-                    variant="ghost"
-                    leftIcon={<FaTwitch />}
-                  >
-                    Follow
-                  </Button>
-                </ButtonGroup>
-              </Box>
-            );
-          })}
-        </Grid>
+        <Box id="collections" maxW="container.md">
+          <Text mb="6" fontSize={{md: 'lg'}}>
+            Hand-picked lists of essential posts, videos, tutorials, and docs to
+            help you learn GraphQL and Apollo.
+          </Text>
+          <ArrowLink direction="right" to="/collections">
+            Explore all collections
+          </ArrowLink>
+        </Box>
+        <CollectionsRow collections={data.allWpCollection.nodes} />
+        <Box mt="20">
+          <Heading
+            mb="4"
+            fontSize={{
+              base: '3xl',
+              md: '4xl'
+            }}
+          >
+            <a href="#events">Apollo Events</a>
+          </Heading>
+          <EventsGrid />
+        </Box>
         <Grid
           templateColumns={{
             base: '1fr',
@@ -174,26 +153,7 @@ export default function HomePage({data, location}) {
             </ArrowLink>
           </div>
         </Grid>
-        <Box id="collections" pt="20" maxW="container.md">
-          <Heading
-            mb="4"
-            fontSize={{
-              base: '3xl',
-              md: '4xl'
-            }}
-          >
-            <a href="#collections">Apollo Collections</a>
-          </Heading>
-          <Text mb="6" fontSize={{md: 'lg'}}>
-            Hand-picked lists of essential posts, videos, tutorials, and docs to
-            help you learn GraphQL and Apollo.
-          </Text>
-          <ArrowLink direction="right" to="/collections">
-            Explore all collections
-          </ArrowLink>
-        </Box>
       </Container>
-      <CollectionsRow collections={data.allWpCollection.nodes} />
     </Layout>
   );
 }
@@ -234,18 +194,6 @@ export const pageQuery = graphql`
     ) {
       nodes {
         ...CollectionFragment
-      }
-    }
-    allCalendarEvent(limit: 3) {
-      nodes {
-        id
-        description
-        summary
-        location
-        start {
-          dateTime
-          timeZone
-        }
       }
     }
   }

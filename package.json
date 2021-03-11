@@ -22,7 +22,7 @@
     "gatsby-source-wordpress-experimental": "^5.0.2",
     "gatsby-transformer-sharp": "^2.5.14",
     "he": "^1.2.0",
-    "html-react-parser": "^0.14.0",
+    "html-react-parser": "^0.14.3",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
