@@ -55,6 +55,9 @@ module.exports = {
           },
           TeamMember: {
             exclude: true
+          },
+          Post: {
+            limit: process.env.NODE_ENV === 'production' ? undefined : 20
           }
         }
       }
@@ -94,6 +97,19 @@ module.exports = {
             excerpt: node => node.excerpt
           }
         }
+      }
+    },
+    {
+      resolve: 'gatsby-source-google-calendar',
+      options: {
+        calendarIds: [
+          'apollographql.com_sk7pski2b6hupsf3l03pi0qqg4@group.calendar.google.com'
+        ],
+        // options to retrieve the next 10 upcoming events
+        timeMin: new Date().toISOString(),
+        maxResults: 10,
+        singleEvents: true,
+        orderBy: 'startTime'
       }
     }
   ]

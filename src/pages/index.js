@@ -1,5 +1,6 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
+import EventsGrid from '../components/EventsGrid';
 import FeedItemTitle from '../components/FeedItemTitle';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
@@ -49,6 +50,28 @@ export default function HomePage({data, location}) {
             An Apollo data graph helps you build apps faster with less code.{' '}
             {DESCRIPTION}
           </Text>
+        </Box>
+        <Box id="collections" maxW="container.md">
+          <Text mb="6" fontSize={{md: 'lg'}}>
+            Hand-picked lists of essential posts, videos, tutorials, and docs to
+            help you learn GraphQL and Apollo.
+          </Text>
+          <ArrowLink direction="right" to="/collections">
+            Explore all collections
+          </ArrowLink>
+        </Box>
+        <CollectionsRow collections={data.allWpCollection.nodes} />
+        <Box mt="20">
+          <Heading
+            mb="4"
+            fontSize={{
+              base: '3xl',
+              md: '4xl'
+            }}
+          >
+            <a href="#events">Apollo Events</a>
+          </Heading>
+          <EventsGrid />
         </Box>
         <Grid
           templateColumns={{
@@ -130,26 +153,7 @@ export default function HomePage({data, location}) {
             </ArrowLink>
           </div>
         </Grid>
-        <Box id="collections" pt="20" maxW="container.md">
-          <Heading
-            mb="4"
-            fontSize={{
-              base: '3xl',
-              md: '4xl'
-            }}
-          >
-            <a href="#collections">Apollo Collections</a>
-          </Heading>
-          <Text mb="6" fontSize={{md: 'lg'}}>
-            Hand-picked lists of essential posts, videos, tutorials, and docs to
-            help you learn GraphQL and Apollo.
-          </Text>
-          <ArrowLink direction="right" to="/collections">
-            Explore all collections
-          </ArrowLink>
-        </Box>
       </Container>
-      <CollectionsRow collections={data.allWpCollection.nodes} />
     </Layout>
   );
 }
