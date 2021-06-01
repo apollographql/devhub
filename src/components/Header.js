@@ -170,7 +170,7 @@ export default function Header() {
         </div>
         <Link href="https://www.apollographql.com/blog/">Blog</Link>
         {/* <Link>Training</Link> */}
-        <Link href="https://go.apollo.dev/events-calendar">Events</Link>
+        <Link href="https://apollographql.com/events">Events</Link>
         <Button
           as="a"
           href="https://studio.apollographql.com"
