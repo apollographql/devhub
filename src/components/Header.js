@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Search from './Search';
-import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
+import { ApolloIcon } from '@apollo/space-kit/icons/ApolloIcon';
 import {
   Box,
   Button,
@@ -16,11 +16,11 @@ import {
   MenuList,
   useDisclosure
 } from '@chakra-ui/core';
-import {Link as GatsbyLink} from 'gatsby';
-import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
-import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
+import { Link as GatsbyLink } from 'gatsby';
+import { IconArrowDown } from '@apollo/space-kit/icons/IconArrowDown';
+import { IconMenu } from '@apollo/space-kit/icons/IconMenu';
 
-function NavMenu({children, label, ...props}) {
+function NavMenu({ children, label, ...props }) {
   return (
     <Menu placement="bottom">
       <MenuButton fontWeight="inherit" {...props}>
@@ -170,7 +170,7 @@ export default function Header() {
         </div>
         <Link href="https://www.apollographql.com/blog/">Blog</Link>
         {/* <Link>Training</Link> */}
-        <Link href="https://go.apollo.dev/events-calendar">Events</Link>
+        <Link href="https://apollographql.com/events">Events</Link>
         <Button
           as="a"
           href="https://studio.apollographql.com"
