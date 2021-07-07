@@ -112,6 +112,13 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-K69NRND',
+        includeInDevelopment: false
+      }
     }
   ]
 };
