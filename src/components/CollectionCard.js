@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import he from 'he';
 import striptags from 'striptags';
 import {Flex, Heading, Text} from '@chakra-ui/core';
 import {graphql} from 'gatsby';
@@ -26,7 +27,7 @@ export default function CollectionCard({collection, children, ...props}) {
         {collection.title}
       </Heading>
       <Text mb="2" fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>
-        {striptags(collection.content)}
+        {he(striptags(collection.content))}
       </Text>
       {children}
     </Flex>
