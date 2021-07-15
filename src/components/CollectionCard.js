@@ -27,7 +27,7 @@ export default function CollectionCard({collection, children, ...props}) {
         {collection.title}
       </Heading>
       <Text mb="2" fontSize="sm" textStyle="clamped" css={{WebkitLineClamp: 3}}>
-        {he(striptags(collection.content))}
+        {he.decode(striptags(collection.content))}
       </Text>
       {children}
     </Flex>
