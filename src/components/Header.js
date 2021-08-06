@@ -178,6 +178,18 @@ export default function Header() {
         >
           Studio
         </Button>
+        <span>
+          {menuItems.map(item => (
+            <Link key={item.text} href={item.href} as={item.href}>
+              <a
+                className={styles.menuitem}
+                onClick={() => this.setState({isMenuOpen: false})}
+              >
+                {item.text}
+              </a>
+            </Link>
+          ))}
+        </span>
       </HStack>
     </Flex>
   );
