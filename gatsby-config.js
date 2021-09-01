@@ -77,6 +77,14 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-apollo-onetrust',
+      options: {
+        autoBlockSrc: process.env.OT_AUTOBLOCK_SRC,
+        otSDKStubSrc: process.env.OT_SDKSTUB_SRC,
+        dataDomainScript: process.env.OT_DATA_DOMAIN_SCRIPT
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
