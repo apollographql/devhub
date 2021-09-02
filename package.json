@@ -11,6 +11,7 @@
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "@jlengstorf/get-share-image": "^0.7.1",
     "gatsby": "^2.30.1",
+    "gatsby-plugin-apollo-onetrust": "apollographql/gatsby-plugin-apollo-onetrust",
     "gatsby-plugin-chakra-ui": "^1.0.0-rc.3",
     "gatsby-plugin-google-gtag": "^3.8.0",
     "gatsby-plugin-google-tagmanager": "^2.11.0",
