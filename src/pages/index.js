@@ -1,5 +1,5 @@
 import ArrowLink from '../components/ArrowLink';
-import CollectionsRow from '../components/CollectionsRow';
+import CollectionsRow from '../components/collections/CollectionsRow';
 import FeedItemTitle from '../components/FeedItemTitle';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/core';
 import {
   CONTAINER_PADDING_X,
-  MAX_WIDTH,
+  SECTION_SPACING,
   combinePosts,
   getNodeMeta,
   renderByline
@@ -46,7 +46,7 @@ export default function HomePage({data, location}) {
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
 
-      <Box maxW={MAX_WIDTH} mx={{base: '8', md: '12', lg: '16', xl: 'auto'}}>
+      <Box {...SECTION_SPACING}>
         <Resources />
         <Grid
           templateColumns={{

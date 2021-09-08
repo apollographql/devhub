@@ -52,4 +52,9 @@ exports.getNodeMeta = node => {
 };
 
 exports.CONTAINER_PADDING_X = [8, 10, 12, 16];
-exports.MAX_WIDTH = '1152px';
+const MAX_WIDTH = '1152px';
+
+exports.SECTION_SPACING = {
+  maxW: {MAX_WIDTH},
+  mx: {base: '8', md: '12', lg: '16', xl: 'auto'}
+};
