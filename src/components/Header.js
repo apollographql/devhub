@@ -54,27 +54,29 @@ export default function Header() {
       <Flex
         mr="auto"
         align="center"
-        as={GatsbyLink}
-        to="/"
         display={{
           base: searchProps.isOpen ? 'none' : 'flex',
           md: 'flex'
         }}
       >
-        <Box as={ApolloIcon} h="6" title="Apollo" />
-        <Box
-          ml="2"
-          mt="-px"
-          borderRadius="sm"
-          px="1"
-          bg="indigo.50"
-          color="indigo.600"
-          fontSize="sm"
-          fontWeight="semibold"
-          textTransform="uppercase"
-          letterSpacing="widest"
-        >
-          Developers
+        <Box as="a" href="https://apollographql.com/">
+          <Box as={ApolloIcon} h="6" title="Apollo" />
+        </Box>
+        <Box as={GatsbyLink} to="/">
+          <Box
+            ml="2"
+            mt="-px"
+            borderRadius="sm"
+            px="1"
+            bg="indigo.50"
+            color="indigo.600"
+            fontSize="sm"
+            fontWeight="semibold"
+            textTransform="uppercase"
+            letterSpacing="widest"
+          >
+            Developers
+          </Box>
         </Box>
       </Flex>
       <Search {...searchProps} />
@@ -103,11 +105,17 @@ export default function Header() {
           <MenuItem as="a" href="https://www.apollographql.com/docs">
             Docs
           </MenuItem>
+          <MenuItem as="a" href="https://odyssey.apollographql.com/">
+            Training
+          </MenuItem>
           <MenuItem as="a" href="https://www.apollographql.com/blog">
             Blog
           </MenuItem>
           <MenuItem as="a" href="https://apollographql.com/events">
             Events
+          </MenuItem>
+          <MenuItem as="a" href="https://community.apollographql.com/">
+            Community
           </MenuItem>
           <MenuItem as="a" href="https://studio.apollographql.com">
             Studio
@@ -168,9 +176,10 @@ export default function Header() {
             </MenuItem>
           </NavMenu>
         </div>
+        <Link href="https://odyssey.apollographql.com/">Training</Link>
         <Link href="https://www.apollographql.com/blog/">Blog</Link>
-        {/* <Link>Training</Link> */}
         <Link href="https://apollographql.com/events">Events</Link>
+        <Link href="https://community.apollographql.com/">Community</Link>
         <Button
           as="a"
           href="https://studio.apollographql.com"
