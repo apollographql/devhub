@@ -56,7 +56,7 @@ export default function Header() {
         align="center"
         display={{
           base: searchProps.isOpen ? 'none' : 'flex',
-          md: 'flex'
+          lg: 'flex'
         }}
       >
         <Box as="a" href="https://apollographql.com/">
@@ -85,7 +85,7 @@ export default function Header() {
           as={IconButton}
           display={{
             base: searchProps.isOpen ? 'none' : 'flex',
-            md: 'none'
+            lg: 'none'
           }}
           variant="ghost"
           fontSize="2xl"
@@ -125,8 +125,8 @@ export default function Header() {
       <HStack
         display={{
           base: 'none',
-          md: searchProps.isOpen ? 'none' : 'flex',
-          lg: 'flex'
+          lg: searchProps.isOpen ? 'none' : 'flex',
+          xl: 'flex'
         }}
         fontWeight="semibold"
         spacing="8"
