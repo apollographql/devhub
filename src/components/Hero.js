@@ -30,7 +30,7 @@ export default function Hero({title, description}) {
             <Heading my="2" as="h1" fontSize="2rem">
               {title}
             </Heading>
-            <Text w="370px" display="inline-block">
+            <Text w={{lg: '370px'}} display="inline-block">
               An Apollo data graph helps you build apps faster with less code.{' '}
               {description}
             </Text>
