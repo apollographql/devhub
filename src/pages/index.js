@@ -42,7 +42,7 @@ export default function HomePage({data, location}) {
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
   return (
-    <Layout>
+    <Layout pt="2">
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>

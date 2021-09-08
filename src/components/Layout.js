@@ -5,7 +5,7 @@ import React from 'react';
 import {Box} from '@chakra-ui/core';
 import {Helmet} from 'react-helmet';
 
-export default function Layout({children}) {
+export default function Layout({children, ...props}) {
   return (
     <Box>
       <Helmet
@@ -15,7 +15,7 @@ export default function Layout({children}) {
         <link rel="icon" href="https://www.apollographql.com/favicon.ico" />
       </Helmet>
       <Header />
-      <Box pt="8" pb="20" as="main">
+      <Box pt="8" pb="20" as="main" {...props}>
         {children}
       </Box>
       <Footer />
