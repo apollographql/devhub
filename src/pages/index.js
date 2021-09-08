@@ -1,6 +1,7 @@
 import ArrowLink from '../components/ArrowLink';
 import CollectionsRow from '../components/CollectionsRow';
 import FeedItemTitle from '../components/FeedItemTitle';
+import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,6 +28,9 @@ import {
 import {decode} from 'he';
 import {graphql} from 'gatsby';
 
+// REDESIGN TODO:
+// Change breakpoints to 1440, 1024, 768, 375, 320 (will need to refactor current media queries in this repo)
+
 const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
@@ -40,16 +44,8 @@ export default function HomePage({data, location}) {
   return (
     <Layout>
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
+      <Hero title={TITLE} description={DESCRIPTION} />
       <Container maxW="xl" px={CONTAINER_PADDING_X}>
-        <Box maxW="container.sm" mb="12">
-          <Heading mb="2" as="h1" fontSize={{base: '4xl', md: '5xl'}}>
-            {TITLE}
-          </Heading>
-          <Text fontSize={{md: 'lg'}}>
-            An Apollo data graph helps you build apps faster with less code.{' '}
-            {DESCRIPTION}
-          </Text>
-        </Box>
         <Grid
           templateColumns={{
             base: '1fr',
