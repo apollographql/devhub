@@ -5,13 +5,13 @@ import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Resources from '../components/Resources';
 import Seo from '../components/Seo';
 import TweetEmbed from 'react-tweet-embed';
 import striptags from 'striptags';
 import {
   AspectRatio,
   Box,
-  Container,
   Flex,
   Grid,
   Heading,
@@ -21,6 +21,7 @@ import {
 } from '@chakra-ui/core';
 import {
   CONTAINER_PADDING_X,
+  MAX_WIDTH,
   combinePosts,
   getNodeMeta,
   renderByline
@@ -35,7 +36,6 @@ const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
 const TWEET_PATTERN = /^https?:\/\/twitter.com\/\w+\/status\/(\d+)/;
-
 export default function HomePage({data, location}) {
   const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
   const featuredPostMeta = getNodeMeta(featuredPost);
@@ -45,7 +45,9 @@ export default function HomePage({data, location}) {
     <Layout pt="2">
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
-      <Container maxW="xl" px={CONTAINER_PADDING_X}>
+
+      <Box maxW={MAX_WIDTH} mx={{base: '8', md: '12', lg: '16', xl: 'auto'}}>
+        <Resources />
         <Grid
           templateColumns={{
             base: '1fr',
@@ -144,7 +146,7 @@ export default function HomePage({data, location}) {
             Explore all collections
           </ArrowLink>
         </Box>
-      </Container>
+      </Box>
       <CollectionsRow collections={data.allWpCollection.nodes} />
     </Layout>
   );

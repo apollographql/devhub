@@ -52,3 +52,4 @@ exports.getNodeMeta = node => {
 };
 
 exports.CONTAINER_PADDING_X = [8, 10, 12, 16];
+exports.MAX_WIDTH = '1152px';

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import commandModule from '../assets/command-module.svg';
 import {Box, Center, Flex, Heading, Img, Text} from '@chakra-ui/core';
+import {MAX_WIDTH} from '../utils';
 
 export default function Hero({title, description}) {
   return (
@@ -13,14 +14,15 @@ export default function Hero({title, description}) {
       mb="8"
     >
       <Center
-        p="40px 44px"
+        py={{base: '6', lg: '44px'}}
+        px={{base: '12', lg: '40px'}}
         borderRadius={{base: '0', lg: '12px'}}
         bg="linear-gradient(360deg, #0A061E 8.24%, #311C87 100.52%)"
         color="white"
         w="full"
         maxW="1392px"
       >
-        <Flex align="center" justify="space-between" w="full" maxW="1152px">
+        <Flex align="center" justify="space-between" w="full" maxW={MAX_WIDTH}>
           <Box>
             <Text fontSize="xs" textTransform="uppercase">
               GraphQL Resources
