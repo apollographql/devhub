@@ -6,6 +6,7 @@ import {IconComment} from '@apollo/space-kit/icons/IconComment';
 import {IconDocument} from '@apollo/space-kit/icons/IconDocument';
 import {IconOdyssey} from '@apollo/space-kit/icons/IconOdyssey';
 import {IconPlanet1} from '@apollo/space-kit/icons/IconPlanet1';
+import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 
 const resources = [
   {
@@ -83,21 +84,35 @@ function Card({resource}) {
       w="full"
       h={{base: '76px', lg: '183px', xl: '207px'}}
     >
-      <Box as="a" href={href} p="6" w="full" h="full" display="inline-block">
+      <Box
+        as="a"
+        href={href}
+        p={{base: '4', lg: '6'}}
+        w="full"
+        h="full"
+        display={{base: 'grid', lg: 'inline-block'}}
+        gridTemplateColumns="44px 1fr 20px"
+        gridGap="4"
+        alignItems="center"
+        justifyContent="flex-start"
+      >
         <Center
           p="3"
           bg="blilet.50"
           borderRadius="4px"
           w="44px"
           h="44px"
-          mb="3"
+          mb={{base: '0', lg: '3'}}
         >
           <Box as={icon} color="indigo.600" />
         </Center>
         <Heading as="h3" fontWeight="600" fontSize="1.125rem" mb="1">
           {title}
         </Heading>
-        <Text>{description}</Text>
+        <Text display={{base: 'none', lg: 'block'}}>{description}</Text>
+        <Center w="20px" h="20px" p="1" display={{lg: 'none'}}>
+          <Box as={IconProceed} w="full" h="full" />
+        </Center>
       </Box>
     </Box>
   );
