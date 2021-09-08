@@ -1,6 +1,6 @@
-import ArrowLink from './ArrowLink';
+import ArrowLink from '../ArrowLink';
 import CollectionCard from './CollectionCard';
-import FeedTable from './FeedTable';
+import FeedTable from '../FeedTable';
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {
@@ -12,7 +12,7 @@ import {
   useEventListener,
   useTheme
 } from '@chakra-ui/core';
-import {CONTAINER_PADDING_X} from '../utils';
+import {CONTAINER_PADDING_X} from '../../utils';
 import {IconBack} from '@apollo/space-kit/icons/IconBack';
 import {IconProceed} from '@apollo/space-kit/icons/IconProceed';
 

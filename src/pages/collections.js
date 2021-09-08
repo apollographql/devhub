@@ -1,4 +1,4 @@
-import CollectionsGrid from '../components/CollectionsGrid';
+import CollectionsGrid from '../components/collections/CollectionsGrid';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
