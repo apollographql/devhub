@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Box, Flex, Heading, Text} from '@chakra-ui/core';
+import commandModule from '../assets/command-module.svg';
+import {Box, Flex, Heading, Img, Text} from '@chakra-ui/core';
 
 export default function Hero({title, description}) {
   return (
@@ -33,7 +34,11 @@ export default function Hero({title, description}) {
             {description}
           </Text>
         </Box>
-        {/* TODO: Add command module illustration */}
+        <Img
+          src={commandModule}
+          alt="Space command module"
+          display={{base: 'none', lg: 'block'}}
+        />
       </Flex>
     </Flex>
   );
