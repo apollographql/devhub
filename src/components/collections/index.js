@@ -99,6 +99,7 @@ export default function Collections({collections}) {
       bg="gray.50"
       pt={{base: '8', lg: '40px'}}
       pb={{base: '40px', lg: '12'}}
+      mb={{base: '8', lg: '40px', '2xl': '8'}}
     >
       <Box as="section" id="collections" {...SECTION_SPACING}>
         <Heading as="h2" fontSize="2xl" mb="2">
