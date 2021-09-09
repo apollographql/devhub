@@ -1,5 +1,5 @@
 import ArrowLink from '../components/ArrowLink';
-import CollectionsRow from '../components/collections/CollectionsRow';
+import Collections from '../components/collections';
 import FeedItemTitle from '../components/FeedItemTitle';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
@@ -41,6 +41,7 @@ export default function HomePage({data, location}) {
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
+
   return (
     <Layout pt="2">
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
@@ -48,6 +49,11 @@ export default function HomePage({data, location}) {
 
       <Box {...SECTION_SPACING}>
         <Resources />
+      </Box>
+
+      <Collections collections={data.allWpCollection.nodes} />
+
+      <Box {...SECTION_SPACING}>
         <Grid
           templateColumns={{
             base: '1fr',
@@ -128,26 +134,7 @@ export default function HomePage({data, location}) {
             </ArrowLink>
           </div>
         </Grid>
-        <Box id="collections" pt="20" maxW="container.md">
-          <Heading
-            mb="4"
-            fontSize={{
-              base: '3xl',
-              md: '4xl'
-            }}
-          >
-            <a href="#collections">Apollo Collections</a>
-          </Heading>
-          <Text mb="6" fontSize={{md: 'lg'}}>
-            Hand-picked lists of essential posts, videos, tutorials, and docs to
-            help you learn GraphQL and Apollo.
-          </Text>
-          <ArrowLink direction="right" to="/collections">
-            Explore all collections
-          </ArrowLink>
-        </Box>
       </Box>
-      <CollectionsRow collections={data.allWpCollection.nodes} />
     </Layout>
   );
 }
@@ -187,6 +174,11 @@ export const pageQuery = graphql`
       limit: 5
     ) {
       nodes {
+        author {
+          node {
+            name
+          }
+        }
         ...CollectionFragment
       }
     }
