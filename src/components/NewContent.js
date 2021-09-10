@@ -1,0 +1,236 @@
+import ArrowLink from './ArrowLink';
+import FeedItemTitle from './FeedItemTitle';
+import PropTypes from 'prop-types';
+import React from 'react';
+import TweetEmbed from 'react-tweet-embed';
+import astronaut from '../assets/astronaut.svg';
+import {ApolloLogo} from '@apollo/space-kit/icons/ApolloLogo';
+import {
+  AspectRatio,
+  Box,
+  Center,
+  Flex,
+  Grid,
+  Heading,
+  Img,
+  ListItem,
+  Text
+} from '@chakra-ui/core';
+import {IconBook} from '@apollo/space-kit/icons/IconBook';
+import {IconClient} from '@apollo/space-kit/icons/IconClient';
+import {IconDevelop} from '@apollo/space-kit/icons/IconDevelop';
+import {IconDocument} from '@apollo/space-kit/icons/IconDocument';
+import {IconHeadset} from '@apollo/space-kit/icons/IconHeadset';
+import {IconOdyssey} from '@apollo/space-kit/icons/IconOdyssey';
+import {IconPlanet1} from '@apollo/space-kit/icons/IconPlanet1';
+import {IconTeam} from '@apollo/space-kit/icons/IconTeam';
+import {IconTelescope3} from '@apollo/space-kit/icons/IconTelescope3';
+import {getNodeMeta} from '../utils';
+
+// TODO: do we want a different icon for every content type?
+// or just for the more common ones and have a more generic one shared by the less common ones?
+const contentTypes = {
+  'Blog post': IconPlanet1,
+  Stream: IconTelescope3,
+  Podcast: IconHeadset, // idea, not in figma design
+  Tweet: '',
+  Talk: '',
+  Panel: IconTeam, // idea, not in figma design
+  Docs: IconDocument,
+  Code: IconDevelop, // idea, not in figma design
+  Video: '',
+  Tutorial: '',
+  Guide: '',
+  Website: IconClient, // idea, not in figma design
+  Course: IconOdyssey, // idea, not in figma design
+  Book: IconBook
+};
+
+function FeaturedPost({
+  featuredPost,
+  featuredPostMeta,
+  tweetMatches,
+  featuredImage,
+  location,
+  ...props
+}) {
+  const author = featuredPost.author.node.name;
+  return (
+    <ListItem {...props}>
+      <Box w="full" gridColumn={{lg: '1 / span 2', xl: '1 / span 3'}}>
+        {featuredPost.internal.type === 'TwitchVideo' ? (
+          <AspectRatio ratio={16 / 9} borderRadius="4px">
+            <iframe
+              key={location.hostname}
+              src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&parent=apollo-devhub.netlify.app&parent=www.apollographql.com&autoplay=false`}
+              frameBorder="0"
+              scrolling="no"
+              allowFullScreen
+            ></iframe>
+          </AspectRatio>
+        ) : tweetMatches ? (
+          <TweetEmbed id={tweetMatches[1]} />
+        ) : featuredImage ? (
+          <Box w="full" as="img" src={featuredImage} borderRadius="4px" />
+        ) : null}
+      </Box>
+      <Box gridColumn={{xl: '4 / span 3'}} alignSelf="center">
+        <Flex align="center" mb="4">
+          <Center w="1rem" h="1rem" mr="2">
+            <Box
+              as={contentTypes[featuredPostMeta.type] || ApolloLogo}
+              w="full"
+              sx={{
+                g: {
+                  strokeWidth: '1'
+                }
+              }}
+            />
+          </Center>
+          <Heading textStyle="subheading" fontSize="xs" as="h6">
+            Featured <Box as="span">{featuredPostMeta.type}</Box>
+          </Heading>
+        </Flex>
+
+        <FeedItemTitle url={featuredPostMeta.url} mb="4" as="h3" fontSize="lg">
+          {featuredPost.title}
+        </FeedItemTitle>
+
+        <Text fontSize="sm">
+          {featuredPost.date} - {author}
+        </Text>
+      </Box>
+    </ListItem>
+  );
+}
+
+FeaturedPost.propTypes = {
+  featuredPost: PropTypes.object.isRequired,
+  featuredPostMeta: PropTypes.object.isRequired,
+  tweetMatches: PropTypes.array,
+  featuredImage: PropTypes.string,
+  location: PropTypes.object.isRequired
+};
+
+export default function NewContent({
+  featuredPost,
+  featuredPostMeta,
+  tweetMatches,
+  featuredImage,
+  location,
+  posts
+}) {
+  return (
+    <Box>
+      <Box mb="6" pos="relative">
+        <Heading as="h2" fontSize="2xl" mb="2">
+          What&apos;s New in Apollo
+        </Heading>
+        <Text>
+          Stay in our orbit with product updates, events, blog posts, and
+          conmmunity news
+        </Text>
+        <Box
+          display={{base: 'none', lg: 'block'}}
+          w={{lg: '205px', xl: '276px'}}
+          h={{lg: '200px', xl: '270px'}}
+          pos="absolute"
+          top="0"
+          right="0"
+        >
+          <Img src={astronaut} alt="Astronaut" />
+        </Box>
+      </Box>
+
+      <Grid
+        as="ul"
+        listStyleType="none"
+        ml="0"
+        borderRadius="4px"
+        gap="6"
+        templateColumns={{
+          base: '1fr',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(4, 1fr)'
+        }}
+      >
+        <FeaturedPost
+          featuredPost={featuredPost}
+          featuredPostMeta={featuredPostMeta}
+          tweetMatches={tweetMatches}
+          featuredImage={featuredImage}
+          location={location}
+          display="grid"
+          gridGap="6"
+          gridTemplateColumns={{
+            base: '1fr',
+            md: 'repeat(2, 1fr)',
+            lg: 'repeat(3, 1fr)',
+            xl: 'repeat(6, 1fr)'
+          }}
+          gridColumn={{md: '1 / span 2', lg: '1 / span 3'}}
+        />
+
+        {posts.map((post, i) => {
+          const {date, title} = post;
+          const {type, url} = getNodeMeta(post);
+          return (
+            <ListItem
+              key={post.id}
+              borderWidth="1px"
+              borderColor="gray.200"
+              borderRadius="8px"
+              h={{base: '139px', md: '155px', lg: '198px', xl: '171px'}}
+              sx={
+                !i && {
+                  gridColumn: 1
+                }
+              }
+            >
+              <Flex
+                as="a"
+                href={url}
+                direction="column"
+                w="full"
+                h="full"
+                p="6"
+              >
+                <Flex alignItems="center" h="16px" mb="4">
+                  <Flex alignItems="center" w="16px" h="16px" mr="2">
+                    <Box
+                      w="full"
+                      mr="2"
+                      sx={{g: {strokeWidth: 1}}}
+                      as={contentTypes[type] || ApolloLogo}
+                    />
+                  </Flex>
+                  <Heading textStyle="subheading" fontSize="xs" as="h6">
+                    {type}
+                  </Heading>
+                </Flex>
+                <Heading as="h5" fontSize="lg">
+                  {title}
+                </Heading>
+                <Text fontSize="sm" mt={{base: '2', lg: 'auto'}}>
+                  {date}
+                </Text>
+              </Flex>
+            </ListItem>
+          );
+        })}
+      </Grid>
+      <ArrowLink direction="right" to="/feed/1" mt="8" color="indigo.600">
+        See what else is new
+      </ArrowLink>
+    </Box>
+  );
+}
+
+NewContent.propTypes = {
+  featuredPost: PropTypes.object.isRequired,
+  featuredPostMeta: PropTypes.object.isRequired,
+  tweetMatches: PropTypes.array,
+  featuredImage: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  posts: PropTypes.array.isRequired
+};
