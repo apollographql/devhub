@@ -1,32 +1,13 @@
-import ArrowLink from '../components/ArrowLink';
 import Collections from '../components/collections';
-import FeedItemTitle from '../components/FeedItemTitle';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
+import NewContent from '../components/NewContent';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Resources from '../components/Resources';
 import Seo from '../components/Seo';
-import TweetEmbed from 'react-tweet-embed';
-import striptags from 'striptags';
-import {
-  AspectRatio,
-  Box,
-  Flex,
-  Grid,
-  Heading,
-  List,
-  ListItem,
-  Text
-} from '@chakra-ui/core';
-import {
-  CONTAINER_PADDING_X,
-  SECTION_SPACING,
-  combinePosts,
-  getNodeMeta,
-  renderByline
-} from '../utils';
-import {decode} from 'he';
+import {Box} from '@chakra-ui/core';
+import {SECTION_SPACING, combinePosts, getNodeMeta} from '../utils';
 import {graphql} from 'gatsby';
 
 // REDESIGN TODO:
@@ -54,86 +35,14 @@ export default function HomePage({data, location}) {
       <Collections collections={data.allWpCollection.nodes} />
 
       <Box {...SECTION_SPACING}>
-        <Grid
-          templateColumns={{
-            base: '1fr',
-            md: 'repeat(2, 1fr)',
-            lg: '2fr 1fr'
-          }}
-          gap={CONTAINER_PADDING_X}
-        >
-          <Flex direction="column" justify="space-between">
-            <div>
-              <Heading mb="2" textStyle="subheading" fontSize="xs" as="h6">
-                Featured{' '}
-                <Box as="span" color="indigo.300">
-                  {featuredPostMeta.type}
-                </Box>
-              </Heading>
-              <FeedItemTitle
-                url={featuredPostMeta.url}
-                mb="4"
-                as="h3"
-                fontSize={{base: '2xl', md: '3xl'}}
-              >
-                {featuredPost.title}
-              </FeedItemTitle>
-              {featuredPost.internal.type === 'TwitchVideo' ? (
-                <AspectRatio ratio={16 / 9}>
-                  <iframe
-                    key={location.hostname}
-                    src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&parent=apollo-devhub.netlify.app&parent=www.apollographql.com&autoplay=false`}
-                    frameBorder="0"
-                    scrolling="no"
-                    allowFullScreen
-                  ></iframe>
-                </AspectRatio>
-              ) : tweetMatches ? (
-                <TweetEmbed id={tweetMatches[1]} />
-              ) : featuredImage ? (
-                <Box w="full" as="img" src={featuredImage} />
-              ) : null}
-              <Text color="gray.600" mt="6" fontSize="sm">
-                {renderByline(featuredPost)}
-              </Text>
-            </div>
-          </Flex>
-          <div>
-            <List mb="6" spacing="6">
-              {posts.map(post => {
-                const {type, url} = getNodeMeta(post);
-                return (
-                  <ListItem key={post.id}>
-                    <Heading
-                      textStyle="subheading"
-                      fontSize="xs"
-                      as="h6"
-                      color="indigo.300"
-                    >
-                      {type}
-                    </Heading>
-                    <FeedItemTitle url={url}>{post.title}</FeedItemTitle>
-                    {post.description && (
-                      <Text
-                        color="gray.600"
-                        textStyle="clamped"
-                        css={{WebkitLineClamp: 2}}
-                      >
-                        {decode(striptags(post.description))}
-                      </Text>
-                    )}
-                    <Text color="gray.600" mt="2" fontSize="sm">
-                      {renderByline(post)}
-                    </Text>
-                  </ListItem>
-                );
-              })}
-            </List>
-            <ArrowLink to="/feed" direction="right">
-              Learn what&#39;s new
-            </ArrowLink>
-          </div>
-        </Grid>
+        <NewContent
+          featuredPost={featuredPost}
+          featuredPostMeta={featuredPostMeta}
+          tweetMatches={tweetMatches}
+          featuredImage={featuredImage}
+          location={location}
+          posts={posts}
+        />
       </Box>
     </Layout>
   );
