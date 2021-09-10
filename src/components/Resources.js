@@ -50,7 +50,7 @@ export default function Resources() {
       w="full"
       mb={{base: '28px', sm: '8', lg: '40px', '2xl': '12'}}
     >
-      <Heading as="h2" fontSize="1.5rem" mb="2">
+      <Heading as="h2" fontSize="2xl" mb="2">
         Explore our resources
       </Heading>
       <Text mb="6">
