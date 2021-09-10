@@ -49,7 +49,7 @@ export default function Header() {
       position="sticky"
       top="0"
       bg="white"
-      zIndex="1"
+      zIndex="2"
     >
       <Flex
         mr="auto"
