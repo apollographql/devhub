@@ -17,10 +17,12 @@ export default function Hero({title, description}) {
         py={{base: '6', lg: '44px'}}
         px={{base: '12', lg: '40px'}}
         borderRadius={{base: '0', lg: '12px'}}
-        bg="linear-gradient(360deg, #0A061E 8.24%, #311C87 100.52%)"
         color="white"
         w="full"
         maxW="1392px"
+        css={({theme}) => ({
+          backgroundImage: `linear-gradient(360deg, #0A061E 8.24%, ${theme.colors.indigo[800]} 100.52%)`
+        })}
       >
         <Flex align="center" justify="space-between" w="full" maxW={MAX_WIDTH}>
           <Box>
