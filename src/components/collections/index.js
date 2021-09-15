@@ -61,10 +61,11 @@ function Card({collection}) {
         <Text fontSize="sm" mt="2">
           By {author}
         </Text>
-        <Flex as="ul" ml="0" mt="auto" listStyleType="none">
+        <Flex as="ul" ml="0" mt="auto" listStyleType="none" flexWrap="wrap">
           {collection.categories.nodes.map(({name}) => (
             <ListItem
               key={name}
+              mt="2"
               sx={{
                 ':not(:last-child)': {
                   mr: '2'
