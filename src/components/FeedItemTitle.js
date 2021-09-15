@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Box, Heading, Link} from '@chakra-ui/core';
+import {UNDERLINE_ANIMATION, UNDERLINE_HOVER} from '../utils';
 
-export default function FeedItemTitle({
-  url,
-  children,
-  underlineAnimation,
-  ...props
-}) {
+export default function FeedItemTitle({url, children, ...props}) {
   if (url) {
     return (
       <Heading as="h4" fontSize={{base: 'xl', md: '2xl'}} {...props}>
@@ -19,8 +15,8 @@ export default function FeedItemTitle({
             href={url}
             textDecoration="none"
             cursor="pointer"
-            {...underlineAnimation.base}
-            _hover={underlineAnimation.hover}
+            {...UNDERLINE_ANIMATION}
+            _hover={UNDERLINE_HOVER}
           >
             {children}
           </Link>
@@ -34,8 +30,8 @@ export default function FeedItemTitle({
     <Heading
       as="h4"
       fontSize={{base: 'xl', md: '2xl'}}
-      // {...underlineAnimation.base}
-      // _hover={underlineAnimation.hover}
+      // {...UNDERLINE_ANIMATION}
+      // _hover={UNDERLINE_HOVER}
       {...props}
     >
       {children}
@@ -45,6 +41,5 @@ export default function FeedItemTitle({
 
 FeedItemTitle.propTypes = {
   url: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  underlineAnimation: PropTypes.object
+  children: PropTypes.node.isRequired
 };

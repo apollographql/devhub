@@ -25,7 +25,7 @@ import {IconOdyssey} from '@apollo/space-kit/icons/IconOdyssey';
 import {IconPlanet1} from '@apollo/space-kit/icons/IconPlanet1';
 import {IconTeam} from '@apollo/space-kit/icons/IconTeam';
 import {IconTelescope3} from '@apollo/space-kit/icons/IconTelescope3';
-import {getNodeMeta} from '../utils';
+import {UNDERLINE_ANIMATION, UNDERLINE_HOVER, getNodeMeta} from '../utils';
 
 // TODO: do we want a different icon for every content type?
 // or just for the more common ones and have a more generic one shared by the less common ones?
@@ -44,23 +44,6 @@ const contentTypes = {
   Website: IconClient, // idea, not in figma design
   Course: IconOdyssey, // idea, not in figma design
   Book: IconBook
-};
-
-const UNDERLINE_ANIMATION = {
-  display: 'inline',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '100% 2px, 0 2px',
-  backgroundPosition: '100% 100%, 0 100%',
-  transition: 'background-size .2s linear',
-  css({theme}) {
-    return {
-      backgroundImage: `linear-gradient(transparent, transparent), linear-gradient(${theme.colors.indigo[600]}, ${theme.colors.indigo[600]})`
-    };
-  }
-};
-
-const UNDERLINE_HOVER = {
-  backgroundSize: '0 2px, 100% 2px'
 };
 
 function FeaturedPost({
@@ -115,45 +98,9 @@ function FeaturedPost({
           as="h3"
           fontSize="lg"
           w={featuredPostMeta.url && 'full'}
-          underlineAnimation={{
-            base: UNDERLINE_ANIMATION,
-            hover: UNDERLINE_HOVER
-          }}
         >
           {featuredPost.title}
         </FeedItemTitle>
-
-        {/* if we want title to always have underline animation, even if it's not a link, use this commented out section instead */}
-        {/* {featuredPostMeta.url ? (
-          <FeedItemTitle
-            url={featuredPostMeta.url}
-            mb="4"
-            as="h3"
-            fontSize="lg"
-            w={featuredPostMeta.url && 'full'}
-            underlineAnimation={{
-              base: UNDERLINE_ANIMATION,
-              hover: UNDERLINE_HOVER
-            }}
-          >
-            {featuredPost.title}
-          </FeedItemTitle>
-        ) : (
-          // FeedItemTitle wrapper w/ a width needed for underline hover animation
-          <Box w="full" mb="4">
-            <FeedItemTitle
-              as="h3"
-              fontSize="lg"
-              w={featuredPostMeta.url && 'full'}
-              underlineAnimation={{
-                base: UNDERLINE_ANIMATION,
-                hover: UNDERLINE_HOVER
-              }}
-            >
-              {featuredPost.title}
-            </FeedItemTitle>
-          </Box>
-        )} */}
 
         <Text fontSize="sm">
           {featuredPost.date} - {author}

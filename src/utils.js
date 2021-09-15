@@ -58,3 +58,20 @@ exports.SECTION_SPACING = {
   maxW: {MAX_WIDTH},
   mx: {base: '8', md: '12', lg: '16', xl: 'auto'}
 };
+
+exports.UNDERLINE_ANIMATION = {
+  display: 'inline',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '100% 2px, 0 2px',
+  backgroundPosition: '100% 100%, 0 100%',
+  transition: 'background-size .2s linear',
+  css({theme}) {
+    return {
+      backgroundImage: `linear-gradient(transparent, transparent), linear-gradient(${theme.colors.indigo[600]}, ${theme.colors.indigo[600]})`
+    };
+  }
+};
+
+exports.UNDERLINE_HOVER = {
+  backgroundSize: '0 2px, 100% 2px'
+};
