@@ -16,8 +16,9 @@ import {
   ListItem,
   Text
 } from '@chakra-ui/core';
-import {IconBook} from '@apollo/space-kit/icons/IconBook';
+import {IconCalendarTime} from '@apollo/space-kit/icons/IconCalendarTime';
 import {IconClient} from '@apollo/space-kit/icons/IconClient';
+import {IconComment} from '@apollo/space-kit/icons/IconComment';
 import {IconDevelop} from '@apollo/space-kit/icons/IconDevelop';
 import {IconDocument} from '@apollo/space-kit/icons/IconDocument';
 import {IconHeadset} from '@apollo/space-kit/icons/IconHeadset';
@@ -42,8 +43,9 @@ const contentTypes = {
   Tutorial: '',
   Guide: '',
   Website: IconClient, // idea, not in figma design
-  Course: IconOdyssey, // idea, not in figma design
-  Book: IconBook
+  Odyssey: IconOdyssey,
+  Community: IconComment,
+  Event: IconCalendarTime
 };
 
 function FeaturedPost({

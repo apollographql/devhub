@@ -36,7 +36,7 @@ exports.getNodeMeta = node => {
       };
     case 'TwitchVideo':
       return {
-        type: node.broadcast_type === 'highlight' ? 'Highlight' : 'Stream',
+        type: 'Stream',
         url: node.url
       };
     case 'WpFeedItem': {
@@ -44,6 +44,18 @@ exports.getNodeMeta = node => {
       return {
         type: feedItemType ? feedItemType.name : 'Feed item',
         url: node.feedItemSettings.url
+      };
+    }
+    case 'CommunityPost': {
+      return {
+        type: 'Community',
+        url: `https://community.apollographql.com/t/${node.topic_slug}`
+      };
+    }
+    case 'WpEvent': {
+      return {
+        type: 'Event',
+        url: `https://www.apollographql.com/events/${node.eventsMetadata.eventType[0].slug}/register/${node.slug}`
       };
     }
     default:

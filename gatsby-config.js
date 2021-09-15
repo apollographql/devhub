@@ -55,6 +55,9 @@ module.exports = {
           },
           TeamMember: {
             exclude: true
+          },
+          Post: {
+            limit: 1
           }
         }
       }
@@ -74,6 +77,16 @@ module.exports = {
         params: {
           limit: 100
         }
+      }
+    },
+    {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'Community',
+        name: 'Post',
+        method: 'GET',
+        url: 'https://community.apollographql.com/posts.json',
+        entityLevel: 'latest_posts'
       }
     },
     {

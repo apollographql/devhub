@@ -7,18 +7,19 @@ import React from 'react';
 import Resources from '../components/Resources';
 import Seo from '../components/Seo';
 import {Box} from '@chakra-ui/core';
-import {SECTION_SPACING, combinePosts, getNodeMeta} from '../utils';
+import {SECTION_SPACING, getNodeMeta} from '../utils';
 import {graphql} from 'gatsby';
 
-// REDESIGN TODO:
-// Change breakpoints to 1440, 1024, 768, 375, 320 (will need to refactor current media queries in this repo)
+// TODO:
+// get latest odyssey course
 
 const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
 const TWEET_PATTERN = /^https?:\/\/twitter.com\/\w+\/status\/(\d+)/;
 export default function HomePage({data, location}) {
-  const [featuredPost, ...posts] = combinePosts(data).slice(0, 5);
+  const {featuredPost, wpFeedItem, twitchVideo, communityPost, wpEvent} = data;
+  const posts = [wpFeedItem, twitchVideo, communityPost, wpEvent];
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
@@ -55,33 +56,47 @@ HomePage.propTypes = {
 
 export const pageQuery = graphql`
   query HomePageQuery {
-    allWpPost(limit: 5) {
-      nodes {
-        ...PostFragment
-        featuredImage {
-          node {
-            sourceUrl
+    featuredPost: wpPost {
+      ...PostFragment
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+    wpFeedItem(feedItemSettings: {showInFeed: {eq: true}}) {
+      ...FeedItemFragment
+    }
+    twitchVideo {
+      ...VideoFragment
+    }
+    communityPost {
+      id
+      title: topic_title
+      date: updated_at(formatString: "ll")
+      topic_slug
+      internal {
+        type
+      }
+    }
+    wpEvent {
+      id
+      title
+      slug
+      date(formatString: "ll")
+      internal {
+        type
+      }
+      eventsMetadata {
+        eventType {
+          ... on WpEventType {
+            slug
           }
         }
       }
     }
-    allWpFeedItem(
-      limit: 5
-      filter: {feedItemSettings: {showInFeed: {eq: true}}}
-    ) {
-      nodes {
-        ...FeedItemFragment
-      }
-    }
-    allTwitchVideo(limit: 5) {
-      nodes {
-        ...VideoFragment
-      }
-    }
-    allWpCollection(
-      filter: {collectionSettings: {isUnlisted: {ne: true}}}
-      limit: 5
-    ) {
+
+    allWpCollection(filter: {collectionSettings: {isUnlisted: {ne: true}}}) {
       nodes {
         author {
           node {
