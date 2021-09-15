@@ -1,0 +1,7 @@
+[build]
+  publish = "public"
+  command = "gatsby build"
+[context.deploy-preview.environment]
+  PREFIX_PATHS = "false"
+[context.production.environment]
+  PREFIX_PATHS = "true"
