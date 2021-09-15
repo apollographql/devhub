@@ -46,6 +46,23 @@ const contentTypes = {
   Book: IconBook
 };
 
+const UNDERLINE_ANIMATION = {
+  display: 'inline',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '100% 2px, 0 2px',
+  backgroundPosition: '100% 100%, 0 100%',
+  transition: 'background-size .2s linear',
+  css({theme}) {
+    return {
+      backgroundImage: `linear-gradient(transparent, transparent), linear-gradient(${theme.colors.indigo[600]}, ${theme.colors.indigo[600]})`
+    };
+  }
+};
+
+const UNDERLINE_HOVER = {
+  backgroundSize: '0 2px, 100% 2px'
+};
+
 function FeaturedPost({
   featuredPost,
   featuredPostMeta,
@@ -92,9 +109,51 @@ function FeaturedPost({
           </Heading>
         </Flex>
 
-        <FeedItemTitle url={featuredPostMeta.url} mb="4" as="h3" fontSize="lg">
+        <FeedItemTitle
+          url={featuredPostMeta.url}
+          mb="4"
+          as="h3"
+          fontSize="lg"
+          w={featuredPostMeta.url && 'full'}
+          underlineAnimation={{
+            base: UNDERLINE_ANIMATION,
+            hover: UNDERLINE_HOVER
+          }}
+        >
           {featuredPost.title}
         </FeedItemTitle>
+
+        {/* if we want title to always have underline animation, even if it's not a link, use this commented out section instead */}
+        {/* {featuredPostMeta.url ? (
+          <FeedItemTitle
+            url={featuredPostMeta.url}
+            mb="4"
+            as="h3"
+            fontSize="lg"
+            w={featuredPostMeta.url && 'full'}
+            underlineAnimation={{
+              base: UNDERLINE_ANIMATION,
+              hover: UNDERLINE_HOVER
+            }}
+          >
+            {featuredPost.title}
+          </FeedItemTitle>
+        ) : (
+          // FeedItemTitle wrapper w/ a width needed for underline hover animation
+          <Box w="full" mb="4">
+            <FeedItemTitle
+              as="h3"
+              fontSize="lg"
+              w={featuredPostMeta.url && 'full'}
+              underlineAnimation={{
+                base: UNDERLINE_ANIMATION,
+                hover: UNDERLINE_HOVER
+              }}
+            >
+              {featuredPost.title}
+            </FeedItemTitle>
+          </Box>
+        )} */}
 
         <Text fontSize="sm">
           {featuredPost.date} - {author}
@@ -194,6 +253,9 @@ export default function NewContent({
                 w="full"
                 h="full"
                 p="6"
+                _hover={{
+                  h5: UNDERLINE_HOVER
+                }}
               >
                 <Flex alignItems="center" h="16px" mb="4">
                   <Flex alignItems="center" w="16px" h="16px" mr="2">
@@ -208,9 +270,13 @@ export default function NewContent({
                     {type}
                   </Heading>
                 </Flex>
-                <Heading as="h5" fontSize="lg">
-                  {title}
-                </Heading>
+
+                {/* Heading wrapper w/ a width needed for underline hover animation */}
+                <Box w="full">
+                  <Heading as="h5" fontSize="lg" {...UNDERLINE_ANIMATION}>
+                    {title}
+                  </Heading>
+                </Box>
                 <Text fontSize="sm" mt={{base: '2', lg: 'auto'}}>
                   {date}
                 </Text>
