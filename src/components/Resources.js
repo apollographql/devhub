@@ -167,7 +167,7 @@ function Card({resource}) {
           left={{base: '18px', lg: '25px'}}
           z-index="0"
           transition="transform 0.3s ease-out"
-          transformOrigin="10% 30%" // TODO: find better values than just guess and check
+          transformOrigin={{base: '10% 30%', md: '12% 30%'}} // TODO: find better values than just guess and check
         />
         <Center
           className="icon-wrapper"
