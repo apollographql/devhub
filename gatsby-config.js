@@ -1,7 +1,12 @@
+const {algoliaSettings} = require('apollo-algolia-transform');
+const {transformer} = require('./algolia');
 require('dotenv').config();
 
 module.exports = {
   pathPrefix: '/developers',
+  siteMetadata: {
+    siteUrl: 'https://www.apollographql.com/developers'
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-chakra-ui',
@@ -117,6 +122,99 @@ module.exports = {
           // Setting this parameter is also optional
           respectDNT: true
         }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_WRITE_KEY,
+        // only index when building for production on Netlify
+        skipIndexing:
+          process.env.CONTEXT !== 'production' &&
+          process.env.SKIP_INDEXING !== 'false',
+        queries: [
+          {
+            query: `{
+              site {
+                siteMetadata {
+                  siteUrl
+                }
+              }
+              allWpCollection(filter: {collectionSettings: {isUnlisted: {ne: true}}}) {
+                nodes {
+                  id
+                  slug
+                  title
+                  link
+                  excerpt
+                  content
+                  date
+                  categories {
+                    nodes {
+                      name
+                    }
+                  }
+                  internal {
+                    type
+                  }
+                  collectionSettings {
+                    items {
+                      ... on WpPost {
+                        id
+                        title
+                        slug
+                        content
+                        categories {
+                          nodes {
+                            name
+                          }
+                        }
+                        date
+                        internal {
+                          type
+                        }
+                      }
+                      ... on WpFeedItem {
+                        id
+                        title
+                        slug
+                        link
+                        excerpt
+                        internal {
+                          type
+                        }
+                        feedItemTypes {
+                          nodes {
+                            name
+                          }
+                        }
+                        feedItemSettings {
+                          url
+                        }
+                        categories {
+                          nodes {
+                            name
+                            
+                          }
+                        }
+                        date
+                      }
+                    }
+                  }
+                  
+                }
+              }
+            }               
+            `,
+            transformer,
+            indexName: 'devhub',
+            settings: {
+              ...algoliaSettings
+              // customRanking: ['desc(date)', ...algoliaSettings.customRanking]
+            }
+          }
+        ]
       }
     },
     {
