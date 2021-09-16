@@ -96,9 +96,6 @@ export default function Header() {
           <MenuItem as={GatsbyLink} to="/">
             Home
           </MenuItem>
-          <MenuItem as={GatsbyLink} to="/feed">
-            News Feed
-          </MenuItem>
           <MenuItem as={GatsbyLink} to="/collections">
             Collections
           </MenuItem>
@@ -135,9 +132,6 @@ export default function Header() {
           <NavMenu label="Developers" color="indigo.600">
             <MenuItem as={GatsbyLink} to="/">
               Home
-            </MenuItem>
-            <MenuItem as={GatsbyLink} to="/feed">
-              News Feed
             </MenuItem>
             <MenuItem as={GatsbyLink} to="/collections">
               Collections

@@ -20,13 +20,6 @@ exports.renderByline = (post, byline = [post.date]) => {
   return byline.join(' · ');
 };
 
-exports.combinePosts = data => {
-  return data.allWpPost.nodes
-    .concat(data.allWpFeedItem.nodes)
-    .concat(data.allTwitchVideo.nodes)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-};
-
 exports.getNodeMeta = node => {
   switch (node.internal.type) {
     case 'WpPost':

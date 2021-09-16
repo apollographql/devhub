@@ -1,4 +1,3 @@
-import ArrowLink from './ArrowLink';
 import FeedItemTitle from './FeedItemTitle';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -243,9 +242,6 @@ export default function NewContent({
           );
         })}
       </Grid>
-      <ArrowLink direction="right" to="/feed/1" mt="8" color="indigo.600">
-        See what else is new
-      </ArrowLink>
     </Box>
   );
 }
