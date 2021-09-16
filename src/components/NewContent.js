@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TweetEmbed from 'react-tweet-embed';
 import astronaut from '../assets/astronaut.svg';
+import truncate from 'lodash/truncate';
 import {ApolloLogo} from '@apollo/space-kit/icons/ApolloLogo';
 import {
   AspectRatio,
@@ -223,7 +224,7 @@ export default function NewContent({
                 {/* Heading wrapper w/ a width needed for underline hover animation */}
                 <Box w="full">
                   <Heading as="h5" fontSize="lg" {...UNDERLINE_ANIMATION}>
-                    {title}
+                    {truncate(title, {length: 80})}
                   </Heading>
                 </Box>
                 <Text fontSize="sm" mt={{base: '2', lg: 'auto'}}>

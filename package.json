@@ -23,6 +23,7 @@
     "gatsby-transformer-sharp": "^2.5.14",
     "he": "^1.2.0",
     "html-react-parser": "^0.14.0",
+    "lodash": "^4.17.21",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
