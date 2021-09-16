@@ -90,6 +90,16 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'Odyssey',
+        name: 'Course',
+        method: 'GET',
+        url: 'https://odyssey.apollographql.com/courses-api/courses.json',
+        entityLevel: 'odyssey-courses'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.

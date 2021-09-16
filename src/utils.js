@@ -58,6 +58,12 @@ exports.getNodeMeta = node => {
         url: `https://www.apollographql.com/events/${node.eventsMetadata.eventType[0].slug}/register/${node.slug}`
       };
     }
+    case 'OdysseyCourse': {
+      return {
+        type: 'Odyssey Course',
+        url: node.url
+      };
+    }
     default:
       return {type: node.internal.type};
   }

@@ -43,7 +43,7 @@ const contentTypes = {
   Tutorial: '',
   Guide: '',
   Website: IconClient, // idea, not in figma design
-  Odyssey: IconOdyssey,
+  'Odyssey Course': IconOdyssey,
   Community: IconComment,
   Event: IconCalendarTime
 };

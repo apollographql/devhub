@@ -18,8 +18,14 @@ const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
 const TWEET_PATTERN = /^https?:\/\/twitter.com\/\w+\/status\/(\d+)/;
 export default function HomePage({data, location}) {
-  const {featuredPost, wpFeedItem, twitchVideo, communityPost, wpEvent} = data;
-  const posts = [wpFeedItem, twitchVideo, communityPost, wpEvent];
+  const {
+    featuredPost,
+    odysseyCourse,
+    twitchVideo,
+    communityPost,
+    wpEvent
+  } = data;
+  const posts = [odysseyCourse, twitchVideo, communityPost, wpEvent];
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
@@ -64,9 +70,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    wpFeedItem(feedItemSettings: {showInFeed: {eq: true}}) {
-      ...FeedItemFragment
-    }
     twitchVideo {
       ...VideoFragment
     }
@@ -95,7 +98,15 @@ export const pageQuery = graphql`
         }
       }
     }
-
+    odysseyCourse {
+      id
+      title
+      url
+      date: lastUpdated(formatString: "ll")
+      internal {
+        type
+      }
+    }
     allWpCollection(filter: {collectionSettings: {isUnlisted: {ne: true}}}) {
       nodes {
         author {
