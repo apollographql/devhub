@@ -162,6 +162,11 @@ export default function NewContent({
           md: 'repeat(2, 1fr)',
           lg: 'repeat(4, 1fr)'
         }}
+        templateRows={{
+          base: '1fr repeat(auto-fit, minmax(139px, 1fr))',
+          lg: '1fr repeat(auto-fit, minmax(198px, 1fr))',
+          xl: '1fr repeat(auto-fit, minmax(171px, 1fr))'
+        }}
       >
         <FeaturedPost
           featuredPost={featuredPost}
@@ -189,7 +194,7 @@ export default function NewContent({
               borderWidth="1px"
               borderColor="gray.200"
               borderRadius="8px"
-              h={{base: '139px', md: '155px', lg: '198px', xl: '171px'}}
+              h="100%"
               sx={
                 !i && {
                   gridColumn: 1
@@ -222,7 +227,7 @@ export default function NewContent({
                 </Flex>
 
                 {/* Heading wrapper w/ a width needed for underline hover animation */}
-                <Box w="full">
+                <Box w="full" mb={{lg: '4'}}>
                   <Heading as="h5" fontSize="lg" {...UNDERLINE_ANIMATION}>
                     {truncate(title, {length: 80})}
                   </Heading>
