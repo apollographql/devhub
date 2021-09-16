@@ -17,6 +17,7 @@ export default function FeedItemTitle({url, children, ...props}) {
             cursor="pointer"
             {...UNDERLINE_ANIMATION}
             _hover={UNDERLINE_HOVER}
+            _focus={UNDERLINE_HOVER}
           >
             {children}
           </Link>

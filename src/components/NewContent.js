@@ -211,6 +211,9 @@ export default function NewContent({
                 _hover={{
                   h5: UNDERLINE_HOVER
                 }}
+                _focus={{
+                  h5: UNDERLINE_HOVER
+                }}
               >
                 <Flex alignItems="center" h="16px" mb="4">
                   <Flex alignItems="center" w="16px" h="16px" mr="2">
