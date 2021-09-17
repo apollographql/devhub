@@ -76,6 +76,7 @@ function Card({collection}) {
             <ListItem
               key={name}
               mt="2"
+              fontFamily="Source Code Pro"
               sx={{
                 ':not(:last-child)': {
                   mr: '2'
