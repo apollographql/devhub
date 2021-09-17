@@ -223,7 +223,12 @@ export default function NewContent({
                       as={contentTypes[type] || ApolloLogo}
                     />
                   </Flex>
-                  <Heading textStyle="subheading" fontSize="xs" as="h6">
+                  <Heading
+                    textStyle="subheading"
+                    fontSize="xs"
+                    fontStyle="normal"
+                    as="h6"
+                  >
                     {type}
                   </Heading>
                 </Flex>
