@@ -10,9 +10,6 @@ import {Box} from '@chakra-ui/core';
 import {SECTION_SPACING, getNodeMeta} from '../utils';
 import {graphql} from 'gatsby';
 
-// TODO:
-// get latest odyssey course
-
 const TITLE = 'Apollo Developer Hub';
 const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
@@ -109,11 +106,6 @@ export const pageQuery = graphql`
     }
     allWpCollection(filter: {collectionSettings: {isUnlisted: {ne: true}}}) {
       nodes {
-        author {
-          node {
-            name
-          }
-        }
         ...CollectionFragment
       }
     }

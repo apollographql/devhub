@@ -1,38 +1,37 @@
 import CollectionCard from './CollectionCard';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Link as GatsbyLink} from 'gatsby';
-import {Grid, Tag, Wrap} from '@chakra-ui/core';
+import {Grid} from '@chakra-ui/core';
+
+const COLLECTIONS_GRID_STYLES = collections => ({
+  gap: '4',
+  templateColumns: {
+    base: '1fr',
+    md: 'repeat(2, 1fr)',
+    lg: 'repeat(auto-fit, minmax(288px, 1fr))',
+    xl: 'repeat(auto-fit, minmax(276px, 1fr))'
+  },
+  templateRows: {
+    base: `repeat(${collections.length}, minmax(135px, 1fr))`,
+    md: `repeat(${Math.ceil(collections.length / 2)}, minmax(159px, 1fr))`,
+    lg: `repeat(${Math.ceil(collections.length / 3)}, minmax(186px, 1fr))`,
+    xl: `repeat(${Math.ceil(collections.length / 4)}, minmax(178px, 1fr))`
+  }
+});
 
 export default function CollectionsGrid({collections}) {
   return (
     <Grid
-      gap={{base: 6, md: 8}}
-      templateColumns="repeat(auto-fill, minmax(265px, 1fr))"
+      as="ul"
+      listStyleType="none"
+      p="0"
+      {...COLLECTIONS_GRID_STYLES(collections)}
     >
       {collections.map(collection => (
         <CollectionCard
           key={collection.id}
           collection={collection}
-          as={GatsbyLink}
-          to={'/collection/' + collection.slug}
-          bg="gray.50"
-          _hover={{bg: 'gray.100'}}
-        >
-          <Wrap mt="auto">
-            {collection.categories.nodes.map(category => (
-              <Tag
-                size="sm"
-                borderRadius="md"
-                key={category.id}
-                variant="outline"
-                colorScheme="indigo"
-              >
-                {category.name}
-              </Tag>
-            ))}
-          </Wrap>
-        </CollectionCard>
+        ></CollectionCard>
       ))}
     </Grid>
   );
