@@ -1,6 +1,6 @@
+import Autocomplete from 'apollo-algolia-autocomplete';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Search from './Search';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
 import {
   Box,
@@ -13,12 +13,15 @@ import {
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList,
-  useDisclosure
+  MenuList
 } from '@chakra-ui/core';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
+
+import 'apollo-algolia-autocomplete/styles.css';
+
+import '../autocomplete.css';
 
 function NavMenu({children, label, ...props}) {
   return (
@@ -39,7 +42,6 @@ NavMenu.propTypes = {
 };
 
 export default function Header() {
-  const searchProps = useDisclosure();
   return (
     <Flex
       as="header"
@@ -51,14 +53,7 @@ export default function Header() {
       bg="white"
       zIndex="2"
     >
-      <Flex
-        mr="auto"
-        align="center"
-        display={{
-          base: searchProps.isOpen ? 'none' : 'flex',
-          lg: 'flex'
-        }}
-      >
+      <Flex mr="auto" align="center">
         <Box as="a" href="https://apollographql.com/">
           <Box as={ApolloIcon} h="6" title="Apollo" />
         </Box>
@@ -79,12 +74,16 @@ export default function Header() {
           </Box>
         </Box>
       </Flex>
-      <Search {...searchProps} />
+      <Autocomplete
+        appId={process.env.ALGOLIA_APP_ID}
+        apiKey={process.env.ALGOLIA_SEARCH_KEY}
+        currentSource="devhub"
+      />
       <Menu>
         <MenuButton
           as={IconButton}
           display={{
-            base: searchProps.isOpen ? 'none' : 'flex',
+            base: 'flex',
             lg: 'none'
           }}
           variant="ghost"
@@ -122,8 +121,7 @@ export default function Header() {
       <HStack
         display={{
           base: 'none',
-          lg: searchProps.isOpen ? 'none' : 'flex',
-          xl: 'flex'
+          lg: 'flex'
         }}
         fontWeight="semibold"
         spacing="8"

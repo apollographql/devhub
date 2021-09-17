@@ -1,0 +1,18 @@
+.autocomplete-container {
+    margin-right: 2rem;
+}
+
+.aa-DetachedSearchButton {
+    border: none;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+}
+
+.aa-DetachedSearchButtonIcon {
+    color: #191C23;
+}
+
+.aa-DetachedSearchButtonPlaceholder {
+    display: none;
+}
