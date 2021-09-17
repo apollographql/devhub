@@ -31,7 +31,7 @@ function Card({collection}) {
   const author = collection.author.node.name;
   return (
     <ListItem
-      h={{base: '135px', md: '159px', lg: '186px', xl: '178px'}}
+      h="full"
       pos="relative"
       _before={{...PSEUDO_STYLES(false), zIndex: 1}}
       _after={PSEUDO_STYLES(true)}
@@ -61,7 +61,17 @@ function Card({collection}) {
         <Text fontSize="sm" mt="2">
           By {author}
         </Text>
-        <Flex as="ul" ml="0" mt="auto" listStyleType="none" flexWrap="wrap">
+        <Flex
+          as="ul"
+          ml="0"
+          mt={{
+            base: collection.categories.nodes.length > 3 ? '6' : 'auto',
+            md: collection.categories.nodes.length > 4 ? '6' : 'auto',
+            xl: collection.categories.nodes.length > 3 ? '6' : 'auto'
+          }}
+          listStyleType="none"
+          flexWrap="wrap"
+        >
           {collection.categories.nodes.map(({name}) => (
             <ListItem
               key={name}
@@ -122,6 +132,18 @@ export default function Collections({collections}) {
             md: 'repeat(2, 1fr)',
             lg: 'repeat(auto-fit, minmax(288px, 1fr))',
             xl: 'repeat(auto-fit, minmax(276px, 1fr))'
+          }}
+          templateRows={{
+            base: `repeat(${collections.length}, minmax(135px, 1fr))`,
+            md: `repeat(${Math.ceil(
+              collections.length / 2
+            )}, minmax(159px, 1fr))`,
+            lg: `repeat(${Math.ceil(
+              collections.length / 3
+            )}, minmax(186px, 1fr))`,
+            xl: `repeat(${Math.ceil(
+              collections.length / 4
+            )}, minmax(178px, 1fr))`
           }}
         >
           {collections.map(collection => (
