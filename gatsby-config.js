@@ -170,7 +170,7 @@ module.exports = {
                         id
                         title
                         slug
-                        content
+                        excerpt
                         categories {
                           nodes {
                             name
