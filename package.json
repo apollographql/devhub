@@ -1,10 +1,22 @@
 {
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "test": "jest"
   },
   "eslintConfig": {
-    "extends": "@trevorblades/eslint-config/react"
+    "extends": "@trevorblades/eslint-config/react",
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.js",
+          "**.test.js"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "dependencies": {
     "@apollo/space-kit": "^9.6.2",
@@ -38,6 +50,9 @@
   },
   "devDependencies": {
     "@trevorblades/eslint-config": "^7.2.1",
-    "eslint": "^7.7.0"
+    "babel-jest": "^27.2.0",
+    "babel-preset-gatsby": "^1.13.0",
+    "eslint": "^7.7.0",
+    "jest": "^27.2.0"
   }
 }

@@ -1,0 +1,1657 @@
+{
+    "data": {
+      "site": {
+        "siteMetadata": {
+          "siteUrl": "https://www.apollographql.com/developers"
+        }
+      },
+      "allWpCollection": {
+        "nodes": [
+          {
+            "id": "cG9zdDo2MDE2",
+            "slug": "graphql-for-android",
+            "title": "GraphQL for Android",
+            "link": "/collection/graphql-for-android/",
+            "excerpt": "<p>This collection teaches you how to use Apollo Android to do GraphQL queries, mutations and subscription as well as tips &#038; tricks to better handle GraphQL on mobile devices.</p>\n",
+            "content": "\n<p id=\"block-ad44985a-22f7-43ae-a044-3d477a74d7b1\">Consume your GraphQL API on Android Devices with Apollo Android. Apollo Android is a GraphQL client that generates type-safe Kotlin models from your GraphQL queries. It also handles parsing and caching so you can focus on what matters most to your users and build beautiful mobile apps.</p>\n\n\n\n<p></p>\n",
+            "date": "2020-11-17T12:41:48",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Frontend"
+                },
+                {
+                  "name": "Mobile"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo1OTk2",
+                  "title": "Apollo GraphQL Android Client",
+                  "slug": "apollo-graphql-android-client",
+                  "link": "/feed_item/apollo-graphql-android-client/",
+                  "excerpt": "<p>Apollo Android is a GraphQL client that generates Java and Kotlin models from GraphQL queries. These models give you a type-safe API to work with GraphQL servers. Apollo helps you keep your GraphQL query statements together, organized, and easy to access.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Code"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://github.com/apollographql/apollo-android"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:42:04"
+                },
+                {
+                  "id": "cG9zdDo1OTk5",
+                  "title": "Intro to the Android Apollo SDK",
+                  "slug": "intro-to-the-android-apollo-sdk",
+                  "link": "/feed_item/intro-to-the-android-apollo-sdk/",
+                  "excerpt": "<p>This tutorial demonstrates adding the Apollo Android SDK to an app to communicate with a GraphQL server.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/android/tutorial/00-introduction/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:43:16"
+                },
+                {
+                  "id": "cG9zdDo2MDAy",
+                  "title": "Apollo-Android: a Journey to Kotlin Multiplatform",
+                  "slug": "apollo-android-a-journey-to-kotlin-multiplatform",
+                  "link": "/feed_item/apollo-android-a-journey-to-kotlin-multiplatform/",
+                  "excerpt": "<p>In this talk we will be talking about the path we took to bring Kotlin Multiplatform support and the challenges we faced along the way. We will touch topics such as migrating code from Java to Kotlin Multiplatform for both the runtime and code generation, as well as documentation and publication of Multiplatform artifacts. </p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Panel"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=GN6LHrqyimI"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Community"
+                      },
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:45:58"
+                },
+                {
+                  "id": "cG9zdDo2MDA1",
+                  "title": "Take Control Of Your APIs With GraphQL",
+                  "slug": "take-control-of-your-apis-with-graphql",
+                  "link": "/feed_item/take-control-of-your-apis-with-graphql/",
+                  "excerpt": "<p>In this talk, we&#8217;ll introduce the benefits of a client side API and understand why this will be the approach of the future. You&#8217;ll learn what tools are available for consuming GraphQL APIs on Android, and tips for having them coexist with the REST APIs you already support. You&#8217;ll leave this talk with a clear roadmap on how you can begin migrating your apps to this new technology.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Talk"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=np3JSkjisCk"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Community"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:47:32"
+                },
+                {
+                  "id": "cG9zdDo2MDA4",
+                  "title": "GraphQL and Apollo with GDE Mike Nakhimovich",
+                  "slug": "graphql-and-apollo-with-gde-mike-nakhimovich",
+                  "link": "/feed_item/graphql-and-apollo-with-gde-mike-nakhimovich/",
+                  "excerpt": "<p>In this episode, we talk about GraphQL. Friend and GDE Mike Nakhimovich helped create the library Apollo for Android, which is the defacto official GraphQL client for Android.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Podcast"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://fragmentedpodcast.com/episodes/125/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Community"
+                      },
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:49:52"
+                },
+                {
+                  "id": "cG9zdDo2MDEy",
+                  "title": "Exploring GraphQL with Coroutines on Android",
+                  "slug": "exploring-graphql-with-coroutines-on-android",
+                  "link": "/feed_item/exploring-graphql-with-coroutines-on-android/",
+                  "excerpt": "<p>In this post we’re going to look at setting up our project for use with GraphQL, along with learning how we can perform queries. </p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Blog Post"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://joebirch.co/android/exploring-graphql-with-coroutines-on-android/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Community"
+                      },
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-11-17T10:51:15"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo1NDQ2",
+            "slug": "graphql-tooling-and-code-gen",
+            "title": "GraphQL Tooling and  Code-gen",
+            "link": "/collection/graphql-tooling-and-code-gen/",
+            "excerpt": "<p>This collection is designed to help you speed up GraphQL development by providing a round up of OSS tools, training videos, and Apollo services that you can use today.</p>\n",
+            "content": "\n<p>One of the many benefits of adopting GraphQL is the ever growing eco-system of tools and services available to help you build your apps even faster. From code-gen to configuring Apollo Server, this collection has a range of tools, tips, and configuration best practices designed to boost your productivity.</p>\n",
+            "date": "2020-10-26T16:11:53",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Backend"
+                },
+                {
+                  "name": "Frontend"
+                },
+                {
+                  "name": "How-to"
+                },
+                {
+                  "name": "Platform"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo1NDkw",
+                  "title": "The Apollo CLI",
+                  "slug": "the-apollo-cli",
+                  "link": "/feed_item/the-apollo-cli/",
+                  "excerpt": "<p>The Apollo CLI provides useful commands for interacting with every component of the Apollo platform, including Apollo Client, Apollo Server, and Apollo Studio.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/devtools/cli/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "Platform"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:18:30"
+                },
+                {
+                  "id": "cG9zdDo1NDc5",
+                  "title": "Apollo Client Devtools",
+                  "slug": "apollo-client-devtools",
+                  "link": "/feed_item/apollo-client-devtools/",
+                  "excerpt": "<p>This repository contains the Apollo DevTools extension for Chrome &#038; Firefox.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Code"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://github.com/apollographql/apollo-client-devtools"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:15:52"
+                },
+                {
+                  "id": "cG9zdDo1NDgy",
+                  "title": "Apollo Extension for VS Code",
+                  "slug": "apollo-extension-for-vs-code",
+                  "link": "/feed_item/apollo-extension-for-vs-code/",
+                  "excerpt": "<p>The Apollo VS Code extension provides an all-in-one tooling experience for developing apps with Apollo.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/devtools/editor-plugins/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Platform"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:17:40"
+                },
+                {
+                  "id": "cG9zdDo1NDY0",
+                  "title": "Apollo Config API",
+                  "slug": "apollo-config-api",
+                  "link": "/feed_item/apollo-config-api/",
+                  "excerpt": "<p>Apollo projects are configured using an apollo.config.js file at the root of your project. Many Apollo tools leverage your Apollo config, reducing the net amount of configuration you need to do in your project in the end.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/devtools/apollo-config/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:11:13"
+                },
+                {
+                  "id": "cG9zdDo1NDU2",
+                  "title": "Apollo Configuration Deep Dive",
+                  "slug": "apollo-configuration-deep-dive",
+                  "link": "/feed_item/apollo-configuration-deep-dive/",
+                  "excerpt": "<p>Jake Dawkins walks Kurt Kemple through the various types of Apollo projects you might encounter or need to create, and how to configure them to get the most out of Apollo Studio, Apollo tooling, and more!</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://youtu.be/L1CeQ0t7_hI"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:09:43"
+                },
+                {
+                  "id": "cG9zdDo1NDcw",
+                  "title": "GraphQL Code Generator",
+                  "slug": "graphql-code-generator",
+                  "link": "/feed_item/graphql-code-generator/",
+                  "excerpt": "<p>GraphQL Code Generator is a tool that generates code out of your GraphQL schema. Whether you are developing a frontend or backend, you can utilize GraphQL Code Generator to generate output from your GraphQL Schema and GraphQL Documents (query/mutation/subscription/fragment).</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Code"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://github.com/dotansimha/graphql-code-generator"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:13:33"
+                },
+                {
+                  "id": "cG9zdDo1NTI4",
+                  "title": "CI/CD for GraphQL",
+                  "slug": "ci-cd-for-graphql",
+                  "link": "/feed_item/ci-cd-for-graphql/",
+                  "excerpt": "<p>When deploying code, you want to be sure that nothing will blow up when things go live. To prevent downtime, it’s a good practice to use CI (continuous integration) to run tests, checks, and ensure your app is fully ready to hit production.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Blog Post"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/blog/introducing-the-new-graphql-ci-in-apollo-studio/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Announcement"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T16:08:08"
+                },
+                {
+                  "id": "cG9zdDo1NTE4",
+                  "title": "How to Build and Run Queries in Apollo Explorer",
+                  "slug": "how-to-build-and-run-queries-in-apollo-explorer",
+                  "link": "/feed_item/how-to-build-and-run-queries-in-apollo-explorer/",
+                  "excerpt": "<p>A five minute tour of the Explorer, which is free to use in Apollo Studio!</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Video"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=j8b0Bda_TIw&feature=youtu.be"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T11:44:35"
+                },
+                {
+                  "id": "cG9zdDo1NDkz",
+                  "title": "Build and Run GraphQL Operations with the Apollo Explorer",
+                  "slug": "build-and-run-graphql-operations-with-the-apollo-explorer",
+                  "link": "/feed_item/build-and-run-graphql-operations-with-the-apollo-explorer/",
+                  "excerpt": "<p>The Explorer is a full-featured query builder and runner that’s part of Apollo Studio. </p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/blog/introducing-the-apollo-explorer/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      },
+                      {
+                        "name": "Tooling"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-26T09:20:07"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo0NzEy",
+            "slug": "state-management",
+            "title": "Caching & State Management with Apollo Client",
+            "link": "/collection/state-management/",
+            "excerpt": "<p>Apollo Client handles the tasks of fetching, caching, and normalizing your remote data. Understanding what it does and how it works under the hood lets you focus on what matters: creating great user experiences.</p>\n",
+            "content": "\n<p>State management is about caching the data you need to provide experiences for your users. Apollo Client is both a GraphQL client and a state management library. In this collection, you’ll learn how to use the latest version of Apollo Client as your <strong>single source of truth</strong> <strong>for state</strong> in client-side UI libraries like React.</p>\n",
+            "date": "2020-09-21T18:59:29",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Frontend"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo0OTky",
+                  "title": "Intro to Apollo Client 3.0",
+                  "slug": "intro-to-apollo-client-3-0",
+                  "link": "/feed_item/intro-to-apollo-client-3-0/",
+                  "excerpt": "<p>On this episode of Mission Briefing, Ben Newman walks Kurt Kemple through Apollo Client 3.0! Apollo Client 3.0 introduces some excited new changes like cache policies, reactive variables, and a lot more!</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=ou0fEW1eRjc"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-05T17:31:05"
+                },
+                {
+                  "id": "cG9zdDo1Mzcw",
+                  "title": "A Quick Overview of Cache Normalization in Apollo Client",
+                  "slug": "a-quick-overview-of-cache-normalization-in-apollo-client",
+                  "link": "/feed_item/a-quick-overview-of-cache-normalization-in-apollo-client/",
+                  "excerpt": "<p>In this two minute video Ben Newman and Kurt Kemple walk through how cache normalization works in Apollo Client</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=0QZ2UZeV4Kc"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T10:00:05"
+                },
+                {
+                  "id": "cG9zdDo1MzY0",
+                  "title": "What are Reactive Variables in Apollo Client 3",
+                  "slug": "what-are-reactive-variables-in-apollo-client-3",
+                  "link": "/feed_item/what-are-reactive-variables-in-apollo-client-3/",
+                  "excerpt": "<p>In this two minute video Ben Newman teaches us what reactive variables are in Apollo Client 3.0</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=Vn6Xkcrubng"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T09:56:48"
+                },
+                {
+                  "id": "cG9zdDo1MzY3",
+                  "title": "What are Type Polices in Apollo Client 3",
+                  "slug": "what-are-type-polices-in-apollo-client-3",
+                  "link": "/feed_item/what-are-type-polices-in-apollo-client-3/",
+                  "excerpt": "<p>In this three minute video Ben Newman teaches us about type policies in Apollo Client 3.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=7NeoVKC6QvQ"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T09:57:54"
+                },
+                {
+                  "id": "cG9zdDo1MDYy",
+                  "title": "A Treatise on State",
+                  "slug": "a-treatise-on-state",
+                  "link": "/feed_item/a-treatise-on-state/",
+                  "excerpt": "<p>A study of the different types of state we manage, how to think about each, and how to get them playing nicely together.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Talk"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=tBz3UmZG_bk"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-06T12:16:30"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo0NzA5",
+            "slug": "managing-your-graph",
+            "title": "Production Ready Graphs",
+            "link": "/collection/managing-your-graph/",
+            "excerpt": "<p>Go from 10,000 feet right to ground level with this mix of guides, books, videos, and tutorials.</p>\n",
+            "content": "\n<p>Putting your data graph into production doesn&#8217;t have to be a guessing game or scary experience. This collection is composed of written and video resources focused on stability, monitoring, schema management, schema design, and best practices.</p>\n",
+            "date": "2020-09-21T18:58:31",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Backend"
+                },
+                {
+                  "name": "How-to"
+                },
+                {
+                  "name": "Platform"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo1MTgw",
+                  "title": "Principled GraphQL – An Opinionated Guide to Data Graphs",
+                  "slug": "principaled-graphql-an-opinionated-guide-to-data-graphs",
+                  "link": "/feed_item/principaled-graphql-an-opinionated-guide-to-data-graphs/",
+                  "excerpt": "<p>At Apollo, we&#8217;ve been building industry leading data graph technology since 2015, and we estimate our software is now used in over 90% of GraphQL implementations. Over the years, we&#8217;ve had thousands of conversations with developers implementing GraphQL at companies of all sizes. We want to share what we&#8217;ve learned, so we&#8217;ve distilled their experiences into a set of best practices for creating, maintaining, and operating a data graph.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://principledgraphql.com/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:54:00"
+                },
+                {
+                  "id": "cG9zdDo1MTc3",
+                  "title": "Designing GraphQL Schemas",
+                  "slug": "designing-graphql-schemas",
+                  "link": "/feed_item/designing-graphql-schemas/",
+                  "excerpt": "<p>When you start working with GraphQL, you&#8217;ll start to realize that GraphQL is going to change your design process. Instead of looking at your APIs as a collection of REST endpoints, you&#8217;ll start looking at APIs as collections of types. Before breaking ground on your new API, you need to think about, talk about, and formally define the data types that your API will expose. This collection of types is called a schema.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Tutorial"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://moonhighway.com/schema-definition-language"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:51:48"
+                },
+                {
+                  "id": "cG9zdDo1MTc0",
+                  "title": "Refactoring Your GraphQL Schema",
+                  "slug": "refactoring-your-graphql-schema",
+                  "link": "/feed_item/refactoring-your-graphql-schema/",
+                  "excerpt": "<p>A GraphQL schema is a tool for communication across teams. When we work together to define a schema with the schema definition language, we&#8217;re deciding how everyone using our API will consume the data. We want to make it as clear and simple as possible for consumers to send operations to our API without errors.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Tutorial"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://moonhighway.com/refactoring-graphql-schemas"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:50:43"
+                },
+                {
+                  "id": "cG9zdDo1MTYx",
+                  "title": "A Battle Tested Guide for Backend Developers",
+                  "slug": "considerations-when-adopting-graphql",
+                  "link": "/feed_item/considerations-when-adopting-graphql/",
+                  "excerpt": "<p>Francesca has been working with GraphQL for years at scale, at companies like Trulia and Pinterest, and has been key to a lot of migration and development. In her talk, A GraphQL Guide for Backend Developers, she walks through a lot of very good, battle-tested advice. Since the event wasn’t captured, here’s a brief summary of her talk (taken with her explicit permission).</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.netlify.com/blog/2020/01/21/advice-from-a-graphql-expert/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:41:32"
+                },
+                {
+                  "id": "cG9zdDo1MTg2",
+                  "title": "GraphQL In Production Panel – GraphQL Summit 2020",
+                  "slug": "graphql-in-production-panel-graphql-summit-2020",
+                  "link": "/feed_item/graphql-in-production-panel-graphql-summit-2020/",
+                  "excerpt": "<p>Featuring: Matt DeBergalis, CTO at Apollo (Moderator)<br />\nMarc-Andre Giroux, Senior Platform Engineer at GitHub<br />\nAndy Vajda, Tech Lead at American Airlines<br />\nMike Byrnes, Principal Software Engineer at Priceline<br />\nShruti Kapoor, Senior Software Engineer at PayPal</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Panel"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=Nh8lPL0pKVM"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Community"
+                      },
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:56:10"
+                },
+                {
+                  "id": "cG9zdDo1MTkw",
+                  "title": "Get Started with Apollo Studio",
+                  "slug": "get-started-with-apollo-studio",
+                  "link": "/feed_item/get-started-with-apollo-studio/",
+                  "excerpt": "<p>Apollo Studio (formerly Graph Manager) is a cloud platform that helps you build, validate, and secure your organization&#8217;s data graph.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/studio/getting-started/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:57:53"
+                },
+                {
+                  "id": "cG9zdDo1MTY0",
+                  "title": "Manage Your Schema with Apollo Studio",
+                  "slug": "manage-your-schema-with-apollo-studio",
+                  "link": "/feed_item/manage-your-schema-with-apollo-studio/",
+                  "excerpt": "<p>The Apollo schema registry is a central hub for managing your data graph. After you register your schema, you can use Apollo Studio to explore the schema&#8217;s types and fields, track its change history, and even build and run operations against it.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/studio/schema/registry/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:45:56"
+                },
+                {
+                  "id": "cG9zdDo1MTU4",
+                  "title": "Analyzing Your Graph’s Performance with Tracing",
+                  "slug": "analyzing-your-graphs-performance-with-tracing",
+                  "link": "/feed_item/analyzing-your-graphs-performance-with-tracing/",
+                  "excerpt": "<p>Apollo includes a performance monitoring system which, through a single line of configuration, brings insights about the queries being executed against your graph, the fields being used in your graph, the clients making requests against your graph, how long your requests are taking, and more.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/studio/performance/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:34:19"
+                },
+                {
+                  "id": "cG9zdDo1MTQx",
+                  "title": "View Your Graph History and Schema Changes with Apollo Studio",
+                  "slug": "view-your-graph-history-and-schema-changes-with-apollo-studio",
+                  "link": "/feed_item/view-your-graph-history-and-schema-changes-with-apollo-studio/",
+                  "excerpt": "<p>On this episode of Mission Briefing Adam Zionts will show Kurt Kemple the new schema reporting features in Apollo Graph Manager like graph history and schema change notifications.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=BSJddMiir08&feature=emb_logo"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:18:47"
+                },
+                {
+                  "id": "cG9zdDo1MTkz",
+                  "title": "Production Ready GraphQL",
+                  "slug": "production-ready-graphql",
+                  "link": "/feed_item/production-ready-graphql/",
+                  "excerpt": "<p>Over the last few years, I helped build and maintain some of the biggest GraphQL APIs out there at both Shopify and GitHub. During those years, I also worked with various companies with their adoption of GraphQL. From my experiences with GraphQL, I’ve observed the good, the bad, and the ugly.</p>\n<p>This is what lead me to write this book: A collection of learnings and good practices when building GraphQL schemas at scale.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Book"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://book.productionreadygraphql.com/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T16:59:52"
+                },
+                {
+                  "id": "cG9zdDo1MTk3",
+                  "title": "Advanced GraphQL Course",
+                  "slug": "advanced-graphql-course",
+                  "link": "/feed_item/advanced-graphql-course/",
+                  "excerpt": "<p>Learn to secure your API with authentication, handle errors within resolvers, and add in integration and unit tests. You’ll also learn to access realtime data using subscriptions and expand on the capability and flexibility of GraphQL with custom directives!</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Course"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://frontendmasters.com/courses/advanced-graphql-v2/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-16T17:01:18"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo0NzA2",
+            "slug": "scaling-graphql",
+            "title": "Federation 101",
+            "link": "/collection/scaling-graphql/",
+            "excerpt": "<p>This collection teaches you how to use Federation to implement separation of concerns and solve pain points like coordination and brittle gateway code.</p>\n",
+            "content": "\n<p>It can be challenging to serve an enterprise-scale data graph with a single, monolithic GraphQL server. To keep teams productive, you can use Apollo Federation to divide your graph’s implementation across multiple composable services. Learn about federation principles, tooling, and how to implement federation.</p>\n\n\n\n<p></p>\n",
+            "date": "2020-09-21T18:57:33",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Backend"
+                },
+                {
+                  "name": "Platform"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo1NDM3",
+                  "title": "Getting Started with Apollo Federation",
+                  "slug": "getting-started-with-apollo-federation",
+                  "link": "/feed_item/getting-started-with-apollo-federation/",
+                  "excerpt": "<p>Apollo Federation allows you to orchestrate different GraphQL services into a single GraphQL gateway. In this playlist, we&#8217;ll introduce you to the core concepts of Apollo Federation to get you started by improving an example app for Snowtooth Mountain.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Course"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://egghead.io/playlists/getting-started-with-apollo-federation-60ad0165"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Community"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T12:35:40"
+                },
+                {
+                  "id": "cG9zdDo0OTkx",
+                  "title": "Your First Federated Schema with Apollo Server",
+                  "slug": "your-first-federated-schema-with-apollo-server",
+                  "link": "/feed_item/your-first-federated-schema-with-apollo-server/",
+                  "excerpt": "<p>In this talk, Mandi Wise will demonstrate how to get up and running with Apollo Federation in minutes and offer some considerations to keep in mind when transitioning to a distributed GraphQL architecture using this tool. This talk is 20 mins with 10 minutes of Q&#038;A.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Talk"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=v_1bn2sHdk4"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-05T17:29:52"
+                },
+                {
+                  "id": "cG9zdDo1NDE2",
+                  "title": "Setting Up Federation in Apollo Studio",
+                  "slug": "setting-up-federation-in-apollo-studio",
+                  "link": "/feed_item/setting-up-federation-in-apollo-studio/",
+                  "excerpt": "<p>Michael Watson walks Kurt Kemple through setting up federation inside of Apollo Studio. Apollo Studio helps you develop, deliver, and observe your data graph.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=IOPiOr5fqYE"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "How-to"
+                      },
+                      {
+                        "name": "Platform"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T10:55:37"
+                },
+                {
+                  "id": "cG9zdDo0OTI5",
+                  "title": "Apollo Federation Docs",
+                  "slug": "apollo-federation-docs",
+                  "link": "/feed_item/apollo-federation-docs/",
+                  "excerpt": "<p>The official docs for Apollo Federation. Learn how to implement a single data graph across multiple services.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/federation/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-05T15:35:34"
+                },
+                {
+                  "id": "cG9zdDo1NDE5",
+                  "title": "Federation Panel – GraphQL Summit 2020",
+                  "slug": "federation-panel-graphql-summit-2020",
+                  "link": "/feed_item/federation-panel-graphql-summit-2020/",
+                  "excerpt": "<p>Moderator: Jeff Hampton, Solutions Architect at Apollo<br />\nUri Goldshtein, Founder/Member at The Guild<br />\nStephen Spalding, Engineer at Netflix<br />\nWilliam Guedes, Engineering Manager at StockX<br />\nTejas Shikhare, Senior Software Engineer at Netflix</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Panel"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=JFARux-92b0"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Community"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T11:29:55"
+                },
+                {
+                  "id": "cG9zdDo1Mzk3",
+                  "title": "Apollo Federation With Jesse Rosenberger, Engineering Manager @ Apollo",
+                  "slug": "apollo-federation-with-jesse-rosenberger-engineering-manager-apollo",
+                  "link": "/feed_item/apollo-federation-with-jesse-rosenberger-engineering-manager-apollo/",
+                  "excerpt": "<p>In this episode, Tony and Marc chat with Jesse Rosenberger, the engineering manager of the server team at Apollo GraphQL. We chat about GraphQL federation: A specification and declarative way to unify multiple GraphQL sources as one gateway.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=8t-TW0_f5gM"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      },
+                      {
+                        "name": "Community"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T10:45:26"
+                },
+                {
+                  "id": "cG9zdDo1NDA4",
+                  "title": "GraphQL and Federation at StockX",
+                  "slug": "graphql-and-federation-at-stockx",
+                  "link": "/feed_item/graphql-and-federation-at-stockx/",
+                  "excerpt": "<p>Kyle Schrade joins Kurt Kemple to talk about how StockX is using GraphQL to power the world’s first stock market for things – a live ‘bid/ask’ marketplace.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=ZtHIJKh9lwk"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Backend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T10:49:46"
+                },
+                {
+                  "id": "cG9zdDo1NDEz",
+                  "title": "Project Constellation; The Future of Federation",
+                  "slug": "project-constellation-the-future-of-federation",
+                  "link": "/feed_item/project-constellation-the-future-of-federation/",
+                  "excerpt": "<p>Ashi discusses the future of Federation, both from a technology standpoint, as well how it will differ from federation today.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Stream"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=MvHzOwdLb_o"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Announcement"
+                      },
+                      {
+                        "name": "Backend"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T10:52:18"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo0Njkw",
+            "slug": "auth",
+            "title": "Auth",
+            "link": "/collection/auth/",
+            "excerpt": "<p>There are a number of useful patterns for GraphQL auth. Depending on how much control you need, this collection presents a variety of auth strategies from generic to fine-grained.</p>\n",
+            "content": "\n<p>When building a GraphQL endpoint, you’ll probably have to face the question of how to control who can see and interact with the data in your API. This typically involves<strong> authentication </strong>(determining who you are) and <strong>authorization </strong>(determining if you have access). In this collection, we’ll cover strategies and best practices for both.</p>\n",
+            "date": "2020-09-21T16:54:31",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Backend"
+                },
+                {
+                  "name": "Frontend"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo0OTE5",
+                  "title": "Authentication in Apollo Client",
+                  "slug": "authentication-in-apollo-client",
+                  "link": "/feed_item/authentication-in-apollo-client/",
+                  "excerpt": "<p>Apollo Client uses the ultra flexible Apollo Link that includes several options for authentication. These official docs describe these options.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/react/networking/authentication/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-05T15:32:49"
+                },
+                {
+                  "id": "cG9zdDo0OTE2",
+                  "title": "Authentication in Apollo Server",
+                  "slug": "authentication-in-apollo-server",
+                  "link": "/feed_item/authentication-in-apollo-server/",
+                  "excerpt": "<p>The official docs on how to authorize users and control permissions in your GraphQL API.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/apollo-server/security/authentication/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-05T15:31:48"
+                },
+                {
+                  "id": "cG9zdDo0OTg4",
+                  "title": "How to Auth: Secure a GraphQL API with Confidence",
+                  "slug": "how-to-auth-secure-a-graphql-api-with-confidence",
+                  "link": "/feed_item/how-to-auth-secure-a-graphql-api-with-confidence/",
+                  "excerpt": "<p>Authentication and authorization can be the trickiest things to implement for a GraphQL API. From custom schema directives to middleware to tokens, Mandi Wise covers the complexities, nuances, and available options for adding auth to your GraphQL API so you can deploy it with confidence.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Talk"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=dBuU61ABEDs"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-05T17:27:47"
+                },
+                {
+                  "id": "cG9zdDo1MjQz",
+                  "title": "The Ultimate Guide to handling JWTs on frontend clients (GraphQL)",
+                  "slug": "the-ultimate-guide-to-handling-jwts-on-frontend-clients-graphql",
+                  "link": "/feed_item/the-ultimate-guide-to-handling-jwts-on-frontend-clients-graphql/",
+                  "excerpt": "<p>JWTs (JSON Web Token, pronounced &#8216;jot&#8217;) are becoming a popular way of handling auth. This post aims to demystify what a JWT is, discuss its pros/cons and cover best practices in implementing JWT on the client-side, keeping security in mind. Although, we’ve worked on the examples with a GraphQL clients, but the concepts apply to any frontend client.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Blog Post"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-19T14:26:32"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cG9zdDo0Njgz",
+            "slug": "error-handling",
+            "title": "Error Handling with Apollo",
+            "link": "/collection/error-handling/",
+            "excerpt": "<p>This collection will help you handle GraphQL errors in a systematic way, making developing apps with Apollo clearer and more streamlined.</p>\n",
+            "content": "\n<p>At Apollo, we’ve heard a lot of desire from GraphQL developers for more guidance on how to do error handling. Learn how to communicate errors to your client in an organized way, and open up new possibilities for tooling.</p>\n",
+            "date": "2020-09-21T16:27:44",
+            "categories": {
+              "nodes": [
+                {
+                  "name": "Backend"
+                },
+                {
+                  "name": "Frontend"
+                }
+              ]
+            },
+            "internal": {
+              "type": "WpCollection"
+            },
+            "collectionSettings": {
+              "items": [
+                {
+                  "id": "cG9zdDo0ODk2",
+                  "title": "200 OK! Error Handling in GraphQL",
+                  "slug": "200-ok-error-handling-in-graphql",
+                  "link": "/feed_item/200-ok-error-handling-in-graphql/",
+                  "excerpt": "<p>Sasha Solomon&#8217;s talk from GraphQL Summit Wordwide. Find out how not all &#8220;errors&#8221; are errors, how we can have a better understanding of our data, and how to model domain errors in our GraphQL schema.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Talk"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=RDNTP66oY2o"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-02T17:37:56"
+                },
+                {
+                  "id": "cG9zdDo0OTA2",
+                  "title": "Error Handling in Apollo Server",
+                  "slug": "error-handling-in-apollo-server",
+                  "link": "/feed_item/error-handling-in-apollo-server/",
+                  "excerpt": "<p>These official Apollo docs teach you how to make errors actionable on the client and server.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/apollo-server/data/errors/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-02T17:41:28"
+                },
+                {
+                  "id": "cG9zdDo1MzM2",
+                  "title": "Handle and Inspect Errors with the Error Link",
+                  "slug": "handle-and-inspect-errors-with-the-error-link",
+                  "link": "/feed_item/handle-and-inspect-errors-with-the-error-link/",
+                  "excerpt": "<p>The error link allows you to catch network and GraphQL errors and handle them however you would like!</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/react/api/link/apollo-link-error/"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T09:13:32"
+                },
+                {
+                  "id": "cG9zdDo1MzM5",
+                  "title": "Video Walkthrough of Error Handling with Apollo Link",
+                  "slug": "video-walkthrough-of-error-handling-with-apollo-link",
+                  "link": "/feed_item/video-walkthrough-of-error-handling-with-apollo-link/",
+                  "excerpt": "<p>GraphQL &#038; network errors can be a pain to deal with. Don&#8217;t worry, we&#8217;ve got you covered! In this episode of Mission Briefing, you&#8217;ll learn how to handle errors with ease using Apollo Link.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Guide"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=bv74TcKb1jw"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T09:17:02"
+                },
+                {
+                  "id": "cG9zdDo1MzMw",
+                  "title": "Handling GraphQL Errors in React",
+                  "slug": "handling-graphql-errors-in-react",
+                  "link": "/feed_item/handling-graphql-errors-in-react/",
+                  "excerpt": "<p>Any application, from simple to complex, can have its fair share of errors. It is important to handle these errors and when possible, report these errors back to your users for information.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Docs"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.apollographql.com/docs/react/data/error-handling/"
+                  },
+                  "categories": {
+                    "nodes": []
+                  },
+                  "date": "2020-10-23T09:08:52"
+                },
+                {
+                  "id": "cG9zdDo1MzQy",
+                  "title": "Using the Error Link to Manage Authentication Errors in React",
+                  "slug": "using-the-error-link-to-manage-authentication-errors-in-react",
+                  "link": "/feed_item/using-the-error-link-to-manage-authentication-errors-in-react/",
+                  "excerpt": "<p>Learn how to handle errors in React Apollo with onError which can catch things like not authenticated users.</p>\n",
+                  "internal": {
+                    "type": "WpFeedItem"
+                  },
+                  "feedItemTypes": {
+                    "nodes": [
+                      {
+                        "name": "Tutorial"
+                      }
+                    ]
+                  },
+                  "feedItemSettings": {
+                    "url": "https://www.youtube.com/watch?v=dr9I4xPYkdw"
+                  },
+                  "categories": {
+                    "nodes": [
+                      {
+                        "name": "Community"
+                      },
+                      {
+                        "name": "Frontend"
+                      },
+                      {
+                        "name": "How-to"
+                      }
+                    ]
+                  },
+                  "date": "2020-10-23T09:19:58"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "extensions": {}
+  }
