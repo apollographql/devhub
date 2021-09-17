@@ -211,10 +211,10 @@ function Card({resource}) {
             {title}
           </Heading>
           <Text display={{base: 'none', lg: 'block'}}>{description}</Text>
-          <Center w="20px" h="20px" p="1" display={{lg: 'none'}}>
-            <Box as={IconProceed} w="full" h="full" />
-          </Center>
         </Box>
+        <Center w="20px" h="20px" p="1" display={{lg: 'none'}}>
+          <Box as={IconProceed} w="full" h="full" />
+        </Center>
       </Box>
     </Box>
   );
