@@ -224,20 +224,6 @@ module.exports = {
       }
     },
     {
-      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
-      options: {
-        fields: ['title', 'content', 'excerpt'],
-        resolvers: {
-          WpCollection: {
-            slug: node => node.slug,
-            title: node => node.title,
-            content: node => node.content,
-            excerpt: node => node.excerpt
-          }
-        }
-      }
-    },
-    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-K69NRN'
