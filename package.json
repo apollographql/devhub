@@ -9,7 +9,6 @@
   "dependencies": {
     "@apollo/space-kit": "^9.6.2",
     "@chakra-ui/core": "^1.0.0-rc.3",
-    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "@jlengstorf/get-share-image": "^0.7.1",
     "apollo-algolia-autocomplete": "^1.1.28",
     "apollo-algolia-transform": "^1.0.36",
