@@ -26,7 +26,12 @@ export default function Hero({title, description}) {
       >
         <Flex align="center" justify="space-between" w="full" maxW={MAX_WIDTH}>
           <Box>
-            <Text fontSize="xs" fontWeight="600" textTransform="uppercase">
+            <Text
+              fontSize="xs"
+              fontWeight="600"
+              fontFamily="Source Code Pro"
+              textTransform="uppercase"
+            >
               GraphQL Resources
             </Text>
             <Heading my="2" as="h1" fontSize="2rem">
