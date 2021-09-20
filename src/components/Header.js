@@ -26,7 +26,11 @@ import '../autocomplete.css';
 function NavMenu({children, label, ...props}) {
   return (
     <Menu placement="bottom">
-      <MenuButton fontWeight="inherit" {...props}>
+      <MenuButton
+        fontWeight="inherit"
+        _focus={{boxShadow: '0 0 0 3px rgb(66 153 225 / 60%)'}}
+        {...props}
+      >
         <Flex align="center">
           {label} <Box as={IconArrowDown} h="2" ml="2" />
         </Flex>
@@ -90,6 +94,7 @@ export default function Header() {
           fontSize="2xl"
           colorScheme="indigo"
           icon={<Box as={IconMenu} h="1em" />}
+          aria-label="Toggle menu"
         />
         <MenuList>
           <MenuItem as={GatsbyLink} to="/">
