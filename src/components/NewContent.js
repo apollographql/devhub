@@ -68,6 +68,7 @@ function FeaturedPost({
               frameBorder="0"
               scrolling="no"
               allowFullScreen
+              title={featuredPost.title}
             ></iframe>
           </AspectRatio>
         ) : tweetMatches ? (
