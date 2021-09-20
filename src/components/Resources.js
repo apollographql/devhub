@@ -100,10 +100,6 @@ const COLOR_FILL_ANIMATIONS = {
 
   '.icon-wrapper:after': {
     background: 'blilet.50'
-  },
-
-  '.text': {
-    color: '#4c5656'
   }
 };
 function Card({resource}) {
