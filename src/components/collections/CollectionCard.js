@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Box, Flex, Heading, ListItem, Tag, Text} from '@chakra-ui/core';
+import {FOCUS_OUTLINE} from '../../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
 
 const CARD_STYLES = {
   borderWidth: '1px',
   borderColor: 'gray.200',
-  borderRadius: '8px',
+  borderRadius: 'lg',
   bg: 'white',
   transition: 'transform 0.3s'
 };
@@ -20,8 +21,7 @@ const PSEUDO_STYLES = isBottomCard => {
     pos: 'absolute',
     top: 0,
     left: 0,
-    w: 'full',
-    h: 'full',
+    boxSize: 'full',
     transform: `translate(calc(-1 * ${offsetPos}), ${offsetPos})`
   };
 };
@@ -35,11 +35,17 @@ export default function CollectionCard({collection}) {
       _before={{...PSEUDO_STYLES(false), zIndex: 1}}
       _after={PSEUDO_STYLES(true)}
       _hover={{
-        _after: {
-          transform: `translate(calc(-1 * ${OFFSET}px * 3), calc(${OFFSET}px * 3))`
+        transition: 'all 0.3s',
+        '@media screen and (prefers-reduced-motion: no-preference)': {
+          _after: {
+            transform: `translate(calc(-1 * ${OFFSET}px * 3), calc(${OFFSET}px * 3))`
+          },
+          a: {
+            transform: `translate(${OFFSET}px, calc(-1 * ${OFFSET}px))`
+          }
         },
-        a: {
-          transform: `translate(${OFFSET}px, calc(-1 * ${OFFSET}px))`
+        '@media screen and (prefers-reduced-motion)': {
+          a: {borderColor: FOCUS_OUTLINE}
         }
       }}
     >
