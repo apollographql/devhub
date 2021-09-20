@@ -85,28 +85,26 @@ export default function Resources() {
 }
 
 const ICON_WRAPPER_DIMENSIONS = {
-  w: '44px',
-  h: '44px',
-  borderRadius: '4px'
+  boxSize: 44,
+  borderRadius: 'md'
 };
 
 const COLOR_FILL_ANIMATIONS = {
-  transition: 'all 0.3 ease-out',
-  transform: 'translateZ(0)',
+  // TODO: add some sort of focus style change for prefers-reduced-motion
+  '@media screen and (prefers-reduced-motion: no-preference)': {
+    transition: 'all 0.3 ease-out',
 
-  '.overlay': {
-    transform: 'scale(8) translateZ(0)'
-  },
-
-  '.icon-wrapper:after': {
-    background: 'blilet.50'
+    '.overlay': {
+      transform: 'scale(1)',
+      borderRadius: 0
+    }
   }
 };
 function Card({resource}) {
   const cardHeight = useBreakpointValue({
-    base: '76px',
-    lg: '183px',
-    xl: '207px'
+    base: 76,
+    lg: 183,
+    xl: 207
   });
   const [cardRef, {width}] = useDimensions();
   const [scale, setScale] = useState({});
@@ -114,24 +112,15 @@ function Card({resource}) {
 
   React.useEffect(() => {
     if (cardHeight) {
-      const cardHght = Number(cardHeight.slice(0, -2));
-      const scaleX = Math.ceil(width / 44) + 1;
-      const scaleY = Math.ceil(cardHght / 44) + 1;
+      const scaleX = ICON_WRAPPER_DIMENSIONS.boxSize / width;
+      const scaleY = ICON_WRAPPER_DIMENSIONS.boxSize / cardHeight;
 
       setScale({x: scaleX, y: scaleY});
     }
   }, [width, cardHeight]);
 
   return (
-    <Box
-      as="li"
-      borderWidth="1px"
-      borderColor="gray.200"
-      borderRadius="8px"
-      w="full"
-      h={cardHeight}
-      overflow="hidden"
-    >
+    <Box as="li" w="full" h={cardHeight}>
       <Box
         as="a"
         ref={cardRef}
@@ -140,55 +129,46 @@ function Card({resource}) {
         w="full"
         h="full"
         display={{base: 'grid', lg: 'inline-block'}}
-        gridTemplateColumns="44px 1fr 20px"
+        gridTemplateColumns={`${ICON_WRAPPER_DIMENSIONS.boxSize}px 1fr 20px`}
         gridGap="4"
         alignItems="center"
         justifyContent="flex-start"
         pos="relative"
-        _hover={{
-          ...COLOR_FILL_ANIMATIONS,
-          '.overlay': {
-            transform: `scale(${scale.x}, ${scale.y}) translateZ(0)`
-          }
-        }}
+        borderWidth="1px"
+        borderColor="gray.200"
+        borderRadius="lg"
+        overflow="hidden"
+        _hover={COLOR_FILL_ANIMATIONS}
         _active={COLOR_FILL_ANIMATIONS}
         _focus={COLOR_FILL_ANIMATIONS}
       >
         <Box
           className="overlay"
-          {...ICON_WRAPPER_DIMENSIONS}
-          position="absolute"
+          borderRadius="1.5rem" // arbitrary "big" border radius to hide behind icon-wrapper
+          boxSize="full"
+          pos="absolute"
           bg="blilet.50"
-          top={{base: '18px', lg: '25px'}}
-          left={{base: '18px', lg: '25px'}}
+          top="0"
+          left="0"
           z-index="0"
+          transform={{
+            base: `translate(1rem, 1rem) scale(${scale.x}, ${scale.y})`, // 1rem matches link padding
+            lg: `translate(1.5rem, 1.5rem) scale(${scale.x}, ${scale.y})` // 1.5rem matches link padding
+          }}
           transition="transform 0.3s ease-out"
-          transformOrigin={{base: '10% 30%', md: '12% 30%'}} // TODO: find better values than just guess and check
+          transformOrigin="top left"
         />
         <Center
           className="icon-wrapper"
           {...ICON_WRAPPER_DIMENSIONS}
-          w="46px"
-          h="46px"
           p="3"
           mb={{base: '0', lg: '3'}}
-          bg="white"
+          bg="blilet.50"
           borderWidth="1px"
-          borderColor="transparent"
+          borderColor="white"
           pos="relative"
           zIndex="1"
           transition="all 0.3s ease-out"
-          _after={{
-            ...ICON_WRAPPER_DIMENSIONS,
-            content: "''",
-            display: 'block',
-            position: 'absolute',
-            background: 'blilet.50',
-            borderRadius: '3px',
-            top: '0',
-            left: '0',
-            transition: 'opacity 0.3s ease-out'
-          }}
         >
           <Box
             as={icon}
@@ -203,12 +183,12 @@ function Card({resource}) {
           pos="relative"
           transition="color 0.3s ease-out"
         >
-          <Heading as="h3" fontWeight="600" fontSize="1.125rem" mb="1">
+          <Heading as="h3" fontWeight="600" fontSize="lg" mb="1">
             {title}
           </Heading>
           <Text display={{base: 'none', lg: 'block'}}>{description}</Text>
         </Box>
-        <Center w="20px" h="20px" p="1" display={{lg: 'none'}}>
+        <Center boxSize="20px" p="1" display={{lg: 'none'}} zIndex="2">
           <Box as={IconProceed} w="full" h="full" />
         </Center>
       </Box>
