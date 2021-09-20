@@ -9,6 +9,7 @@ import {
   Text,
   useBreakpointValue
 } from '@chakra-ui/core';
+import {FOCUS_OUTLINE} from '../utils';
 import {IconCalendarTime} from '@apollo/space-kit/icons/IconCalendarTime';
 import {IconComment} from '@apollo/space-kit/icons/IconComment';
 import {IconDocument} from '@apollo/space-kit/icons/IconDocument';
@@ -90,14 +91,17 @@ const ICON_WRAPPER_DIMENSIONS = {
 };
 
 const COLOR_FILL_ANIMATIONS = {
-  // TODO: add some sort of focus style change for prefers-reduced-motion
-  '@media screen and (prefers-reduced-motion: no-preference)': {
-    transition: 'all 0.3 ease-out',
+  transition: 'all 0.3 ease-out',
 
+  '@media screen and (prefers-reduced-motion: no-preference)': {
     '.overlay': {
       transform: 'scale(1)',
       borderRadius: 0
     }
+  },
+
+  '@media screen and (prefers-reduced-motion)': {
+    borderColor: FOCUS_OUTLINE
   }
 };
 function Card({resource}) {

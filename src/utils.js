@@ -86,3 +86,5 @@ exports.UNDERLINE_ANIMATION = {
 exports.UNDERLINE_HOVER = {
   backgroundSize: '0 2px, 100% 2px'
 };
+
+exports.FOCUS_OUTLINE = 'rgb(66 153 225 / 60%)';
