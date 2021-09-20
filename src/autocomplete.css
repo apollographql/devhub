@@ -9,6 +9,11 @@
     justify-content: center;
 }
 
+.aa-DetachedSearchButton:focus{
+    box-shadow: 0 0 0 3px rgb(66 153 225 / 60%);
+    border-radius: 0;
+}
+
 .aa-DetachedSearchButtonIcon {
     color: #191C23;
 }
