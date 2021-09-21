@@ -74,7 +74,13 @@ function FeaturedPost({
         ) : tweetMatches ? (
           <TweetEmbed id={tweetMatches[1]} />
         ) : featuredImage ? (
-          <Box w="full" as="img" src={featuredImage} borderRadius="4px" />
+          <Box
+            w="full"
+            as="img"
+            src={featuredImage}
+            alt={featuredPost.title}
+            borderRadius="4px"
+          />
         ) : null}
       </Box>
       <Box gridColumn={{xl: '4 / span 3'}} alignSelf="center">
