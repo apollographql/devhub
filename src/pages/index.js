@@ -7,7 +7,7 @@ import React from 'react';
 import Resources from '../components/Resources';
 import Seo from '../components/Seo';
 import {Box} from '@chakra-ui/core';
-import {SECTION_SPACING, getNodeMeta} from '../utils';
+import {MAX_WIDTH, SECTION_SPACING, getNodeMeta} from '../utils';
 import {graphql} from 'gatsby';
 
 const TITLE = 'Apollo Developer Hub';
@@ -24,7 +24,7 @@ export default function HomePage({data, location}) {
   } = data;
   const posts = [odysseyCourse, twitchVideo, communityPost, wpEvent];
   const featuredPostMeta = getNodeMeta(featuredPost);
-  const featuredImage = featuredPost.featuredImage?.node.sourceUrl;
+  const featuredImage = featuredPost.featuredImage?.node?.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
 
   return (
@@ -32,21 +32,25 @@ export default function HomePage({data, location}) {
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
 
-      <Box {...SECTION_SPACING}>
-        <Resources />
+      <Box mx={SECTION_SPACING.mx}>
+        <Box w="full" maxW={MAX_WIDTH} mx="auto">
+          <Resources />
+        </Box>
       </Box>
 
       <Collections collections={data.allWpCollection.nodes} />
 
-      <Box {...SECTION_SPACING}>
-        <NewContent
-          featuredPost={featuredPost}
-          featuredPostMeta={featuredPostMeta}
-          tweetMatches={tweetMatches}
-          featuredImage={featuredImage}
-          location={location}
-          posts={posts}
-        />
+      <Box mx={SECTION_SPACING.mx}>
+        <Box w="full" maxW={MAX_WIDTH} mx="auto">
+          <NewContent
+            featuredPost={featuredPost}
+            featuredPostMeta={featuredPostMeta}
+            tweetMatches={tweetMatches}
+            featuredImage={featuredImage}
+            location={location}
+            posts={posts}
+          />
+        </Box>
       </Box>
     </Layout>
   );
