@@ -153,7 +153,6 @@ function Card({resource}) {
           bg="blilet.50"
           top="0"
           left="0"
-          z-index="0"
           transform={{
             base: `translate(1rem, 1rem) scale(${scale.x}, ${scale.y})`, // 1rem matches link padding
             lg: `translate(1.5rem, 1.5rem) scale(${scale.x}, ${scale.y})` // 1.5rem matches link padding
@@ -170,7 +169,6 @@ function Card({resource}) {
           borderWidth="1px"
           borderColor="white"
           pos="relative"
-          zIndex="1"
           transition="all 0.3s ease-out"
         >
           <Box
@@ -180,18 +178,13 @@ function Card({resource}) {
             transform="translateZ(0)"
           />
         </Center>
-        <Box
-          className="text"
-          zIndex="2"
-          pos="relative"
-          transition="color 0.3s ease-out"
-        >
+        <Box className="text" pos="relative" transition="color 0.3s ease-out">
           <Heading as="h3" fontWeight="600" fontSize="lg" mb="1">
             {title}
           </Heading>
           <Text display={{base: 'none', lg: 'block'}}>{description}</Text>
         </Box>
-        <Center boxSize="20px" p="1" display={{lg: 'none'}} zIndex="2">
+        <Center boxSize="20px" p="1" pos="relative" display={{lg: 'none'}}>
           <Box as={IconProceed} w="full" h="full" />
         </Center>
       </Box>

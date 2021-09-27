@@ -31,6 +31,7 @@ export default function CollectionCard({collection}) {
     <ListItem
       h="full"
       pos="relative"
+      zIndex="0"
       _before={{...PSEUDO_STYLES(false), zIndex: 1}}
       _after={PSEUDO_STYLES(true)}
       _hover={{
