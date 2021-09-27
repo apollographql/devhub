@@ -4,18 +4,12 @@ import commandModule from '../assets/command-module.svg';
 import {Box, Flex, Heading, Img, Text} from '@chakra-ui/core';
 import {MAX_WIDTH, SECTION_SPACING} from '../utils';
 
-const WRAPPER_PADDING = {base: '0', lg: '6', xl: '14'};
-const HERO_TEXT_MARGIN = Object.entries(SECTION_SPACING.mx).reduce(
+const WRAPPER_PADDING = {base: 0, lg: 6, xl: 14};
+const HERO_TEXT_MARGIN = Object.entries(SECTION_SPACING).reduce(
   (acc, [key, val]) => {
-    const isWrapperNum = Number(WRAPPER_PADDING[key]);
-    const isSectionNumAuto = val === 'auto';
-
     return {
       ...acc,
-      [key]:
-        isSectionNumAuto || !isWrapperNum
-          ? val
-          : `${Number(val) - Number(WRAPPER_PADDING[key])}`
+      [key]: Number.isInteger(val) ? val - WRAPPER_PADDING[key] : val
     };
   },
   {}

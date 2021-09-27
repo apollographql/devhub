@@ -12,7 +12,7 @@ export default function Collections({collections}) {
       pb={{base: '40px', lg: '12'}}
       mb={{base: '8', lg: '40px', '2xl': '8'}}
     >
-      <Box as="section" id="collections" mx={SECTION_SPACING.mx}>
+      <Box as="section" id="collections" mx={SECTION_SPACING}>
         <Box w="full" maxW={MAX_WIDTH} mx="auto">
           <Heading as="h2" fontSize="2xl" mb="2">
             <a href="#collections">Apollo Collections</a>

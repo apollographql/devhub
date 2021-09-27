@@ -32,7 +32,7 @@ export default function HomePage({data, location}) {
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
 
-      <Box mx={SECTION_SPACING.mx}>
+      <Box mx={SECTION_SPACING}>
         <Box w="full" maxW={MAX_WIDTH} mx="auto">
           <Resources />
         </Box>
@@ -40,7 +40,7 @@ export default function HomePage({data, location}) {
 
       <Collections collections={data.allWpCollection.nodes} />
 
-      <Box mx={SECTION_SPACING.mx}>
+      <Box mx={SECTION_SPACING}>
         <Box w="full" maxW={MAX_WIDTH} mx="auto">
           <NewContent
             featuredPost={featuredPost}
