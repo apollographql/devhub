@@ -9,7 +9,6 @@ import {
   Text,
   useBreakpointValue
 } from '@chakra-ui/core';
-import {FOCUS_OUTLINE} from '../utils';
 import {IconCalendarTime} from '@apollo/space-kit/icons/IconCalendarTime';
 import {IconComment} from '@apollo/space-kit/icons/IconComment';
 import {IconDocument} from '@apollo/space-kit/icons/IconDocument';
@@ -101,7 +100,7 @@ const COLOR_FILL_ANIMATIONS = {
   },
 
   '@media screen and (prefers-reduced-motion)': {
-    borderColor: FOCUS_OUTLINE
+    borderColor: 'indigo.500'
   }
 };
 function Card({resource}) {

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Box, Flex, Heading, ListItem, Tag, Text} from '@chakra-ui/core';
-import {FOCUS_OUTLINE} from '../../utils';
 import {Link as GatsbyLink, graphql} from 'gatsby';
 
 const CARD_STYLES = {
@@ -45,7 +44,7 @@ export default function CollectionCard({collection}) {
           }
         },
         '@media screen and (prefers-reduced-motion)': {
-          a: {borderColor: FOCUS_OUTLINE}
+          a: {borderColor: 'indigo.500'}
         }
       }}
     >

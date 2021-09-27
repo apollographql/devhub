@@ -15,7 +15,6 @@ import {
   MenuItem,
   MenuList
 } from '@chakra-ui/core';
-import {FOCUS_OUTLINE} from '../utils';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
@@ -29,7 +28,7 @@ function NavMenu({children, label, ...props}) {
     <Menu placement="bottom">
       <MenuButton
         fontWeight="inherit"
-        _focus={{boxShadow: `0 0 0 3px ${FOCUS_OUTLINE}`}}
+        _focus={{boxShadow: 'outline'}} // https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/foundations/shadows.ts#L10
         {...props}
       >
         <Flex align="center">
