@@ -93,7 +93,7 @@ export default function CollectionCard({collection}) {
                 p="1"
                 fontSize="xs"
                 textTransform="uppercase"
-                fontWeight="600"
+                fontWeight="semibold"
               >
                 {name}
               </Tag>

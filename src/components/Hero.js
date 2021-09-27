@@ -46,8 +46,8 @@ export default function Hero({title, description}) {
             <Box>
               <Text
                 fontSize="xs"
-                fontWeight="600"
-                fontFamily="Source Code Pro"
+                fontWeight="semibold"
+                fontFamily="mono"
                 textTransform="uppercase"
               >
                 GraphQL Resources
