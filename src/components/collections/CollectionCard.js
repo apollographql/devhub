@@ -81,7 +81,7 @@ export default function CollectionCard({collection}) {
             <ListItem
               key={name}
               mt="2"
-              fontFamily="Source Code Pro"
+              fontFamily="mono"
               sx={{
                 ':not(:last-child)': {
                   mr: '2'

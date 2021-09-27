@@ -167,12 +167,7 @@ function Card({resource}) {
           pos="relative"
           transition="all 0.3s ease-out"
         >
-          <Box
-            as={icon}
-            color="indigo.600"
-            zIndex="2"
-            transform="translateZ(0)"
-          />
+          <Box as={icon} color="indigo.600" />
         </Center>
         <Box className="text" pos="relative" transition="color 0.3s ease-out">
           <Heading as="h3" fontWeight="600" fontSize="lg" mb="1">

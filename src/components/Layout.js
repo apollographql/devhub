@@ -7,7 +7,7 @@ import {Helmet} from 'react-helmet';
 
 export default function Layout({children, ...props}) {
   return (
-    <Box>
+    <>
       <Helmet
         defaultTitle="Apollo Developer Hub"
         titleTemplate="%s - Apollo Developer Hub"
@@ -19,7 +19,7 @@ export default function Layout({children, ...props}) {
         {children}
       </Box>
       <Footer />
-    </Box>
+    </>
   );
 }
 
