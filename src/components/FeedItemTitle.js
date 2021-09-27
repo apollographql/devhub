@@ -4,10 +4,10 @@ import {Box, Heading, Link} from '@chakra-ui/core';
 import {UNDERLINE_ANIMATION, UNDERLINE_HOVER} from '../utils';
 
 export default function FeedItemTitle({url, children, ...props}) {
-  if (url) {
-    return (
-      <Heading as="h4" fontSize={{base: 'xl', md: '2xl'}} {...props}>
-        {/* Link wrapper w/ a width needed for underline hover animation */}
+  return (
+    <Heading as="h4" fontSize={{base: 'xl', md: '2xl'}} {...props}>
+      {url ? (
+        // Link wrapper w/ a width needed for underline hover animation
         <Box w="full">
           <Link
             target="_blank"
@@ -22,20 +22,9 @@ export default function FeedItemTitle({url, children, ...props}) {
             {children}
           </Link>
         </Box>
-      </Heading>
-    );
-  }
-
-  // if it's not a link, probably don't want a hover underline animation
-  return (
-    <Heading
-      as="h4"
-      fontSize={{base: 'xl', md: '2xl'}}
-      // {...UNDERLINE_ANIMATION}
-      // _hover={UNDERLINE_HOVER}
-      {...props}
-    >
-      {children}
+      ) : (
+        children
+      )}
     </Heading>
   );
 }
