@@ -63,20 +63,10 @@ export default function CollectionCard({collection}) {
         alignItems="flex-start"
       >
         <Heading fontSize="lg">{collection.title}</Heading>
-        <Text fontSize="sm" mt="2">
+        <Text fontSize="sm" mt="2" mb="6">
           By {author}
         </Text>
-        <Flex
-          as="ul"
-          ml="0"
-          mt={{
-            base: collection.categories.nodes.length > 3 ? '6' : 'auto',
-            md: collection.categories.nodes.length > 4 ? '6' : 'auto',
-            xl: collection.categories.nodes.length > 3 ? '6' : 'auto'
-          }}
-          listStyleType="none"
-          flexWrap="wrap"
-        >
+        <Flex as="ul" ml="0" mt="auto" listStyleType="none" flexWrap="wrap">
           {collection.categories.nodes.map(({name}) => (
             <ListItem
               key={name}
