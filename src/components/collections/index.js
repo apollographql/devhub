@@ -8,9 +8,9 @@ export default function Collections({collections}) {
     <Box
       w="full"
       bg="gray.50"
-      pt={{base: '8', lg: '40px'}}
-      pb={{base: '40px', lg: '12'}}
-      mb={{base: '8', lg: '40px', '2xl': '8'}}
+      pt={{base: '8', lg: '10'}}
+      pb={{base: '10', lg: '12'}}
+      mb={{base: '8', lg: '10', '2xl': '8'}}
     >
       <Box as="section" id="collections" mx={SECTION_SPACING}>
         <Box w="full" maxW={MAX_WIDTH} mx="auto">

@@ -53,11 +53,7 @@ const resources = [
 
 export default function Resources() {
   return (
-    <Box
-      as="section"
-      w="full"
-      mb={{base: '28px', sm: '8', lg: '40px', '2xl': '12'}}
-    >
+    <Box as="section" w="full" mb={{base: '28px', sm: 8, lg: 10, '2xl': 12}}>
       <Heading as="h2" fontSize="2xl" mb="2">
         Explore our resources
       </Heading>
