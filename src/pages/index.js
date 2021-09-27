@@ -46,7 +46,7 @@ export default function HomePage({data, location}) {
             {TITLE}
           </Heading>
           <Text fontSize={{md: 'lg'}}>
-            An Apollo data graph helps you build apps faster with less code.{' '}
+            An Apollo graph helps you build apps faster with less code.{' '}
             {DESCRIPTION}
           </Text>
         </Box>
