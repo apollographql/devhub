@@ -59,7 +59,7 @@ function FeaturedPost({
   const author = featuredPost.author.node.name;
   return (
     <ListItem {...props}>
-      <Box w="full" gridColumn={{lg: '1 / span 2', xl: '1 / span 3'}}>
+      <Box w="full" gridColumn={{lg: '1 / span 2', xl: '1'}}>
         {featuredPost.internal.type === 'TwitchVideo' ? (
           <AspectRatio ratio={16 / 9} borderRadius="4px">
             <iframe
@@ -83,7 +83,7 @@ function FeaturedPost({
           />
         ) : null}
       </Box>
-      <Box gridColumn={{xl: '4 / span 3'}} alignSelf="center">
+      <Box alignSelf="center">
         <Flex align="center" mb="4">
           <Center w="1rem" h="1rem" mr="2">
             <Box
@@ -186,7 +186,7 @@ export default function NewContent({
             base: '1fr',
             md: 'repeat(2, 1fr)',
             lg: 'repeat(3, 1fr)',
-            xl: 'repeat(6, 1fr)'
+            xl: 'repeat(2, 1fr)'
           }}
           gridColumn={{md: '1 / span 2', lg: '1 / span 3'}}
         />
@@ -221,8 +221,8 @@ export default function NewContent({
                   h5: UNDERLINE_HOVER
                 }}
               >
-                <Flex alignItems="center" h="16px" mb="4">
-                  <Flex alignItems="center" w="16px" h="16px" mr="2">
+                <Flex alignItems="center" h="4" mb="4">
+                  <Flex alignItems="center" boxSize="4" mr="2">
                     <Box
                       w="full"
                       mr="2"
