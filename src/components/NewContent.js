@@ -34,14 +34,14 @@ const contentTypes = {
   'Blog post': IconPlanet1,
   Stream: IconTelescope3,
   Podcast: IconHeadset, // idea, not in figma design
-  Tweet: '',
-  Talk: '',
+  Tweet: null,
+  Talk: null,
   Panel: IconTeam, // idea, not in figma design
   Docs: IconDocument,
   Code: IconDevelop, // idea, not in figma design
-  Video: '',
-  Tutorial: '',
-  Guide: '',
+  Video: null,
+  Tutorial: null,
+  Guide: null,
   Website: IconClient, // idea, not in figma design
   'Odyssey Course': IconOdyssey,
   Community: IconComment,
