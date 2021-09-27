@@ -28,7 +28,7 @@ export default function HomePage({data, location}) {
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
 
   return (
-    <Layout pt="2">
+    <Layout pt="0">
       <Seo showTitle={false} title={TITLE} description={DESCRIPTION} />
       <Hero title={TITLE} description={DESCRIPTION} />
 

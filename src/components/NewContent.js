@@ -138,7 +138,7 @@ export default function NewContent({
   return (
     <Box>
       <Box mb="6" pos="relative">
-        <Heading as="h2" fontSize="2xl" mb="2">
+        <Heading as="h2" fontSize="2xl" mb="1">
           What&apos;s New in Apollo
         </Heading>
         <Text>

@@ -8,13 +8,15 @@ export default function Collections({collections}) {
     <Box
       w="full"
       bg="gray.50"
-      pt={{base: '8', lg: '10'}}
-      pb={{base: '10', lg: '12'}}
-      mb={{base: '8', lg: '10', '2xl': '8'}}
+      // pt={{base: '8', lg: '10'}}
+      // pb={{base: '10', lg: '12'}}
+      // mb={{base: '8', lg: '10', '2xl': '8'}}
+      py="6"
+      mb="6"
     >
       <Box as="section" id="collections" mx={SECTION_SPACING}>
         <Box w="full" maxW={MAX_WIDTH} mx="auto">
-          <Heading as="h2" fontSize="2xl" mb="2">
+          <Heading as="h2" fontSize="2xl" mb="1">
             <a href="#collections">Apollo Collections</a>
           </Heading>
           <Text mb="6" fontSize={{md: 'lg'}} w={{base: 'full', lg: '50%'}}>
