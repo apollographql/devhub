@@ -46,7 +46,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-tweet-embed": "^1.2.2",
-    "striptags": "^3.1.1"
+    "striptags": "^3.1.1",
+    "use-resize-observer": "^8.0.0"
   },
   "devDependencies": {
     "@trevorblades/eslint-config": "^7.2.1",

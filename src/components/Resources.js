@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
-import useDimensions from '../hooks/useDimensions';
+import useResizeObserver from 'use-resize-observer';
 import {
   Box,
   Center,
@@ -110,7 +110,7 @@ function Card({resource}) {
     lg: 183,
     xl: 207
   });
-  const [cardRef, {width}] = useDimensions();
+  const {ref, width} = useResizeObserver({box: 'border-box'});
   const [scale, setScale] = useState({});
   const {href, icon, title, description} = resource;
 
@@ -127,7 +127,7 @@ function Card({resource}) {
     <Box as="li" w="full" h={cardHeight}>
       <Box
         as="a"
-        ref={cardRef}
+        ref={ref}
         href={href}
         p={{base: '4', lg: '6'}}
         w="full"
