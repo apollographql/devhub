@@ -29,7 +29,7 @@ export default function CollectionCard({collection}) {
   const author = collection.author.node.name;
   return (
     <ListItem
-      h="full"
+      minH={{base: '135px', md: '159px', lg: '186px', xl: '178px'}}
       pos="relative"
       zIndex="0"
       _before={{...PSEUDO_STYLES(false), zIndex: 1}}
