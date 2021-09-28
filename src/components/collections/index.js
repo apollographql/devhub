@@ -19,7 +19,7 @@ export default function Collections({collections}) {
           <Heading as="h2" fontSize="2xl" mb="1">
             <a href="#collections">Apollo Collections</a>
           </Heading>
-          <Text mb="6" fontSize={{md: 'lg'}} w={{base: 'full', lg: '50%'}}>
+          <Text mb="6" w={{base: 'full', lg: '50%'}}>
             Looking for resources on federation, caching, or other special
             topics? We&apos;ve grouped our favorite posts, videos, tutorials,
             and docs into collections to help you solve common GraphQL
