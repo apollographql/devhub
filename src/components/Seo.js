@@ -23,7 +23,12 @@ export default function Seo({showTitle = true, title, description}) {
   });
 
   return (
-    <Helmet title={showTitle ? title : undefined}>
+    <Helmet
+      title={showTitle ? title : undefined}
+      htmlAttributes={{
+        lang: 'en'
+      }}
+    >
       {/* google */}
       <meta name="description" content={description} />
       <meta name="image" content={shareImage} />

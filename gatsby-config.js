@@ -1,7 +1,12 @@
+const {algoliaSettings} = require('apollo-algolia-transform');
+const {transformer} = require('./algolia');
 require('dotenv').config();
 
 module.exports = {
   pathPrefix: '/developers',
+  siteMetadata: {
+    siteUrl: 'https://www.apollographql.com/developers'
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-chakra-ui',
@@ -55,6 +60,9 @@ module.exports = {
           },
           TeamMember: {
             exclude: true
+          },
+          Post: {
+            limit: 1
           }
         }
       }
@@ -74,6 +82,26 @@ module.exports = {
         params: {
           limit: 100
         }
+      }
+    },
+    {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'Community',
+        name: 'Post',
+        method: 'GET',
+        url: 'https://community.apollographql.com/posts.json',
+        entityLevel: 'latest_posts'
+      }
+    },
+    {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'Odyssey',
+        name: 'Course',
+        method: 'GET',
+        url: 'https://odyssey.apollographql.com/courses-api/courses.json',
+        entityLevel: 'odyssey-courses'
       }
     },
     {
@@ -97,17 +125,102 @@ module.exports = {
       }
     },
     {
-      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
+      resolve: 'gatsby-plugin-env-variables',
       options: {
-        fields: ['title', 'content', 'excerpt'],
-        resolvers: {
-          WpCollection: {
-            slug: node => node.slug,
-            title: node => node.title,
-            content: node => node.content,
-            excerpt: node => node.excerpt
+        allowList: ['ALGOLIA_APP_ID', 'ALGOLIA_SEARCH_KEY']
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_WRITE_KEY,
+        // only index when building for production on Netlify
+        skipIndexing:
+          process.env.CONTEXT !== 'production' &&
+          process.env.SKIP_INDEXING !== 'false',
+        queries: [
+          {
+            query: `{
+              site {
+                siteMetadata {
+                  siteUrl
+                }
+              }
+              allWpCollection(filter: {collectionSettings: {isUnlisted: {ne: true}}}) {
+                nodes {
+                  id
+                  slug
+                  title
+                  link
+                  excerpt
+                  content
+                  date
+                  categories {
+                    nodes {
+                      name
+                    }
+                  }
+                  internal {
+                    type
+                  }
+                  collectionSettings {
+                    items {
+                      ... on WpPost {
+                        id
+                        title
+                        slug
+                        excerpt
+                        categories {
+                          nodes {
+                            name
+                          }
+                        }
+                        date
+                        internal {
+                          type
+                        }
+                      }
+                      ... on WpFeedItem {
+                        id
+                        title
+                        slug
+                        link
+                        excerpt
+                        internal {
+                          type
+                        }
+                        feedItemTypes {
+                          nodes {
+                            name
+                          }
+                        }
+                        feedItemSettings {
+                          url
+                        }
+                        categories {
+                          nodes {
+                            name
+                            
+                          }
+                        }
+                        date
+                      }
+                    }
+                  }
+                  
+                }
+              }
+            }               
+            `,
+            transformer,
+            indexName: 'devhub',
+            settings: {
+              ...algoliaSettings
+              // customRanking: ['desc(date)', ...algoliaSettings.customRanking]
+            }
           }
-        }
+        ]
       }
     },
     {

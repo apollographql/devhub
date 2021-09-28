@@ -1,0 +1,11 @@
+[dev]
+  # command = "npm run build" # for for running algolia indexing locally
+[build]
+  publish = "public"
+  command = "gatsby build"
+[context.dev.environment]
+  SKIP_INDEXING = "false" # for running algolia indexing locally
+[context.deploy-preview.environment]
+  PREFIX_PATHS = "false"
+[context.production.environment]
+  PREFIX_PATHS = "true"

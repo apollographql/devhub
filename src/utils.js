@@ -20,13 +20,6 @@ exports.renderByline = (post, byline = [post.date]) => {
   return byline.join(' · ');
 };
 
-exports.combinePosts = data => {
-  return data.allWpPost.nodes
-    .concat(data.allWpFeedItem.nodes)
-    .concat(data.allTwitchVideo.nodes)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-};
-
 exports.getNodeMeta = node => {
   switch (node.internal.type) {
     case 'WpPost':
@@ -36,7 +29,7 @@ exports.getNodeMeta = node => {
       };
     case 'TwitchVideo':
       return {
-        type: node.broadcast_type === 'highlight' ? 'Highlight' : 'Stream',
+        type: 'Stream',
         url: node.url
       };
     case 'WpFeedItem': {
@@ -46,9 +39,48 @@ exports.getNodeMeta = node => {
         url: node.feedItemSettings.url
       };
     }
+    case 'CommunityPost': {
+      return {
+        type: 'Community',
+        url: `https://community.apollographql.com/t/${node.topic_slug}`
+      };
+    }
+    case 'WpEvent': {
+      return {
+        type: 'Event',
+        url: `https://www.apollographql.com/events/${node.eventsMetadata.eventType[0].slug}/register/${node.slug}`
+      };
+    }
+    case 'OdysseyCourse': {
+      return {
+        type: 'Odyssey Course',
+        url: node.url
+      };
+    }
     default:
       return {type: node.internal.type};
   }
 };
 
 exports.CONTAINER_PADDING_X = [8, 10, 12, 16];
+const MAX_WIDTH = '1152px';
+
+exports.MAX_WIDTH = MAX_WIDTH;
+exports.SECTION_SPACING = {base: 8, md: 12, lg: 16, xl: 'auto'};
+
+exports.UNDERLINE_ANIMATION = {
+  display: 'inline',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '100% 2px, 0 2px',
+  backgroundPosition: '100% 100%, 0 100%',
+  transition: 'background-size .2s linear',
+  css({theme}) {
+    return {
+      backgroundImage: `linear-gradient(transparent, transparent), linear-gradient(${theme.colors.indigo[600]}, ${theme.colors.indigo[600]})`
+    };
+  }
+};
+
+exports.UNDERLINE_HOVER = {
+  backgroundSize: '0 2px, 100% 2px'
+};

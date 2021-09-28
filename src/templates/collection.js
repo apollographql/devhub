@@ -1,4 +1,4 @@
-import CollectionsGrid from '../components/CollectionsGrid';
+import CollectionsGrid from '../components/collections/CollectionsGrid';
 import FeedTable from '../components/FeedTable';
 import Layout from '../components/Layout';
 import PropTypes from 'prop-types';

@@ -1,6 +1,6 @@
+import Autocomplete from 'apollo-algolia-autocomplete';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Search from './Search';
 import {ApolloIcon} from '@apollo/space-kit/icons/ApolloIcon';
 import {
   Box,
@@ -13,17 +13,24 @@ import {
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList,
-  useDisclosure
+  MenuList
 } from '@chakra-ui/core';
 import {Link as GatsbyLink} from 'gatsby';
 import {IconArrowDown} from '@apollo/space-kit/icons/IconArrowDown';
 import {IconMenu} from '@apollo/space-kit/icons/IconMenu';
 
+import 'apollo-algolia-autocomplete/styles.css';
+
+import '../autocomplete.css';
+
 function NavMenu({children, label, ...props}) {
   return (
     <Menu placement="bottom">
-      <MenuButton fontWeight="inherit" {...props}>
+      <MenuButton
+        fontWeight="inherit"
+        _focus={{boxShadow: 'outline'}} // https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/foundations/shadows.ts#L10
+        {...props}
+      >
         <Flex align="center">
           {label} <Box as={IconArrowDown} h="2" ml="2" />
         </Flex>
@@ -39,7 +46,6 @@ NavMenu.propTypes = {
 };
 
 export default function Header() {
-  const searchProps = useDisclosure();
   return (
     <Flex
       as="header"
@@ -51,51 +57,48 @@ export default function Header() {
       bg="white"
       zIndex="1"
     >
-      <Flex
-        mr="auto"
-        align="center"
-        as={GatsbyLink}
-        to="/"
-        display={{
-          base: searchProps.isOpen ? 'none' : 'flex',
-          md: 'flex'
-        }}
-      >
-        <Box as={ApolloIcon} h="6" title="Apollo" />
-        <Box
-          ml="2"
-          mt="-px"
-          borderRadius="sm"
-          px="1"
-          bg="indigo.50"
-          color="indigo.600"
-          fontSize="sm"
-          fontWeight="semibold"
-          textTransform="uppercase"
-          letterSpacing="widest"
-        >
-          Developers
+      <Flex mr="auto" align="center">
+        <Box as="a" href="https://apollographql.com/">
+          <Box as={ApolloIcon} h="6" title="Apollo" />
+        </Box>
+        <Box as={GatsbyLink} to="/">
+          <Box
+            ml="2"
+            mt="-px"
+            borderRadius="sm"
+            px="1"
+            bg="indigo.50"
+            color="indigo.600"
+            fontSize="sm"
+            fontWeight="semibold"
+            textTransform="uppercase"
+            letterSpacing="widest"
+          >
+            Developers
+          </Box>
         </Box>
       </Flex>
-      <Search {...searchProps} />
+      <Autocomplete
+        appId={process.env.ALGOLIA_APP_ID}
+        apiKey={process.env.ALGOLIA_SEARCH_KEY}
+        currentSource="devhub"
+      />
       <Menu>
         <MenuButton
           as={IconButton}
           display={{
-            base: searchProps.isOpen ? 'none' : 'flex',
-            md: 'none'
+            base: 'flex',
+            lg: 'none'
           }}
           variant="ghost"
           fontSize="2xl"
           colorScheme="indigo"
           icon={<Box as={IconMenu} h="1em" />}
+          aria-label="Toggle menu"
         />
         <MenuList>
           <MenuItem as={GatsbyLink} to="/">
             Home
-          </MenuItem>
-          <MenuItem as={GatsbyLink} to="/feed">
-            News Feed
           </MenuItem>
           <MenuItem as={GatsbyLink} to="/collections">
             Collections
@@ -103,11 +106,17 @@ export default function Header() {
           <MenuItem as="a" href="https://www.apollographql.com/docs">
             Docs
           </MenuItem>
+          <MenuItem as="a" href="https://odyssey.apollographql.com/">
+            Training
+          </MenuItem>
           <MenuItem as="a" href="https://www.apollographql.com/blog">
             Blog
           </MenuItem>
           <MenuItem as="a" href="https://apollographql.com/events">
             Events
+          </MenuItem>
+          <MenuItem as="a" href="https://community.apollographql.com/">
+            Community
           </MenuItem>
           <MenuItem as="a" href="https://studio.apollographql.com">
             Studio
@@ -117,7 +126,6 @@ export default function Header() {
       <HStack
         display={{
           base: 'none',
-          md: searchProps.isOpen ? 'none' : 'flex',
           lg: 'flex'
         }}
         fontWeight="semibold"
@@ -127,9 +135,6 @@ export default function Header() {
           <NavMenu label="Developers" color="indigo.600">
             <MenuItem as={GatsbyLink} to="/">
               Home
-            </MenuItem>
-            <MenuItem as={GatsbyLink} to="/feed">
-              News Feed
             </MenuItem>
             <MenuItem as={GatsbyLink} to="/collections">
               Collections
@@ -168,9 +173,10 @@ export default function Header() {
             </MenuItem>
           </NavMenu>
         </div>
+        <Link href="https://odyssey.apollographql.com/">Training</Link>
         <Link href="https://www.apollographql.com/blog/">Blog</Link>
-        {/* <Link>Training</Link> */}
         <Link href="https://apollographql.com/events">Events</Link>
+        <Link href="https://community.apollographql.com/">Community</Link>
         <Button
           as="a"
           href="https://studio.apollographql.com"

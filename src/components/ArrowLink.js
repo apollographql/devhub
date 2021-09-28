@@ -29,8 +29,7 @@ export default function ArrowLink({direction, ...props}) {
   };
   return (
     <Button
-      fontSize={{base: 'lg', md: 'xl'}}
-      fontWeight="bold"
+      fontWeight="semibold"
       colorScheme="indigo"
       variant="link"
       as={GatsbyLink}

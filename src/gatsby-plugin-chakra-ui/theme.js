@@ -3,9 +3,18 @@ import {extendTheme} from '@chakra-ui/core';
 import {mix} from 'polished';
 
 const body = "'Source Sans Pro', sans-serif";
-const {grey, silver, black, indigo} = colors;
+const {grey, silver, black, indigo, blilet} = colors;
 
 export default extendTheme({
+  breakpoints: {
+    base: '0px',
+    xs: '325px',
+    sm: '375px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1440px',
+    '2xl': '1536px'
+  },
   components: {
     Button: {
       sizes: {
@@ -61,6 +70,18 @@ export default extendTheme({
       700: mix(0.5, indigo.dark, indigo.darker),
       800: indigo.darker,
       900: indigo.darkest
+    },
+    blilet: {
+      50: blilet.lightest,
+      100: blilet.lighter,
+      200: blilet.light,
+      300: mix(0.5, blilet.light, blilet.base),
+      400: blilet.base,
+      500: mix(0.5, blilet.base, blilet.dark),
+      600: blilet.dark,
+      700: mix(0.5, blilet.dark, blilet.darker),
+      800: blilet.darker,
+      900: blilet.darkest
     }
   }
 });
