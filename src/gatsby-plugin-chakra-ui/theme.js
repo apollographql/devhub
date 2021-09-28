@@ -6,13 +6,6 @@ const body = "'Source Sans Pro', sans-serif";
 const {grey, silver, black, indigo, blilet} = colors;
 
 export default extendTheme({
-  styles: {
-    global: {
-      'html, body': {
-        fontDisplay: 'optional' // https://simonhearne.com/2021/layout-shifts-webfonts/#prevent-layout-shifts-with-font-display
-      }
-    }
-  },
   breakpoints: {
     base: '0px',
     xs: '325px',
