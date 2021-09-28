@@ -22,7 +22,7 @@
     "@apollo/space-kit": "^9.6.2",
     "@chakra-ui/core": "^1.0.0-rc.3",
     "@jlengstorf/get-share-image": "^0.7.1",
-    "apollo-algolia-autocomplete": "^1.2.0-alpha.1",
+    "apollo-algolia-autocomplete": "^1.2.0-alpha.2",
     "apollo-algolia-transform": "^1.0.36",
     "gatsby": "^2.30.1",
     "gatsby-plugin-algolia": "^0.22.2",
