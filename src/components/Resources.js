@@ -111,7 +111,7 @@ function Card({resource}) {
     xl: 207
   });
   const {ref, width} = useResizeObserver({box: 'border-box'});
-  const [scale, setScale] = useState({});
+  const [scale, setScale] = useState({x: 0, y: 0});
   const {href, icon, title, description} = resource;
 
   React.useEffect(() => {
