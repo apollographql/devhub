@@ -228,6 +228,7 @@ module.exports = {
       options: {
         id: 'GTM-K69NRN'
       }
-    }
+    },
+    'gatsby-plugin-sitemap'
   ]
 };
