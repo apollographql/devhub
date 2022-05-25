@@ -27,11 +27,6 @@ exports.getNodeMeta = node => {
         type: 'Blog post',
         url: `https://www.apollographql.com/blog/${node.slug}`
       };
-    case 'TwitchVideo':
-      return {
-        type: 'Stream',
-        url: node.url
-      };
     case 'WpFeedItem': {
       const [feedItemType] = node.feedItemTypes.nodes;
       return {

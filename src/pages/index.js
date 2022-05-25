@@ -18,11 +18,10 @@ export default function HomePage({data, location}) {
   const {
     featuredPost,
     odysseyCourse,
-    twitchVideo,
     communityPost,
     wpEvent
   } = data;
-  const posts = [odysseyCourse, twitchVideo, communityPost, wpEvent];
+  const posts = [odysseyCourse, communityPost, wpEvent];
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node?.sourceUrl;
   const tweetMatches = featuredPostMeta.url.match(TWEET_PATTERN);
@@ -70,9 +69,6 @@ export const pageQuery = graphql`
           sourceUrl
         }
       }
-    }
-    twitchVideo {
-      ...VideoFragment
     }
     communityPost {
       id

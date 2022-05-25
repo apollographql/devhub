@@ -60,18 +60,7 @@ function FeaturedPost({
   return (
     <ListItem {...props}>
       <Box w="full" gridColumn={{lg: '1 / span 2', xl: '1'}}>
-        {featuredPost.internal.type === 'TwitchVideo' ? (
-          <AspectRatio ratio={16 / 9} borderRadius="4px">
-            <iframe
-              key={location.hostname}
-              src={`https://player.twitch.tv/?video=${featuredPost.id}&parent=localhost&parent=apollo-devhub.netlify.app&parent=www.apollographql.com&autoplay=false`}
-              frameBorder="0"
-              scrolling="no"
-              allowFullScreen
-              title={featuredPost.title}
-            ></iframe>
-          </AspectRatio>
-        ) : tweetMatches ? (
+        {tweetMatches ? (
           <TweetEmbed id={tweetMatches[1]} />
         ) : featuredImage ? (
           <Box

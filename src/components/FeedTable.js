@@ -149,16 +149,4 @@ export const pageQuery = graphql`
       }
     }
   }
-
-  fragment VideoFragment on TwitchVideo {
-    id: _id
-    title
-    description
-    broadcast_type
-    url
-    date: published_at(formatString: "ll")
-    internal {
-      type
-    }
-  }
 `;
