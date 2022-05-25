@@ -67,23 +67,23 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'Twitch',
-        name: 'Video',
-        method: 'GET',
-        url: 'https://api.twitch.tv/kraken/channels/497275841/videos',
-        entityLevel: 'videos',
-        headers: {
-          Accept: 'application/vnd.twitchtv.v5+json',
-          'Client-ID': process.env.TWITCH_CLIENT_ID
-        },
-        params: {
-          limit: 100
-        }
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-apiserver',
+    //   options: {
+    //     typePrefix: 'Twitch',
+    //     name: 'Video',
+    //     method: 'GET',
+    //     url: 'https://api.twitch.tv/kraken/channels/497275841/videos',
+    //     entityLevel: 'videos',
+    //     headers: {
+    //       Accept: 'application/vnd.twitchtv.v5+json',
+    //       'Client-ID': process.env.TWITCH_CLIENT_ID
+    //     },
+    //     params: {
+    //       limit: 100
+    //     }
+    //   }
+    // },
     {
       resolve: 'gatsby-source-apiserver',
       options: {
