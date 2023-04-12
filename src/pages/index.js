@@ -15,12 +15,7 @@ const DESCRIPTION =
   'Learn how to write your first GraphQL query or build a production graph with our curated resources.';
 const TWEET_PATTERN = /^https?:\/\/twitter.com\/\w+\/status\/(\d+)/;
 export default function HomePage({data, location}) {
-  const {
-    featuredPost,
-    odysseyCourse,
-    communityPost,
-    wpEvent
-  } = data;
+  const {featuredPost, odysseyCourse, communityPost, wpEvent} = data;
   const posts = [odysseyCourse, communityPost, wpEvent];
   const featuredPostMeta = getNodeMeta(featuredPost);
   const featuredImage = featuredPost.featuredImage?.node?.sourceUrl;
@@ -99,7 +94,7 @@ export const pageQuery = graphql`
       id
       title
       url
-      date: lastUpdated(formatString: "ll")
+      date: lastUpdated
       internal {
         type
       }
