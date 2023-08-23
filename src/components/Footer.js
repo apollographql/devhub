@@ -56,7 +56,9 @@ export default function Footer() {
           </FooterMenu>
           <FooterMenu title="Community">
             <Link href="https://summit.graphql.com/">GraphQL Summit</Link>
-            <Link href="https://spectrum.chat/apollo">Apollo Spectrum</Link>
+            <Link href="https://www.apollographql.com/tutorials">GraphQL tutorials</Link>
+            <Link href="https://www.apollographql.com/docs">Docs</Link>
+            <Link href="https://community.apollographql.com/">Forums</Link>
             <Link href="https://www.apollographql.com/blog">Blog</Link>
           </FooterMenu>
           <FooterMenu title="Help">
